@@ -4,11 +4,24 @@ Platform: Browser that can be used on multiple screens because it's easier for p
 Functionality: Users can write and choose a mood (like in apps like Flo), create, edit, delete, look at previous entries
 
 Product Definition: 
-Vision: Giving a mental break
-Target audience: Anyone who needs a creative form of expression/ can't express themselves to others, all age groups, someone who wants privacy and doesn't want to verbally express themselves to someone else
-User Problem: Of not finding a way to express themselves in the most comfortable way, feeling overwhelmed
-Strategy: Browser web app where users can write out how they're feeling and keep track of their mood
-Goals: We know if our product works when we see people coming back
+I. Vision
+    - To encourage/motivate individuals to lead a healthy lifestyle 
+II. Target audience
+    - Anyone who struggles with overwhelming emotion: e.g. stress, anxiety
+    - All age groups
+    - People who prefer privacy/don't want to verbally express themselves to someone else
+III. User Problem
+    - To better manage/cope with stress, anxiety, and mental health conditions
+    - To provide an opportunity for positive self-talk
+    - To identify negative thoughts and behaviors/stressors/triggers and learn ways to better control them
+IV. Strategy
+    - Browser-based web application that provides a structured approach to journaling
+    - Allows users to express and privately reflect on their feelings
+    - Offers safe boundaries and guidance
+    - Enables users to come to a deeper understanding about themselves
+V. Goals
+    - We know if our product works when we see improvement of mood over time as people continually use the app
+
 
 Tech Stack: React js, C#, Postgres
 
