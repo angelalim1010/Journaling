@@ -13,7 +13,7 @@
   background: #eaeff4;
 }
 
-.wrapper {
+.login-wrapper {
   margin: 0 auto;
   width: 100%;
   max-width: 1140px;
@@ -24,11 +24,11 @@
   flex-direction: column;
 }
 
-.container {
+.login-container {
   position: relative;
   width: 100%;
-  max-width: 600px;
-  height: auto;
+  max-width: 90%;
+  height: 70vh;
   display: flex;
   background: #ffffff;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -43,12 +43,15 @@
   font-weight: 700;
 }
 
-.login-h2 h2 img {
-  width: 120px;
+.sign-in-logo {
+  width: 100%;
+  height: 2rem;
+  margin-bottom: 1rem;
+  filter: brightness(0) invert(1);
 }
 
-p {
-  margin: 0 0 20px 0;
+.login-text p {
+  margin: 10px 0 20px 0;
   font-size: 16px;
   font-weight: 500;
   line-height: 22px;
@@ -78,6 +81,7 @@ p {
   width: 55%;
   padding: 45px 35px;
   display: flex;
+  align-items: center;
 }
 
 .col-left {
@@ -86,7 +90,7 @@ p {
 }
 
 @media (max-width: 575.98px) {
-  .container {
+  .login-container {
     flex-direction: column;
     box-shadow: none;
   }

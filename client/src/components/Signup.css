@@ -8,7 +8,13 @@ img {
 
 .wrapper {
   width: 450px;
-  margin: 0 sauto;
+  margin: 0 auto;
+  max-width: 1140px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .container-fluid {

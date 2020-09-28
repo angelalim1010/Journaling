@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ZenyuLogo from '../img/zenyu-logo.svg';
 
 import './Login.css';
 
@@ -9,12 +10,13 @@ class Login extends Component {
   render() {
     return (
       <div className='login-body'>
-        <div className='wrapper'>
-          <div className='container'>
+        <div className='login-wrapper'>
+          <div className='login-container'>
             <div className='col-left'>
               <div className='login-text'>
-                <h2 className='login-h2'>Zenyu</h2>
-                <p>App Message</p>
+                {/* <h2 className='login-h2'>Zenyu</h2> */}
+                <img src={ZenyuLogo} alt='logo' className='sign-in-logo' />
+                <p>The journal designed for mindfulness and self-growth</p>
                 <a className='btn' href='/'>
                   Read More
                 </a>
