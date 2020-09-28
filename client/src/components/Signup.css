@@ -1,0 +1,25 @@
+body {
+  background-color: #eaeff4;
+}
+
+img {
+  width: 45%;
+}
+
+.wrapper {
+  width: 450px;
+  margin: 0 sauto;
+}
+
+.container-fluid {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+#banner {
+  background-color: white;
+  background-image: url(../img/journal-op-70.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
