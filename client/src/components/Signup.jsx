@@ -59,19 +59,23 @@ class Signup extends Component {
                   <div className='form-check'>
                     <label className='form-check-label'>
                       <input className='form-check-input' type='checkbox' />I
-                      agree to the Terms &amp; Privacy Policy.
+                      agree to the <a href=''>Terms</a> &amp;{' '}
+                      <a href='/privacy'>Privacy Policy</a>.
                     </label>
                   </div>
                 </div>
                 <div className='form-group'>
-                  <button className='btn btn-dark btn-block' type='submit'>
+                  <button className='btn btn-block' type='submit'>
                     Sign Up
                   </button>
                 </div>
               </form>
-              <a href='/login' className='text-center mb-md-4'>
-                Already have an account? Login here.
-              </a>
+              <p>
+                Already have an account?{' '}
+                <a href='/login' className='text-center mb-md-4'>
+                  Login here.
+                </a>
+              </p>
             </div>
           </div>
         </div>
