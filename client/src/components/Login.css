@@ -37,6 +37,25 @@
 
 
 /* * * * * Login Form CSS * * * * */
+
+.col-left {
+  width: 45%;
+  /* background: #202020; */
+  background-image: url("https://vanillapapers.net/wp-content/uploads/2019/11/photo-4-3.jpg");
+  filter: grayscale(100%);
+  align-items: center;
+}
+
+
+.login-text{
+  /* background-color: rgba(20, 20, 20, 0.4); */
+  backdrop-filter: blur(8px);
+  border-radius: 6px;
+  position: relative;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+}
 .login-h2 h2 {
   margin: 0 0 15px 0;
   font-size: 30px;
@@ -84,10 +103,7 @@
   align-items: center;
 }
 
-.col-left {
-  width: 45%;
-  background: #202020;
-}
+
 
 @media (max-width: 575.98px) {
   .login-container {
@@ -105,12 +121,6 @@
   }
 }
 
-.login-text {
-  position: relative;
-  width: 100%;
-  color: #ffffff;
-  text-align: center;
-}
 
 .login-form {
   position: relative;
@@ -182,6 +192,6 @@
   background: #ffffff;
 }
 .register-link{
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
 }

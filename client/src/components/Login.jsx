@@ -14,7 +14,6 @@ class Login extends Component {
           <div className='login-container'>
             <div className='col-left'>
               <div className='login-text'>
-                {/* <h2 className='login-h2'>Zenyu</h2> */}
                 <img src={ZenyuLogo} alt='logo' className='sign-in-logo' />
                 <p>The journal designed for mindfulness and self-growth</p>
                 <a className='btn' href='/'>
