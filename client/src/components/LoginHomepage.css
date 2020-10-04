@@ -1,0 +1,12 @@
+.homepage-layout{
+    display: flex;
+    flex-direction: row;
+}
+.underline{
+    border-bottom: 1px solid black;
+}
+
+.prompt-layout{
+    display: flex;
+    flex-flow: row wrap;
+}
