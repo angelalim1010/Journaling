@@ -41,9 +41,9 @@ class LoginHomepage extends Component {
           <Navbar className="underline">
                 <Navbar.Brand href="/">
                     <img src={ZenyuLogo} 
-                        width="30" 
+                        width="100" 
                         height="30" 
-                        className="d-inline-block align-top" 
+                        // className="d-inline-block align-top" 
                         alt="Zenyu Logo">
                     </img>
                 </Navbar.Brand>
@@ -60,12 +60,12 @@ class LoginHomepage extends Component {
             />
             <div className = "prompt-layout">
                 {this.state.prompts.map((prompt,index)=>(
-                    <Card style={{width: '18rem'}}>
+                    <Card style={{width: '18rem', margin: '25px'}}>
                     <Card.Header>Today's Prompt</Card.Header>
 
                     <Card.Body>
                         <Card.Text>{prompt.prompt}</Card.Text>
-                        <Card.Link href="/">Select This Prompt</Card.Link>
+                        <Card.Link href="#">Select This Prompt</Card.Link>
                     </Card.Body>
                 </Card>
                 ))}
