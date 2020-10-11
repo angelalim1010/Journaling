@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Calendar from 'react-calendar';
 import {Navbar, Card} from 'react-bootstrap';
 import ZenyuLogo from '../img/zenyu-logo.svg';
+import { getPrompts } from "../actions/promptActions";
 
 import './LoginHomepage.css';
 import 'react-calendar/dist/Calendar.css';
@@ -27,6 +28,11 @@ class LoginHomepage extends Component {
     }
     this.onChange = this.onChange.bind(this);
   }
+
+  componentDidMount(){
+    getPrompts()
+    
+}
 
   onChange = date =>{
       this.setState({
