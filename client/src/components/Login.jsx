@@ -16,7 +16,7 @@ class Login extends Component {
               <div className='login-text'>
                 <img src={ZenyuLogo} alt='logo' className='sign-in-logo' />
                 <p>The journal designed for mindfulness and self-growth</p>
-                <a className='btn' href='/'>
+                <a className='read-btn' href='/'>
                   Read More
                 </a>
               </div>
