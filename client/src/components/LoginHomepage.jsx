@@ -11,26 +11,19 @@ class LoginHomepage extends Component {
     super(props);
     this.state = {
         date: new Date(),
-        prompts: [
-            {
-                prompt: "Write 3 things you're grateful for"
-            },
-            {
-                prompt: "Write about your day"
-            },
-            {
-                prompt: "What are you anxious for"
-            },
-            {
-                prompt: "Who are you grateful for"
-            }
-        ]
+        prompts: []
     }
     this.onChange = this.onChange.bind(this);
   }
+  fetchPrompts(){
+    getPrompts().then(res=>{
+        this.setState({prompts:res.data})
+    });
+}
 
   componentDidMount(){
-    getPrompts()
+    this.fetchPrompts()
+    console.log(this.state.prompts)
     
 }
 
@@ -70,7 +63,7 @@ class LoginHomepage extends Component {
                     <Card.Header>Today's Prompt</Card.Header>
 
                     <Card.Body>
-                        <Card.Text>{prompt.prompt}</Card.Text>
+                        <Card.Text>{prompt.content}</Card.Text>
                         <Card.Link href="#">Select This Prompt</Card.Link>
                     </Card.Body>
                 </Card>
