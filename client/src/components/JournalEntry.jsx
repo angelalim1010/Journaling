@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { getJournal, getMood } from "../actions/journalPrompts";
 
 
 class JournalEntry extends Component{
@@ -11,33 +10,6 @@ class JournalEntry extends Component{
         }
     }
 
-    // fetchJournal(){
-    //     getJournal().then(res=>{
-    //         this.setState({
-    //             journal: res.data || {}
-    //         })
-    //         console.log(res.data)
-
-    //     });
-        
-    // }
-
-    // fetchMood(){
-    //     getMood().then(res=>{
-    //         this.setState({
-    //             mood: res.data.mood || {}
-    //         })
-        
-    //         console.log("mood",res.data.mood)
-    //     });
-    // }
-    
-    //   componentDidMount(){
-    //     this.fetchJournal()
-    //     this.fetchMood()
-    //     console.log(this.state.journal, this.state.mood)
-        
-    // }
 
     displayMood(){
         const happy = "https://assets.stickpng.com/images/587389d8f3a71010b5e8ef4b.png"

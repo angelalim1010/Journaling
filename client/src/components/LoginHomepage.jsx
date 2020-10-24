@@ -18,40 +18,19 @@ class LoginHomepage extends Component {
     }
     this.onChange = this.onChange.bind(this);
   }
-  fetchPrompts(){
-    getPrompts().then(res=>{
-        this.setState({prompts:res.data})
-    });
-}
-fetchJournal(){
-    getJournal().then(res=>{
-        this.setState({
-            journal: (res?.data || {})
+
+  componentDidMount = async () =>{
+    Promise.all([getJournal(), getMood(), getPrompts()])
+        .then(([res1,res2,res3])=>{
+            this.setState({
+                journal: (res1?.data || {}),
+                mood: res2?.data?.mood || {},
+                prompts:res3.data
+            })
         })
-        // console.log(res.data)
-
-    });
-    
+   
 }
-
-
-fetchMood(){
-    getMood().then(res=>{
-        this.setState({
-            mood: res?.data?.mood || {}
-        })
     
-        // console.log("mood",res.data.mood)
-    });
-}
-
-  componentDidMount(){
-    this.fetchPrompts()
-    this.fetchJournal()
-    this.fetchMood()
-    console.log(this.state.journal)
-    
-}
 
   onChange = date =>{
       this.setState({
@@ -62,7 +41,10 @@ fetchMood(){
 
 
   render() {
-      if(this.state.journal.length !== undefined){
+    console.log(this.state.prompts)
+    console.log("journal",this.state.journal)
+    console.log(this.state.journal.length)
+    if(Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object){
           return (
               <JournalEntry
                 journal={this.state.journal}
@@ -98,12 +80,12 @@ fetchMood(){
                   />
                   <div className = "prompt-layout">
                       {this.state.prompts.map((prompt,index)=>(
-                          <Card style={{width: '18rem', margin: '25px'}}>
+                          <Card style={{width: '18rem', margin: '25px'}} key={index}>
                           <Card.Header>Today's Prompt</Card.Header>
       
                           <Card.Body>
                               <Card.Text>{prompt.content}</Card.Text>
-                              <Card.Link href="#">Select This Prompt</Card.Link>
+                              <Card.Link href="/post/journal">Select This Prompt</Card.Link>
                           </Card.Body>
                       </Card>
                       ))}
