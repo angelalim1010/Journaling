@@ -1,27 +1,41 @@
 import React, { Component } from 'react';
-import { getJournal } from "../actions/journalPrompts";
+import { getJournal, getMood } from "../actions/journalPrompts";
 
 
 class JournalEntry extends Component{
     constructor(props){
         super(props);
         this.state={
-            journal: {
-                content: "today i did",
-                mood: "Calm",
-            }
+            journal: {},
+            mood: {}
         }
     }
 
     // fetchJournal(){
     //     getJournal().then(res=>{
-    //         this.setState({journal:res.data || []})
+    //         this.setState({
+    //             journal: res.data || {}
+    //         })
+    //         console.log(res.data)
+
+    //     });
+        
+    // }
+
+    // fetchMood(){
+    //     getMood().then(res=>{
+    //         this.setState({
+    //             mood: res.data.mood || {}
+    //         })
+        
+    //         console.log("mood",res.data.mood)
     //     });
     // }
     
     //   componentDidMount(){
-        // this.fetchJournal()
-        // console.log(this.state.journal)
+    //     this.fetchJournal()
+    //     this.fetchMood()
+    //     console.log(this.state.journal, this.state.mood)
         
     // }
 
@@ -30,53 +44,85 @@ class JournalEntry extends Component{
         const sad = "https://www.pinclipart.com/picdir/big/85-859532_face-sadness-smiley-computer-icons-clip-art-sad.png"
         const nervous = "https://cdn3.iconfinder.com/data/icons/emoticon-back-white/16/emotion_b_w_Worried-512.png"
         const calm = "https://icon-library.com/images/72adc4879e.svg.svg"
-        if (this.state.journal.mood === "Happy"){
+        if (this.props.mood.name === "Happy"){
             return(
                 <div>
                     <img src={happy}
                         alt = "happy"
                         className = "daily-mood"
                     />
+                    <p className = "mood-p-font">Happy</p>
                 </div>
             )
         }
-        if (this.state.journal.mood === "Sad"){
+        if (this.props.mood.name === "Sad"){
             return(
                 <div>
                     <img src={sad}
                         alt = "sad"
                         className = "daily-mood"
                     />
+                    <p className = "mood-p-font">Sad</p>
+
                 </div>
             )
         }
-        if (this.state.journal.mood === "Nervous"){
+        if (this.props.mood.name === "Nervous"){
             return(
                 <div>
                     <img src={nervous}
                         alt = "nervous"
                         className = "daily-mood"
                     />
+                    <p className = "mood-p-font">Nervous</p>
                 </div>
             )
         }
-        if (this.state.journal.mood === "Calm"){
+        if (this.props.mood.name === "Calm"){
             return(
                 <div>
                     <img src={calm}
                         alt = "calm"
                         className = "daily-mood"
                     />
+                    <p className = "mood-p-font">Calm</p>
                 </div>
             )
+        }
+
+        else{
+            return(
+                <div>
+                    <h1 className = "no-mood-msg">No Mood Selected</h1>
+                </div>
+            )
+            
         }
     }
 
     render(){
         return(
-            <div>
-                <h1>Mood: {this.displayMood()}</h1>
-                <p>{this.state.journal.content}</p>
+            <div className = "journal-entry">
+                <div className = "mood-div">
+                    <h1>Mood: </h1>
+                    <div>
+                        <h1>{this.props.journal.mood}</h1>
+                        {this.displayMood()}
+                    </div>
+                    
+                </div>
+                <div className = "journal-area">
+                    <div>
+                        {/* <img/> */}
+                        <p className="journal-text">{this.props.journal.content}</p>
+                    </div>
+
+                    <div className = "journal-buttons">
+                        <button>Edit Journal</button>
+                        <button>Delete Journal</button>
+                    </div>
+                </div>
+                
             </div>
         )
     }

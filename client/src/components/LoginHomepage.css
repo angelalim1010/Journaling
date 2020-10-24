@@ -32,3 +32,44 @@
 .react-calendar{
     max-height: 350px;
 }
+
+.daily-mood{
+    height: 100px;
+    width: 100px;
+}
+.mood-div{
+    display: flex;
+    align-items: center;
+
+}
+
+.journal-entry{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.journal-text{
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em;
+    background-color: white;
+}
+.no-mood-msg{
+    font-size: 24pt;
+}
+
+.mood-p-font{
+    font-size: 20pt;
+}
+
+.journal-area{
+    display: flex;
+    flex-direction: row;
+}
+
+.journal-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
