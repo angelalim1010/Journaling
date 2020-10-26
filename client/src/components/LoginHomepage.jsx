@@ -46,10 +46,37 @@ class LoginHomepage extends Component {
     console.log(this.state.journal.length)
     if(Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object){
           return (
-              <JournalEntry
-                journal={this.state.journal}
-                mood={this.state.mood}
-              />
+              <div>
+                  <Navbar bg="dark" variant="dark" className="underline">
+                      <Navbar.Brand href="/">
+                          <img src={ZenyuLogo} 
+                              width="100" 
+                              height="30" 
+                              // className="d-inline-block align-top" 
+                              alt="Zenyu Logo"
+                              style={{ filter: "brightness(0) invert(1)"}}
+                              >
+                              
+                          </img>
+                      </Navbar.Brand>
+                      <Navbar.Collapse className = "justify-content-end">
+                          <Navbar.Text>
+                              Welcome User
+                          </Navbar.Text>
+                      </Navbar.Collapse>
+                </Navbar>
+                <div className = "homepage-layout">
+                    <Calendar
+                        onChange={this.onChange}
+                        value={this.state.date}
+                    />
+                    <JournalEntry
+                    journal={this.state.journal}
+                    mood={this.state.mood}
+                />
+                </div>
+              </div>
+              
           )
       }
     else{
