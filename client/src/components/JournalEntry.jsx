@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Button, Modal} from 'react-bootstrap';
+import { deleteJournal, deleteMood } from "../actions/journalPrompts";
 
 
 class JournalEntry extends Component{
@@ -6,17 +8,57 @@ class JournalEntry extends Component{
         super(props);
         this.state={
             journal: {},
-            mood: {}
+            mood: {},
+            show: false,
+            setShow: false
         }
+        this.handleClose = this.handleClose.bind(this);
+        this.handleShow = this.handleShow.bind(this);
+        this.deleteEntry = this.deleteEntry.bind(this);
+
     }
 
-
+    handleClose = () =>{
+        this.setState({
+            show: false,
+            setShow: false
+        })
+    }
+    handleShow = () =>{
+        this.setState({
+            show: true,
+            setShow: true
+        })
+    }
+    deleteEntry = (journalId, moodId) =>{
+        Promise.all([deleteJournal(journalId), deleteMood(moodId)])
+        .then(
+            this.setState({
+                    show: false,
+                    setShow: false
+                })
+        )
+        console.log(journalId)
+        console.log(moodId)
+        // deleteJournal(journalId)
+        // .then(res=>{
+        //     console.log(res);
+        //     console.log(res.data);
+        // })
+        // deleteMood(moodId)
+        // .then(res=>{
+        //     console.log(res);
+        //     console.log(res.data);
+        // })
+        // 
+        // this.forceUpdate();
+    }
     displayMood(){
         const happy = "https://assets.stickpng.com/images/587389d8f3a71010b5e8ef4b.png"
         const sad = "https://www.pinclipart.com/picdir/big/85-859532_face-sadness-smiley-computer-icons-clip-art-sad.png"
         const nervous = "https://cdn3.iconfinder.com/data/icons/emoticon-back-white/16/emotion_b_w_Worried-512.png"
         const calm = "https://icon-library.com/images/72adc4879e.svg.svg"
-        if (this.props.mood.name === "Happy"){
+        if (this.props.mood.mood.name === "Happy"){
             return(
                 <div>
                     <img src={happy}
@@ -27,7 +69,7 @@ class JournalEntry extends Component{
                 </div>
             )
         }
-        if (this.props.mood.name === "Sad"){
+        if (this.props.mood.mood.name === "Sad"){
             return(
                 <div>
                     <img src={sad}
@@ -39,7 +81,7 @@ class JournalEntry extends Component{
                 </div>
             )
         }
-        if (this.props.mood.name === "Nervous"){
+        if (this.props.mood.mood.name === "Nervous"){
             return(
                 <div>
                     <img src={nervous}
@@ -50,7 +92,7 @@ class JournalEntry extends Component{
                 </div>
             )
         }
-        if (this.props.mood.name === "Calm"){
+        if (this.props.mood.mood.name === "Calm"){
             return(
                 <div>
                     <img src={calm}
@@ -78,7 +120,7 @@ class JournalEntry extends Component{
                 <div className = "mood-div">
                     <h1>Mood: </h1>
                     <div>
-                        <h1>{this.props.journal.mood}</h1>
+                        <h1>{this.props.mood.mood.name}</h1>
                         {this.displayMood()}
                     </div>
                     
@@ -90,8 +132,23 @@ class JournalEntry extends Component{
                     </div>
 
                     <div className = "journal-buttons">
-                        <button>Edit Journal</button>
-                        <button>Delete Journal</button>
+                        <Button>Edit Journal</Button>
+                        <Button onClick={this.handleShow}>Delete Journal</Button>
+                        <Modal show={this.state.show} onHide={this.handleClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>
+                                    Are you sure you want to delete?
+                                </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Footer>
+                                    <Button onClick={this.handleClose}>
+                                        Close
+                                    </Button>
+                                    <Button onClick={this.deleteEntry(this.props.journal.id, this.props.mood.id)}>
+                                        Confirm
+                                    </Button>
+                                </Modal.Footer>
+                        </Modal>
                     </div>
                 </div>
                 
