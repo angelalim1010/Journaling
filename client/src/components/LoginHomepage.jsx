@@ -63,6 +63,21 @@ class LoginHomepage extends Component {
       getJournal(newDate)
       console.log(newDate)
   }
+  componentDidUpdate(prevProps, prevState){
+      if (prevState.date !== this.state.date){
+        let formattedDate = this.formatDate(this.state.date)
+        console.log(formattedDate)
+      Promise.all([getJournal(formattedDate), getPrompts()])
+          .then(([res1,res2])=>{
+              this.setState({
+                  journal: (res1?.data.slice(-1).pop()?.journal || {}),
+                  mood: res1?.data.slice(-1).pop()?.mood || {},
+                  prompts:res2.data,
+                  // date: moment.form
+          })
+      })
+      }
+  }
 
   handleClose = () =>{
     this.setState({
