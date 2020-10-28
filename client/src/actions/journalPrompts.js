@@ -1,39 +1,28 @@
 import axios from "axios";
 
-export const getJournal = async ()=>{
+export const getJournal = async (date)=>{
     console.log("getting journals")
     try{
-        return await axios.get('https://zenyu-backend.herokuapp.com/api/userjournals/',{
+        console.log("got journals")
+        return await axios.get(`https://zenyu-backend.herokuapp.com/api/users/userjournals?creationDate=${date}`,{
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer `
             }
-        })
+        }
+        )
     }
     catch(e){
         console.log(e.response)
     }
 }
 
-export const getMood = async ()=>{
-    console.log("getting moods")
-    try{
-        return await axios.get(`https://zenyu-backend.herokuapp.com/api/usermoods/${id}`,{
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-    }
-    catch(e){
-        console.log(e.response)
-    }
-}
 
 export const deleteJournal = async (id) =>{
     console.log("journal deleted")
     try{
         return await axios.delete(`https://zenyu-backend.herokuapp.com/api/userjournals/${id}`,{
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer `
             }
         })
     }
@@ -47,7 +36,7 @@ export const deleteMood = async (id) =>{
     try{
         return await axios.delete(`https://zenyu-backend.herokuapp.com/api/usermoods/${id}`,{
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer `
             }
         })
     }

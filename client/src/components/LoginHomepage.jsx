@@ -3,9 +3,9 @@ import Calendar from 'react-calendar';
 import {Navbar, Card, Button, Modal} from 'react-bootstrap';
 import ZenyuLogo from '../img/zenyu-logo.svg';
 import { getPrompts} from "../actions/promptActions";
-
-import { getJournal, getMood, deleteJournal, deleteMood   } from "../actions/journalPrompts";
-import moment from 'moment';
+import { getJournal, deleteJournal, deleteMood   } from "../actions/journalPrompts";
+import CKEditor from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import './LoginHomepage.css';
 import 'react-calendar/dist/Calendar.css';
 class LoginHomepage extends Component {
@@ -24,39 +24,44 @@ class LoginHomepage extends Component {
   }
 
   componentDidMount = async () =>{
-    Promise.all([getJournal(), getMood(), getPrompts()])
-        .then(([res1,res2,res3])=>{
+      let formattedDate = this.formatDate(this.state.date)
+      console.log(formattedDate)
+    Promise.all([getJournal(formattedDate), getPrompts()])
+        .then(([res1,res2])=>{
             this.setState({
-                journal: (res1?.data.slice(-1).pop() || {}),
-                mood: res2?.data || {},
-                prompts:res3.data,
+                journal: (res1?.data.slice(-1).pop()?.journal || {}),
+                mood: res1?.data.slice(-1).pop()?.mood || {},
+                prompts:res2.data,
                 // date: moment.form
         })
     })
+    console.log("date",this.state.date)
 }
 
-//  formatDate(date) {
-//     let d = new Date(date),
-//         month = '' + (d.getMonth() + 1),
-//         day = '' + d.getDate(),
-//         year = d.getFullYear();
+ formatDate(date) {
+    let d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
 
-//     if (month.length < 2) 
-//         month = '0' + month;
-//     if (day.length < 2) 
-//         day = '0' + day;
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
 
-//     return [year, month, day].join('-');
-// }
+    return [year, month, day].join('-');
+  
+}
 
   onChange = date =>{
     //   date = date.toISOString().slice(0,10)
     // date = moment(date).month(1).format("YYYY-MM-DD")
-    date = this.formatDate(date)
       this.setState({
           date: date
       })
-      console.log(this.state.date)
+      let newDate = this.formatDate(date)
+      getJournal(newDate)
+      console.log(newDate)
   }
 
   handleClose = () =>{
@@ -182,7 +187,11 @@ displayMood(){
                 <div className = "journal-area">
                     <div>
                         {/* <img/> */}
-                        <p className="journal-text">{this.state.journal.content}</p>
+                        {/* <p className="journal-text">{this.state.journal.content}</p> */}
+                        <CKEditor
+                            editor={ClassicEditor}
+                            data = {this.state.journal.content}
+                        />
                     </div>
 
                     <div className = "journal-buttons">
@@ -198,7 +207,6 @@ displayMood(){
                                     <Button onClick={this.handleClose}>
                                         Close
                                     </Button>
-                                    {/* <Button onClick={()=>deleteJournal(this.state.journal.id)}> */}
                                     <Button 
                                         onClick={()=>{this.deleteEntry(this.state.journal.id, this.state.mood.id); this.handleClose();}}>
 
