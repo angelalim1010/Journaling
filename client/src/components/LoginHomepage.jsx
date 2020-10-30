@@ -3,9 +3,10 @@ import Calendar from 'react-calendar';
 import {Navbar, Card, Button, Modal} from 'react-bootstrap';
 import ZenyuLogo from '../img/zenyu-logo.svg';
 import { getPrompts} from "../actions/promptActions";
-import { getJournal, deleteJournal, deleteMood   } from "../actions/journalPrompts";
+import { getJournal, updateJournal, deleteJournal, deleteMood   } from "../actions/journalPrompts";
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import './LoginHomepage.css';
 import 'react-calendar/dist/Calendar.css';
 class LoginHomepage extends Component {
@@ -15,7 +16,8 @@ class LoginHomepage extends Component {
         date: new Date(),
         prompts: [],
         journal: {},
-        mood: {}
+        mood: {},
+        content: ""
     }
     this.onChange = this.onChange.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -32,7 +34,7 @@ class LoginHomepage extends Component {
                 journal: (res1?.data.slice(-1).pop()?.journal || {}),
                 mood: res1?.data.slice(-1).pop()?.mood || {},
                 prompts:res2.data,
-                // date: moment.form
+                content: res1?.data.slice(-1).pop()?.journal.content || ""
         })
     })
     console.log("date",this.state.date)
@@ -54,9 +56,7 @@ class LoginHomepage extends Component {
 }
 
   onChange = date =>{
-    //   date = date.toISOString().slice(0,10)
-    // date = moment(date).month(1).format("YYYY-MM-DD")
-      this.setState({
+        this.setState({
           date: date
       })
       let newDate = this.formatDate(date)
@@ -73,7 +73,8 @@ class LoginHomepage extends Component {
                   journal: (res1?.data.slice(-1).pop()?.journal || {}),
                   mood: res1?.data.slice(-1).pop()?.mood || {},
                   prompts:res2.data,
-                  // date: moment.form
+                  content: res1?.data.slice(-1).pop()?.journal.content || ""
+
           })
       })
       }
@@ -91,6 +92,11 @@ handleShow = () =>{
         setShow: true
     })
 }
+
+handleChange = (event, editor)=>{
+
+}
+
 deleteEntry = (journalId, moodId) =>{
     deleteMood(moodId);
     deleteJournal(journalId);
@@ -205,12 +211,20 @@ displayMood(){
                         {/* <p className="journal-text">{this.state.journal.content}</p> */}
                         <CKEditor
                             editor={ClassicEditor}
-                            data = {this.state.journal.content}
+                            data = {this.state.content}
+                            onChange={ ( event, editor ) => {
+                                const data = editor.getData();
+                                this.setState({
+                                    content: data
+                                })
+                                console.log( { event, editor, data } );
+                                console.log(this.state.content)
+                            } }
                         />
                     </div>
 
                     <div className = "journal-buttons">
-                        <Button>Edit Journal</Button>
+                        <Button onClick={()=>{updateJournal(this.state.journal.id, this.state.content)}}>Edit Journal</Button>
                         <Button onClick={this.handleShow}>Delete Journal</Button>
                         <Modal show={this.state.show} onHide={this.handleClose}>
                             <Modal.Header closeButton>
