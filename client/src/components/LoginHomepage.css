@@ -19,7 +19,7 @@
     color: #007bff
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 900px) {
     .homepage-layout {
       flex-direction: column;
       box-shadow: none;
@@ -40,6 +40,7 @@
 .mood-div{
     display: flex;
     align-items: center;
+    justify-content: space-around;
 
 }
 
@@ -72,4 +73,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+@media (max-width: 900px) {
+    .journal-area {
+      flex-direction: column;
+      box-shadow: none;
+      height: auto;
+      align-items: center;
+      margin: 0px;
+    }
 }
