@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import LoginHomepage from './components/LoginHomepage';
 import MainHomepage from './components/MainHomepage';
+import JournalEntry from './components/JournalEntry';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
@@ -21,6 +22,7 @@ function App() {
               <Route path='/signup' component={Signup} />
               <Route path='/homepage' component={LoginHomepage} />
               <Route path= '/mainhomepage' component={MainHomepage} />
+              <Route path= '/journalentry' component={JournalEntry} />
             </Switch>
           </div>
         </div>
