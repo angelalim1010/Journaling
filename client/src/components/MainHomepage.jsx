@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ZenyuCap from '../img/zenyu-cap.jpg';
-import ZenAbout from '../img/zenabout.jpg';
-import DayEntry from '../img/day-entry.jpg';
-import PicEntry from '../img/picture-entry.jpg';
-import MonthEntry from '../img/monthly-entry.jpg';
+// import ZenyuCap from '../img/zenyu-cap.jpg';
+// import ZenAbout from '../img/zenabout.jpg';
+// import DayEntry from '../img/day-entry.jpg';
+// import PicEntry from '../img/picture-entry.jpg';
+// import MonthEntry from '../img/monthly-entry.jpg';
 
 import './MainHomepage.css';
 
