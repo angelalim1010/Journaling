@@ -1,9 +1,58 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import ZenyuLogo from '../img/zenyu-logo.svg';
-
 import './Signup.css';
 
 class Signup extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      FirstName : "",
+      LastName : "",
+      Email : "",
+      Password : "",
+      ConfirmPassword: "",
+      registrationErrors: ""
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    const {
+      FirstName,
+      LastName,
+      Email,
+      Password,
+      ConfirmPassword
+    } = this.state;
+
+    axios.post('https://zenyu-backend.herokuapp.com/api/users/register', {
+      FirstName: FirstName,
+      LastName: LastName,
+      Email: Email,
+      Password: Password,
+      ConfirmPassword: ConfirmPassword
+    }
+    )
+    .then(response => {
+      console.log("registration res", response);
+    })
+    .catch(error => {
+      console.log("registration error", error);
+    });
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div className='signup-body'>
@@ -22,61 +71,77 @@ class Signup extends Component {
               <h3 className='text-center'>
                 <strong>Create</strong> an account.
               </h3>
-              <form method='post'>
-                <div className='form-group'>
-                  <input
-                    className='form-control'
+              <Form onSubmit={this.handleSubmit}>
+                <FormGroup>
+                  <Input
                     type='text'
-                    name='name'
-                    placeholder='Name'
+                    name='FirstName'
+                    placeholder='First Name'
+                    value={this.state.FirstName}
+                    onChange={this.handleChange}
+                    required
                   />
-                </div>
-                <div className='form-group'>
-                  <input
-                    className='form-control'
+                </FormGroup>
+                <FormGroup>
+                  <Input
+                    type='text'
+                    name='LastName'
+                    placeholder='Last Name'
+                    value={this.state.LastName}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Input
                     type='email'
-                    name='email'
+                    name='Email'
                     placeholder='Email'
+                    value={this.state.Email}
+                    onChange={this.handleChange}
+                    required
                   />
-                </div>
-                <div className='form-group'>
-                  <input
-                    className='form-control'
+                </FormGroup>
+                <FormGroup>
+                  <Input
                     type='password'
-                    name='password'
+                    name='Password'
                     placeholder='Password'
+                    value={this.state.Password}
+                    onChange={this.handleChange}
+                    required
                   />
-                </div>
-                <div className='form-group'>
-                  <input
-                    className='form-control'
+                </FormGroup>
+                <FormGroup>
+                  <Input
                     type='password'
-                    name='password-repeat'
+                    name='ConfirmPassword'
                     placeholder='Confirm Password'
+                    value={this.state.ConfirmPassword}
+                    onChange={this.handleChange}
+                    required
                   />
-                </div>
-                <div className='form-group'>
+                </FormGroup>
+                <FormGroup>
                   <div className='form-check'>
-                    <label className='form-check-label'>
-                      <input className='form-check-input' type='checkbox' />I
-                      agree to the Terms &amp; Privacy Policy.
-                    </label>
+                    <Label check>
+                      <Input type='checkbox' required />I agree to the <a href='/login'>Terms</a> &amp;{' '} <a href='/login'>Privacy Policy</a>.
+                    </Label>
                   </div>
-                </div>
-                <div className='form-group'>
-                  <button className='btn btn-dark btn-block' type='submit'>
-                    Sign Up
-                  </button>
-                </div>
-              </form>
-              <a href='/login' className='text-center mb-md-4'>
-                Already have an account? Login here.
-              </a>
+                </FormGroup>
+                <Button type="submit">Sign Up</Button>
+              </Form>
+              <p>
+                Already have an account?{' '}
+                <a href='/login' className='text-center mb-md-4'>
+                  Login here.
+                </a>
+              </p>
             </div>
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
