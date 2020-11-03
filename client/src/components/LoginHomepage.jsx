@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
-import {Navbar, Card, Button, Modal, Form} from 'react-bootstrap';
+import {Navbar, Card, Button, Modal, Form, Nav} from 'react-bootstrap';
 import ZenyuLogo from '../img/zenyu-logo.svg';
 import { getPrompts} from "../actions/promptActions";
 import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood   } from "../actions/journalPrompts";
@@ -26,14 +26,16 @@ class LoginHomepage extends Component {
         journal: {},
         mood: {},
         content: "",
-        value: ""
+        value: "",
+        username: "Bob"
     }
     this.onChange = this.onChange.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleShow = this.handleShow.bind(this);
     this.deleteEntry = this.deleteEntry.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
-    this.refreshPage = this.refreshPage.bind(this)
+    this.refreshPage = this.refreshPage.bind(this);
+    this.handleClick = this.refreshPage.bind(this);
 
   }
 
@@ -111,6 +113,11 @@ handleSelect = async(e) =>{
     this.setState({
         value: e.target.value
     })
+}
+
+handleClick = async(e)=>{
+    e.preventDefault();
+    console.log("clicked")
 }
 
 refreshPage(){
@@ -191,8 +198,42 @@ displayMood(){
     let todayDate = new Date().toDateString();
     console.log(this.state.prompts)
     console.log(this.state.value)
+    // if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
+    //     return(
+    //         <div>
+    //             <Navbar bg="dark" variant="dark" className="underline">
+    //                 <Navbar.Brand href="/">
+    //                     <img src={ZenyuLogo} 
+    //                         width="100" 
+    //                         height="30" 
+    //                         // className="d-inline-block align-top" 
+    //                         alt="Zenyu Logo"
+    //                         style={{ filter: "brightness(0) invert(1)"}}
+    //                         >
+                            
+    //                     </img>
+    //                 </Navbar.Brand>
+    //                 <Navbar.Collapse className = "justify-content-end">
+    //                     <Navbar.Text>
+    //                         Welcome {this.state.username}
+    //                     </Navbar.Text>
+    //                     <Nav>
+    //                         <Nav.Link>Logout</Nav.Link>
+    //                     </Nav>
+    //                 </Navbar.Collapse>
+    //             </Navbar>
+    //             <div className = "homepage-layout">
+    //                 <Calendar
+    //                     onChange={this.onChange}
+    //                     value={this.state.date}
+    //                 />
+    //                 <h1>You can't make a journal entry for this date!</h1>
+    //             </div>
+    //         </div>
+    //     )
 
-    if(Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object){
+    //   }
+    // if(Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object){
           return (
               <div>
                   <Navbar bg="dark" variant="dark" className="underline">
@@ -208,146 +249,89 @@ displayMood(){
                           </img>
                       </Navbar.Brand>
                       <Navbar.Collapse className = "justify-content-end">
-                          <Navbar.Text>
-                              Welcome User
-                          </Navbar.Text>
-                      </Navbar.Collapse>
-                </Navbar>
-                <div className = "homepage-layout">
-                    <Calendar
-                        onChange={this.onChange}
-                        value={this.state.date}
-                    />
-                    <div className = "journal-entry">
-                <div className = "mood-div">
-                    <h1>Mood: </h1>
-                    <div>
-                        {/* <h1>{this.state.mood?.mood?.name}</h1> */}
-                        {this.displayMood()}
-                    </div>
-                    {this.state.mood.mood.name !== "No Mood Selected" && 
-                        <Form onSubmit={(e)=>{e.preventDefault();updateMood(this.state.mood.id, this.state.value);this.refreshPage()}}>
-                                {/* <Form.Label>Select to change your mood</Form.Label> */}
-                                <Form.Control as="select" defaultValue="" onChange={this.handleSelect}>
-                                    <option value="" disabled>Select a Mood</option>
-                                    <option value={moodIds.happy}>Happy</option>
-                                    <option value={moodIds.calm}>Calm</option>
-                                    <option value={moodIds.sad}>Sad</option>
-                                    <option value={moodIds.nervous}>Nervous</option>
-
-                                </Form.Control>
-                            <Button type="submit">Update Mood</Button>
-                        </Form>
-                    
-                    }
-                   
-                </div>
-                <div className = "journal-area">
-                    <div>
-                        {/* <img/> */}
-                        <CKEditor
-                            editor={ClassicEditor}
-                            data = {this.state.content}
-                            onChange={ ( event, editor ) => {
-                                const data = editor.getData();
-                                this.setState({
-                                    content: data
-                                })
-                                console.log( { event, editor, data } );
-                                console.log(this.state.content)
-                            } }
-                        />
-                    </div>
-
-                    <div className = "journal-buttons">
-                        <Button onClick={()=>{updateJournal(this.state.journal.id, this.state.content)}}>Save Edited Journal</Button>
-                        <Button onClick={this.handleShow}>Delete Journal</Button>
-                        <Modal show={this.state.show} onHide={this.handleClose}>
-                            <Modal.Header closeButton>
-                                <Modal.Title>
-                                    Are you sure you want to delete?
-                                </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Footer>
-                                    <Button onClick={this.handleClose}>
-                                        Close
-                                    </Button>
-                                    <Button 
-                                        onClick={()=>{this.deleteEntry(this.state.journal.id, this.state.mood.id); this.handleClose();}}>
-
-                                        Confirm
-                                    </Button>
-                                </Modal.Footer>
-                        </Modal>
-                    </div>
-                </div>
-                
-            </div>
-            </div>
-            </div>
-              
-          )
-      }
-      else if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
-        return(
-            <div>
-                <Navbar bg="dark" variant="dark" className="underline">
-                    <Navbar.Brand href="/">
-                        <img src={ZenyuLogo} 
-                            width="100" 
-                            height="30" 
-                            // className="d-inline-block align-top" 
-                            alt="Zenyu Logo"
-                            style={{ filter: "brightness(0) invert(1)"}}
-                            >
-                            
-                        </img>
-                    </Navbar.Brand>
-                    <Navbar.Collapse className = "justify-content-end">
                         <Navbar.Text>
-                            Welcome User
+                            Welcome {this.state.username}
                         </Navbar.Text>
-                    </Navbar.Collapse>
+                        <Nav>
+                            <Nav.Link>Logout</Nav.Link>
+                        </Nav>
+                      </Navbar.Collapse>
                 </Navbar>
                 <div className = "homepage-layout">
                     <Calendar
                         onChange={this.onChange}
                         value={this.state.date}
                     />
-                    <h1>You can't make a journal entry for this date!</h1>
+                    {Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
+                    <div className = "journal-entry">
+                    <div className = "mood-div">
+                        <h1>Mood: </h1>
+                        <div>
+                            {/* <h1>{this.state.mood?.mood?.name}</h1> */}
+                            {this.displayMood()}
+                        </div>
+                        {(Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()) ?
+                         <h1>You can't make a journal entry for this date!</h1> :
+                            <Form onSubmit={(e)=>{e.preventDefault();updateMood(this.state.mood.id, this.state.value);this.refreshPage()}}>
+                                    {/* <Form.Label>Select to change your mood</Form.Label> */}
+                                    <Form.Control as="select" defaultValue="" onChange={this.handleSelect}>
+                                        <option value="" disabled>Select a Mood</option>
+                                        <option value={moodIds.happy}>Happy</option>
+                                        <option value={moodIds.calm}>Calm</option>
+                                        <option value={moodIds.sad}>Sad</option>
+                                        <option value={moodIds.nervous}>Nervous</option>
+    
+                                    </Form.Control>
+                                <Button type="submit">Update Mood</Button>
+                            </Form>
+                        
+                        }
+                       
+                    </div>
+                    <div className = "journal-area">
+                        <div>
+                            {/* <img/> */}
+                            <CKEditor
+                                editor={ClassicEditor}
+                                data = {this.state.content}
+                                onChange={ ( event, editor ) => {
+                                    const data = editor.getData();
+                                    this.setState({
+                                        content: data
+                                    })
+                                    console.log( { event, editor, data } );
+                                    console.log(this.state.content)
+                                } }
+                            />
+                        </div>
+    
+                        <div className = "journal-buttons">
+                            <Button onClick={()=>{updateJournal(this.state.journal.id, this.state.content)}}>Save Edited Journal</Button>
+                            <Button onClick={this.handleShow}>Delete Journal</Button>
+                            <Modal show={this.state.show} onHide={this.handleClose}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>
+                                        Are you sure you want to delete?
+                                    </Modal.Title>
+                                </Modal.Header>
+                                <Modal.Footer>
+                                        <Button onClick={this.handleClose}>
+                                            Close
+                                        </Button>
+                                        <Button 
+                                            onClick={()=>{this.deleteEntry(this.state.journal.id, this.state.mood.id); this.handleClose();}}>
+    
+                                            Confirm
+                                        </Button>
+                                    </Modal.Footer>
+                            </Modal>
+                        </div>
+                    </div>
+                    
                 </div>
-            </div>
-        )
-
-      }
-
-
-    else{
-        return (
-            <div>
-                <Navbar bg="dark" variant="dark" className="underline">
-                      <Navbar.Brand href="/">
-                          <img src={ZenyuLogo} 
-                              width="100" 
-                              height="30" 
-                              // className="d-inline-block align-top" 
-                              alt="Zenyu Logo"
-                              style={{ filter: "brightness(0) invert(1)"}}
-                              >
-                              
-                          </img>
-                      </Navbar.Brand>
-                      <Navbar.Collapse className = "justify-content-end">
-                          <Navbar.Text>
-                              Welcome User
-                          </Navbar.Text>
-                      </Navbar.Collapse>
-                </Navbar>
-                <div className = "homepage-layout">
-                  <Calendar
-                      onChange={this.onChange}
-                      value={this.state.date}
-                  />
+                :
+                <div>
+                
                   <div className = "prompt-layout">
                       {this.state.prompts.map((prompt,index)=>(
                           <Card style={{width: '18rem', margin: '25px'}} key={index}>
@@ -363,13 +347,15 @@ displayMood(){
                   </div>
                   
                 </div>
-                
+                        
+                }
+                    
             </div>
-        
-    
-        );
-
-    }
+            </div>
+              
+          )
+    //   }
+      
   }
 }
 
