@@ -21,7 +21,7 @@ function App() {
               <Route path='/signup' component={Signup} />
               <Route path='/homepage' component={LoginHomepage} />
               <Route path= '/' component={MainHomepage} />
-              <Route path= '/journalentry' component={JournalEntry} />
+              {/* <Route path= '/journalentry' component={JournalEntry} /> */}
             </Switch>
           </div>
         </div>

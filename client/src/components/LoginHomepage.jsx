@@ -44,7 +44,7 @@ class LoginHomepage extends Component {
         .then(([res1,res2])=>{
             this.setState({
                 journal: (res1?.data.slice(-1).pop()?.journal || {}),
-                mood: res1?.data.slice(-1).pop()?.mood || {},
+                mood: res1?.data.slice(-1).pop()?.mood || {mood: {name:"No Mood Selected"}},
                 prompts:res2.data,
                 content: res1?.data.slice(-1).pop()?.journal.content || "",
         })
@@ -225,18 +225,22 @@ displayMood(){
                         {/* <h1>{this.state.mood?.mood?.name}</h1> */}
                         {this.displayMood()}
                     </div>
-                   <Form onSubmit={(e)=>{e.preventDefault();updateMood(this.state.mood.id, this.state.value);this.refreshPage()}}>
-                           {/* <Form.Label>Select to change your mood</Form.Label> */}
-                           <Form.Control as="select" defaultValue="" onChange={this.handleSelect}>
-                               <option value="" disabled>Select a Mood</option>
-                               <option value={moodIds.happy}>Happy</option>
-                               <option value={moodIds.calm}>Calm</option>
-                               <option value={moodIds.sad}>Sad</option>
-                               <option value={moodIds.nervous}>Nervous</option>
+                    {this.state.mood.mood.name !== "No Mood Selected" && 
+                        <Form onSubmit={(e)=>{e.preventDefault();updateMood(this.state.mood.id, this.state.value);this.refreshPage()}}>
+                                {/* <Form.Label>Select to change your mood</Form.Label> */}
+                                <Form.Control as="select" defaultValue="" onChange={this.handleSelect}>
+                                    <option value="" disabled>Select a Mood</option>
+                                    <option value={moodIds.happy}>Happy</option>
+                                    <option value={moodIds.calm}>Calm</option>
+                                    <option value={moodIds.sad}>Sad</option>
+                                    <option value={moodIds.nervous}>Nervous</option>
 
-                           </Form.Control>
-                       <Button type="submit">Update Mood</Button>
-                   </Form>
+                                </Form.Control>
+                            <Button type="submit">Update Mood</Button>
+                        </Form>
+                    
+                    }
+                   
                 </div>
                 <div className = "journal-area">
                     <div>
@@ -351,7 +355,7 @@ displayMood(){
       
                           <Card.Body>
                               <Card.Text>{prompt.content}</Card.Text>
-                              <Card.Link href="/post/journal">Select This Prompt</Card.Link>
+                              <Card.Link href="/journalentry">Select This Prompt</Card.Link>
                           </Card.Body>
                       </Card>
                       ))}
