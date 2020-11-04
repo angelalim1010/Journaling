@@ -22,11 +22,11 @@ const App = () => {
           <div className='auth-wrapper'>
             <div className='auth-inner'>
               <Switch>
-                <Route exact path='/' component={Login} />
+                <Route exact path='/' component={MainHomepage} />
                 <Route path='/login' component={Login} />
                 <Route path='/signup' component={Signup} />
                 <Route path='/homepage' component={LoginHomepage} />
-                <Route path= '/mainhomepage' component={MainHomepage} />
+                {/* <Route path= '/mainhomepage' component={MainHomepage} /> */}
                 <Route path= '/journalentry' component={JournalEntry} />
               </Switch>
             </div>
