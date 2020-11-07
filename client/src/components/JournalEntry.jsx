@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
 
 import "./JournalEntry.css"
 
 class JournalEntry extends React.Component {
-	const[text, setText] = useState("")
+	const[text, setText] = useState(' ');
 		return(
 				<div className= "JournalEntry">
 				<div className= "editor">

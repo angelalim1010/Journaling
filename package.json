@@ -1,0 +1,22 @@
+{
+  "name": "zenyu",
+  "version": "0.1.0",
+  "description": "Capstone Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelalim1010/Zenyu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angelalim1010/Zenyu/issues"
+  },
+  "homepage": "https://github.com/angelalim1010/Zenyu#readme",
+  "dependencies": {
+    "react-bootstrap-icons": "^1.1.0"
+  }
+}
