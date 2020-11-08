@@ -216,9 +216,9 @@ displayMood(){
                         </img>
                     </Navbar.Brand>
                     <Navbar.Collapse className = "justify-content-end">
-                        <Navbar.Text>
+                        {/* <Navbar.Text>
                             Welcome {this.state.username}
-                        </Navbar.Text>
+                        </Navbar.Text> */}
                         <Button onClick={this.handleClick}>Logout</Button>
                     </Navbar.Collapse>
                 </Navbar>
@@ -248,9 +248,9 @@ displayMood(){
                           </img>
                       </Navbar.Brand>
                       <Navbar.Collapse className = "justify-content-end">
-                        <Navbar.Text>
+                        {/* <Navbar.Text>
                             Welcome {this.state.username}
-                        </Navbar.Text>
+                        </Navbar.Text> */}
                         <Button onClick={this.handleClick}>Logout</Button>
                       </Navbar.Collapse>
                 </Navbar>
