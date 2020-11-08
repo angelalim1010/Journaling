@@ -11,6 +11,9 @@ import JournalIcon from '../img/journalicon.png';
 import PromptIcon from '../img/prompticon.png';
 import PhotoIcon from '../img/photoicon.png';
 // import ZenyuLogo from '../img/zenyulogo.png';
+import {Link} from 'react-router-dom';
+import {Button} from 'react-bootstrap';
+
 
 import './MainHomepage.css';
 
@@ -41,10 +44,13 @@ class MainHomepage extends React.Component {
                     <div className="container">
                     <div className="row">
                         <div className="col-lg-6 col-xl-9 mx-auto">
-                        <h1 className="display-4 text-capitalize text-left float-left mb-5">Find Yourself.&nbsp; &nbsp; &nbsp; Journal to Express Your inner thoughts.</h1>
+                        <h1 className="display-4 text-capitalize text-left float-left mb-5"style={{color: "#202020"}}>Find Yourself.&nbsp; &nbsp; &nbsp; Journal to Express Your inner thoughts.</h1>
+                        <Link to="/login"><Button>Login</Button></Link>
+                        <Link to="/signup"><Button>Register</Button></Link>
                         </div>
                         <div className="col-lg-6 col-xl-9 mx-auto" style={{backgroundImage:`url(${ZenyuCap})`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
-                        <h1 className="display-4 text-left float-left mb-5" />
+                        {/* <h1 className="display-4 text-left float-left mb-5" /> */}
+
                         </div>
                     </div>
                     </div>
