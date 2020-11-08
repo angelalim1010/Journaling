@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import ReactDom from "react-dom";
 import ZenyuCap from '../img/zenyu-cap.jpg';
 import ZenAbout from '../img/zenabout.jpg';
 import DayEntry from '../img/day-entry.jpg';
 import PicEntry from '../img/picture-entry.jpg';
 import MonthEntry from '../img/monthly-entry.jpg';
+=======
+// import ZenyuCap from '../img/zenyu-cap.jpg';
+// import ZenAbout from '../img/zenabout.jpg';
+// import DayEntry from '../img/day-entry.jpg';
+// import PicEntry from '../img/picture-entry.jpg';
+// import MonthEntry from '../img/monthly-entry.jpg';
+>>>>>>> cf95d863f5ea1f4dfc9b4f2923d8666094186299
 
 import './MainHomepage.css';
 

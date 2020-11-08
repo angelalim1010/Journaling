@@ -19,7 +19,7 @@
     color: #007bff
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 900px) {
     .homepage-layout {
       flex-direction: column;
       box-shadow: none;
@@ -31,4 +31,56 @@
 
 .react-calendar{
     max-height: 350px;
+}
+
+.daily-mood{
+    height: 100px;
+    width: 100px;
+}
+.mood-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.journal-entry{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.journal-text{
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em;
+    background-color: white;
+}
+.no-mood-msg{
+    font-size: 24pt;
+}
+
+.mood-p-font{
+    font-size: 20pt;
+}
+
+.journal-area{
+    display: flex;
+    flex-direction: row;
+}
+
+.journal-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 900px) {
+    .journal-area {
+      flex-direction: column;
+      box-shadow: none;
+      height: auto;
+      align-items: center;
+      margin: 0px;
+    }
 }
