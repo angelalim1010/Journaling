@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-import ReactDom from "react-dom";
+// import ReactDom from "react-dom";
 import ZenyuCap from '../img/zenyu-cap.jpg';
 import ZenAbout from '../img/zenabout.jpg';
-import DayEntry from '../img/day-entry.jpg';
-import PicEntry from '../img/picture-entry.jpg';
-import MonthEntry from '../img/monthly-entry.jpg';
+import DayEntry from '../img/day-entry.png';
+import PicEntry from '../img/picture-entry.png';
+import MonthEntry from '../img/monthly-entry.png';
 import SmileIcon from '../img/smileyicon.png';
 import JournalIcon from '../img/journalicon.png';
 import PromptIcon from '../img/prompticon.png';
 import PhotoIcon from '../img/photoicon.png';
-import ZenyuLogo from '../img/zenyulogo.png';
+// import ZenyuLogo from '../img/zenyulogo.png';
 
 import './MainHomepage.css';
 
@@ -43,7 +43,7 @@ class MainHomepage extends React.Component {
                         <div className="col-lg-6 col-xl-9 mx-auto">
                         <h1 className="display-4 text-capitalize text-left float-left mb-5">Find Yourself.&nbsp; &nbsp; &nbsp; Journal to Express Your inner thoughts.</h1>
                         </div>
-                        <div className="col-lg-6 col-xl-9 mx-auto" style={{backgroundImage: "url('assets/img/zenyu-cap.jpg')", backgroundPosition: 'center', backgroundSize: 'cover'}}>
+                        <div className="col-lg-6 col-xl-9 mx-auto" style={{backgroundImage:`url(${ZenyuCap})`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
                         <h1 className="display-4 text-left float-left mb-5" />
                         </div>
                     </div>
@@ -57,7 +57,7 @@ class MainHomepage extends React.Component {
                         <div className="col-lg-3">
                         <div className="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                             <div className="d-flex features-icons-icon">
-                                <img src="smileyicon.png" style={{width: '120px', height: '100px', margin: '15px'}}></img>
+                                <img src={SmileIcon} style={{width: '120px', height: '100px', margin: '15px'}}></img>
                             </div>
                             <h3>Mood Tracker</h3>
                             <p className="lead mb-0">Track your mood day to day. Let us help you by pinpointing your current mood.&nbsp;</p>
@@ -66,7 +66,7 @@ class MainHomepage extends React.Component {
                         <div className="col-lg-3">
                         <div className="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                             <div className="d-flex features-icons-icon">
-                                <img src="journalicon.png" style={{width: '120px', height: '86px', margin: '13px'}}></img>
+                                <img src={JournalIcon} style={{width: '120px', height: '86px', margin: '13px'}}></img>
                             </div>
                             <h3>Journal</h3>
                             <p className="lead mb-0">Express your feelings by writing out anything and everything that is on your mind.&nbsp;</p>
@@ -75,7 +75,7 @@ class MainHomepage extends React.Component {
                         <div className="col-lg-3">
                         <div className="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                             <div className="d-flex features-icons-icon">
-                                <img src="photoicon.png" style={{width: '125px', height: '125px', margin: '8px'}}></img>
+                                <img src={PhotoIcon} style={{width: '125px', height: '125px', margin: '8px'}}></img>
                             </div>
                             <h3>Pictures</h3>
                             <p className="lead mb-0">Upload a picture of the day and express your feelings about the picture.</p>
@@ -84,7 +84,7 @@ class MainHomepage extends React.Component {
                         <div className="col-lg-3">
                         <div className="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                             <div className="d-flex features-icons-icon">
-                                <img src="prompticon.png" style={{width: '125px', height: '112px'}}></img>
+                                <img src={PromptIcon} style={{width: '125px', height: '112px'}}></img>
                             </div>
                             <h3>Prompts</h3>
                             <p className="lead mb-0">Choose a prompt if you need help choosing what you want to write&nbsp;</p>
@@ -96,7 +96,7 @@ class MainHomepage extends React.Component {
                 <section className="showcase">
                     <div className="container-fluid p-0">
                     <div className="row no-gutters">
-                        <div className="col-lg-6 order-lg-2 text-white showcase-img" style={{background: 'url("assets/img/zenabout.jpg") center / cover no-repeat'}}><span /></div>
+                        <div className="col-lg-6 order-lg-2 text-white showcase-img" style={{background: `url(${ZenAbout}) center / cover no-repeat`}}><span /></div>
                         <div className="col-lg-6 my-auto order-lg-1 showcase-text">
                         <h1>About Us</h1>
                         <p className="lead mb-0" style={{textAlign: 'justify', width: '316px', height: '196px', margin: '0px'}}>We started this website in order to help those who need ways to express themselves. This journaling website gives them a way to write down their feelings and let out their emotions to themselves.&nbsp;</p>
@@ -110,19 +110,19 @@ class MainHomepage extends React.Component {
                     <div className="row">
                         <div className="col-lg-4 offset-lg-0">
                         <div className="mx-auto testimonial-item mb-5 mb-lg-0" style={{height: '364.938px'}}>
-                            <h5>Month</h5><img className="img-thumbnail img-fluid mb-3" src="assets/img/monthly%20entry.png" style={{height: '216.938px'}} />
+                            <h5>Month</h5><img className="img-thumbnail img-fluid mb-3" src={MonthEntry} style={{height: '216.938px'}} />
                             <p>Ability to see journal entries from past months. As well as click on one and edit it.</p>
                         </div>
                         </div>
                         <div className="col-lg-4">
                         <div className="mx-auto testimonial-item mb-5 mb-lg-0" style={{height: '364.938px'}}>
-                            <h5>Day</h5><img className="img-thumbnail img-fluid mb-3" src="assets/img/day%20entry.png" style={{height: '216.938px'}} />
+                            <h5>Day</h5><img className="img-thumbnail img-fluid mb-3" src={DayEntry} style={{height: '216.938px'}} />
                             <p>Ability to see day to day entries and modify them.&nbsp;</p>
                         </div>
                         </div>
                         <div className="col-lg-4">
                         <div className="mx-auto testimonial-item mb-5 mb-lg-0" style={{height: '364.938px'}}>
-                            <h5>Pictures</h5><img className="img-thumbnail img-fluid mb-3" src="assets/img/picture%20entry.png" style={{height: '216.938px'}} />
+                            <h5>Pictures</h5><img className="img-thumbnail img-fluid mb-3" src={PicEntry} style={{height: '216.938px'}} />
                             <p>Ability to see a post that includes a picture. As well as change the picture or edit the post.&nbsp;</p>
                         </div>
                         </div>
