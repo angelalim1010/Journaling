@@ -1,26 +1,16 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
+
 import ReactDom from "react-dom";
 import ZenyuCap from '../img/zenyu-cap.jpg';
 import ZenAbout from '../img/zenabout.jpg';
 import DayEntry from '../img/day-entry.jpg';
 import PicEntry from '../img/picture-entry.jpg';
 import MonthEntry from '../img/monthly-entry.jpg';
-=======
-
-// import ReactDom from "react-dom";
-// import ZenyuCap from '../img/zenyu-cap.jpg';
-// import ZenAbout from '../img/zenabout.jpg';
-// import DayEntry from '../img/day-entry.jpg';
-// import PicEntry from '../img/picture-entry.jpg';
-// import MonthEntry from '../img/monthly-entry.jpg';
-// import SmileIcon from '../img/smileyicon.png';
-// import JournalIcon from '../img/journalicon.png';
-// import PhotoIcon from '../img/photoicon.png';
-// import PromptIcon from '../img/prompticon.png';
-// import ZenyuLogo from '../img/zenyulogo.png';
-
->>>>>>> c2f7ad94f2f9e7715e71369db59bc691534a71ef
+import SmileIcon from '../img/smileyicon.png';
+import JournalIcon from '../img/journalicon.png';
+import PromptIcon from '../img/prompticon.png';
+import PhotoIcon from '../img/photoicon.png';
+import ZenyuLogo from '../img/zenyulogo.png';
 
 import './MainHomepage.css';
 
