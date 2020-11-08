@@ -4,6 +4,8 @@ import {Navbar, Card, Button, Modal, Form} from 'react-bootstrap';
 import ZenyuLogo from '../img/zenyu-logo.svg';
 import { getPrompts} from "../actions/promptActions";
 import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood   } from "../actions/journalPrompts";
+import {Link} from 'react-router-dom';
+
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -48,7 +50,7 @@ class LoginHomepage extends Component {
                 journal: (res1?.data.slice(-1).pop()?.journal || {}),
                 mood: res1?.data.slice(-1).pop()?.mood || {mood: {name:"No Mood Selected"}},
                 prompts:res2.data,
-                content: res1?.data.slice(-1).pop()?.journal.content || "",
+                content: res1?.data.slice(-1).pop()?.journal?.content || "",
         })
     })
     console.log("date",this.state.date)
@@ -330,7 +332,7 @@ displayMood(){
       
                           <Card.Body>
                               <Card.Text>{prompt.content}</Card.Text>
-                              <Card.Link href="/journalentry">Select This Prompt</Card.Link>
+                              <Link to={{pathname: "/journalentry", aboutProps:{prompt: prompt} }}>Select This Prompt</Link>
                           </Card.Body>
                       </Card>
                       ))}
