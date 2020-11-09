@@ -16,7 +16,7 @@ import setAuthToken from './utils/setAuthToken';
 
 
 const App = () => {
-  const authToken = 'Bearer ' + localStorage.getItem('token');
+  const authToken = localStorage.getItem('token');
   setAuthToken(authToken);
   return (
     <AuthState>
