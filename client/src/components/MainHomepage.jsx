@@ -45,8 +45,8 @@ class MainHomepage extends React.Component {
                     <div className="row">
                         <div className="col-lg-6 col-xl-9 mx-auto">
                         <h1 className="display-4 text-capitalize text-left float-left mb-5"style={{color: "#202020"}}>Find Yourself.&nbsp; &nbsp; &nbsp; Journal to Express Your inner thoughts.</h1>
-                        <Link to="/login"><Button>Login</Button></Link>
-                        <Link to="/signup"><Button>Register</Button></Link>
+                        <Link to="/login"><Button style= {{borderRadius: '8px', margin: '50px'}}>Login</Button></Link>
+                        <Link to="/signup"><Button style= {{borderRadius: '8px', margin: '20px'}}>Register</Button></Link>
                         </div>
                         <div className="col-lg-6 col-xl-9 mx-auto" style={{backgroundImage:`url(${ZenyuCap})`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
                         {/* <h1 className="display-4 text-left float-left mb-5" /> */}
@@ -63,7 +63,7 @@ class MainHomepage extends React.Component {
                         <div className="col-lg-3">
                         <div className="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                             <div className="d-flex features-icons-icon">
-                                <img src={SmileIcon} style={{width: '120px', height: '100px', margin: '15px'}}></img>
+                                <img src={SmileIcon} style={{width: '120px', height: '100px', margin: '40px'}}></img>
                             </div>
                             <h3>Mood Tracker</h3>
                             <p className="lead mb-0">Track your mood day to day. Let us help you by pinpointing your current mood.&nbsp;</p>
@@ -72,7 +72,7 @@ class MainHomepage extends React.Component {
                         <div className="col-lg-3">
                         <div className="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                             <div className="d-flex features-icons-icon">
-                                <img src={JournalIcon} style={{width: '120px', height: '86px', margin: '13px'}}></img>
+                                <img src={JournalIcon} style={{width: '120px', height: '86px', margin: '40px'}}></img>
                             </div>
                             <h3>Journal</h3>
                             <p className="lead mb-0">Express your feelings by writing out anything and everything that is on your mind.&nbsp;</p>
@@ -81,7 +81,7 @@ class MainHomepage extends React.Component {
                         <div className="col-lg-3">
                         <div className="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                             <div className="d-flex features-icons-icon">
-                                <img src={PhotoIcon} style={{width: '125px', height: '125px', margin: '8px'}}></img>
+                                <img src={PhotoIcon} style={{width: '125px', height: '125px', margin: '35px'}}></img>
                             </div>
                             <h3>Pictures</h3>
                             <p className="lead mb-0">Upload a picture of the day and express your feelings about the picture.</p>
@@ -90,7 +90,7 @@ class MainHomepage extends React.Component {
                         <div className="col-lg-3">
                         <div className="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                             <div className="d-flex features-icons-icon">
-                                <img src={PromptIcon} style={{width: '125px', height: '112px'}}></img>
+                                <img src={PromptIcon} style={{width: '125px', height: '112px', margin: '40px'}}></img>
                             </div>
                             <h3>Prompts</h3>
                             <p className="lead mb-0">Choose a prompt if you need help choosing what you want to write&nbsp;</p>
@@ -105,7 +105,7 @@ class MainHomepage extends React.Component {
                         <div className="col-lg-6 order-lg-2 text-white showcase-img" style={{background: `url(${ZenAbout}) center / cover no-repeat`}}><span /></div>
                         <div className="col-lg-6 my-auto order-lg-1 showcase-text">
                         <h1>About Us</h1>
-                        <p className="lead mb-0" style={{textAlign: 'justify', width: '316px', height: '196px', margin: '0px'}}>We started this website in order to help those who need ways to express themselves. This journaling website gives them a way to write down their feelings and let out their emotions to themselves.&nbsp;</p>
+                        <p className="lead mb-0" style={{textAlign: 'justify', width: '316px', height: '196px', margin: '175px'}}>We started this website in order to help those who need ways to express themselves. This journaling website gives them a way to write down their feelings and let out their emotions to themselves.&nbsp;</p>
                         </div>
                     </div>
                     </div>
