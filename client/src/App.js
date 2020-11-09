@@ -12,9 +12,12 @@ import JournalEntry from './components/JournalEntry';
 
 
 import AuthState from './context/auth/authState';
+import setAuthToken from './utils/setAuthToken';
 
 
 const App = () => {
+  const authToken = localStorage.getItem('token');
+  setAuthToken(authToken);
   return (
     <AuthState>
       <Router>

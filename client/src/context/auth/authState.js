@@ -35,7 +35,6 @@ const AuthState = props => {
 
         try {
             const res = await axios.post('https://zenyu-backend.herokuapp.com/api/users/register', formData, config);
-
             dispatch({
                 type: SIGNUP_SUCCESS,
                 payload: res.data
@@ -59,7 +58,8 @@ const AuthState = props => {
 
         try {
             const res = await axios.post('https://zenyu-backend.herokuapp.com/api/users/authenticate', formData, config);
-
+            const bearerToken = 'Bearer '+ res.data.jwt;
+            setAuthToken(bearerToken);
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data
@@ -74,7 +74,9 @@ const AuthState = props => {
     };
 
     // Logout
-    const logout = () => dispatch({ type: LOGOUT });
+    const logout = () => {
+        dispatch({ type: LOGOUT })
+    };
 
     // Clear Errors
     const clearErrors = () => dispatch( {type: CLEAR_ERRORS });

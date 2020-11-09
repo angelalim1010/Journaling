@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom';
 
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import AuthContext from '../context/auth/authContext';
 
 import './LoginHomepage.css';
 import 'react-calendar/dist/Calendar.css';
@@ -21,6 +22,7 @@ const moodIds={
 }
 
 class LoginHomepage extends Component {
+  static contextType = AuthContext
   constructor(props) {
     super(props);
     this.state = {
@@ -40,6 +42,12 @@ class LoginHomepage extends Component {
     this.refreshPage = this.refreshPage.bind(this);
     this.handleClick = this.handleClick.bind(this);
 
+  }
+
+  handleLogout = () => {
+    const { logout } = this.context
+    logout();
+    this.props.history.push('/')
   }
 
   componentDidMount = async () =>{
@@ -199,8 +207,8 @@ displayMood(){
 
   render() {
     let todayDate = new Date().toDateString();
-    console.log(this.state.prompts)
-    console.log(this.state.value)
+    //console.log(this.state.prompts)
+    //console.log(this.state.value)
     if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
         return(
             <div>
@@ -220,7 +228,7 @@ displayMood(){
                         {/* <Navbar.Text>
                             Welcome {this.state.username}
                         </Navbar.Text> */}
-                        <Button onClick={this.handleClick}>Logout</Button>
+                        <Button onClick={() => this.handleLogout()}>Logout</Button>
                     </Navbar.Collapse>
                 </Navbar>
                 <div className = "homepage-layout">
@@ -252,7 +260,7 @@ displayMood(){
                         {/* <Navbar.Text>
                             Welcome {this.state.username}
                         </Navbar.Text> */}
-                        <Button onClick={this.handleClick}>Logout</Button>
+                        <Button onClick={() => this.handleLogout()}>Logout</Button>
                       </Navbar.Collapse>
                 </Navbar>
                 <div className = "homepage-layout">
