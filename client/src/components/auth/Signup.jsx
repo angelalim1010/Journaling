@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import AuthContext from '../../context/auth/authContext';
 import ZenyuLogo from '../../img/zenyu-logo.svg';
 import '../Signup.css';
+import Login from './Login';
 
 
 const Signup = props => {
@@ -12,7 +13,7 @@ const Signup = props => {
 
   useEffect(() => {
     if(isAuthenticated) {
-      props.history.push('/');
+      props.history.push('/homepage');
     }
 
     if(error === 'User already exists') {
