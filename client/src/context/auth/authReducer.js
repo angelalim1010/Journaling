@@ -13,7 +13,7 @@ export default (state, action) => {
     switch(action.type) {
         case SIGNUP_SUCCESS:
         case LOGIN_SUCCESS:
-            localStorage.setItem('token', action.payload.token);
+            localStorage.setItem('token', action.payload.jwt);
             return {
                 ...state,
                 ...action.payload,
@@ -35,6 +35,14 @@ export default (state, action) => {
             return {
                 ...state,
                 error: null
+            };
+        case LOGOUT:
+            localStorage.removeItem('token');
+            return {
+                ...state,
+                token: null,
+                isAuthenticated: false,
+                user: null
             };
         default:
             return state;
