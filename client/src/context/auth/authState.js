@@ -58,7 +58,7 @@ const AuthState = props => {
 
         try {
             const res = await axios.post('https://zenyu-backend.herokuapp.com/api/users/authenticate', formData, config);
-            const bearerToken = 'Bearer '+ res.data.jwt;
+            const bearerToken = res.data.jwt;
             setAuthToken(bearerToken);
             dispatch({
                 type: LOGIN_SUCCESS,
