@@ -207,7 +207,7 @@ displayMood(){
 
   render() {
     let todayDate = new Date().toDateString();
-    //console.log(this.state.prompts)
+    console.log(this.state.prompts)
     //console.log(this.state.value)
     if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
         return(
@@ -340,6 +340,7 @@ displayMood(){
                           <Card.Header>Today's Prompt</Card.Header>
       
                           <Card.Body>
+                              <Card.Title>{prompt.category.name}</Card.Title>
                               <Card.Text>{prompt.content}</Card.Text>
                               <Link to={{pathname: "/journalentry", aboutProps:{prompt: prompt} }}>Select This Prompt</Link>
                           </Card.Body>
