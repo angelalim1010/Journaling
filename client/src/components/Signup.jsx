@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import ZenyuLogo from '../img/zenyu-logo.svg';
 import './Signup.css';
+import { Link } from 'react-router-dom';
 
 class Signup extends Component {
   constructor(props) {

@@ -18,27 +18,10 @@ import {Button} from 'react-bootstrap';
 import './MainHomepage.css';
 
 class MainHomepage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { showNav: true};
-        this.toggleNav = this.toggleNav.bind(this);
-    }
-
-    toggleNav(){
-        this.setState({
-            showNav: !this.state.showNav
-        })
-    }
-
     render(){   
-        const { showNav } = this.state     
+        // const { showNav } = this.state     
         return (
             <div className="MainHomepage">
-                <nav className="navbar navbar-light navbar-expand bg-light navigation-clean">
-                    <div className="container"><a className="navbar-brand" href="#">ZENYU</a><button data-toggle="collapse" className="navbar-toggler" data-target="#navcol-1" />
-                    <div className="collapse navbar-collapse" id="navcol-1"><a className="text-muted ml-auto" href="#">How To Use</a><a className="text-muted ml-auto" href="#">About Us</a><a className="text-muted mx-auto" href="#" style={{textShadow: '0px 0px'}}>Features</a></div>
-                    </div>
-                </nav>
                 <header className="masthead text-white text-center">
                     <div className="overlay" style={{background: 'rgb(250,250,250)'}} />
                     <div className="container">
@@ -49,8 +32,6 @@ class MainHomepage extends React.Component {
                         <Link to="/signup"><Button style= {{borderRadius: '8px', margin: '20px'}}>Register</Button></Link>
                         </div>
                         <div className="col-lg-6 col-xl-9 mx-auto" style={{backgroundImage:`url(${ZenyuCap})`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
-                        {/* <h1 className="display-4 text-left float-left mb-5" /> */}
-
                         </div>
                     </div>
                     </div>

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 
+import Navbar from './components/NavMenu';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import LoginHomepage from './components/LoginHomepage';
@@ -24,6 +25,7 @@ const App = () => {
         <div className='App'>
           <div className='auth-wrapper'>
             <div className='auth-inner'>
+              <Navbar />
               <Switch>
                 <Route exact path='/' component={MainHomepage} />
                 <Route path='/login' component={Login} />
