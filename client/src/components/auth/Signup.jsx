@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Form, FormGroup } from 'react-bootstrap';
 import AuthContext from '../../context/auth/authContext';
+
 import ZenyuLogo from '../../img/zenyu-logo.svg';
-import '../Signup.css';
-import Login from './Login';
+import './Signup.css';
 
 
 const Signup = props => {
@@ -44,7 +44,7 @@ const Signup = props => {
   };
 
   return (
-    <div className='signup-body'>
+    <div className='signup'>
       <div className='wrapper'>
         <div className='container-fluid p-0'>
           <div className='d-flex' id='banner'>
@@ -52,9 +52,6 @@ const Signup = props => {
             <h5 className='text-lowercase text-center my-md-5'>
               Heal. Thrive. Grow.
             </h5>
-            <p className='text-center my-md-4'>
-              <em>the journal designed for mindfulness + self-growth</em>
-            </p>
           </div>
           <div className='d-flex flex-column my-md-3 mx-md-5'>
             <h3 className='text-center'>
@@ -62,17 +59,16 @@ const Signup = props => {
             </h3>
             <Form onSubmit={handleSubmit}>
               <FormGroup>
-                <Input
+                <input
                   type='text'
                   name='FirstName'
                   placeholder='First Name'
                   value={FirstName}
                   onChange={handleChange}
-                  required
-                />
+                  required/>
               </FormGroup>
               <FormGroup>
-                <Input
+                <input
                   type='text'
                   name='LastName'
                   placeholder='Last Name'
@@ -82,7 +78,7 @@ const Signup = props => {
                 />
               </FormGroup>
               <FormGroup>
-                <Input
+                <input
                   type='email'
                   name='Email'
                   placeholder='Email'
@@ -92,7 +88,7 @@ const Signup = props => {
                 />
               </FormGroup>
               <FormGroup>
-                <Input
+                <input
                   type='password'
                   name='Password'
                   placeholder='Password'
@@ -102,7 +98,7 @@ const Signup = props => {
                 />
               </FormGroup>
               <FormGroup>
-                <Input
+                <input
                   type='password'
                   name='ConfirmPassword'
                   placeholder='Confirm Password'
@@ -113,9 +109,7 @@ const Signup = props => {
               </FormGroup>
               <FormGroup>
                 <div className='form-check'>
-                  <Label check>
-                    <Input type='checkbox' required />I agree to the <a href='/login'>Terms</a> &amp;{' '} <a href='/login'>Privacy Policy</a>.
-                  </Label>
+                  <input type='checkbox' required />I agree to the <a href='/login'>Terms</a> &amp;{' '} <a href='/login'>Privacy Policy</a>.
                 </div>
               </FormGroup>
               <Button type="submit">Sign Up</Button>

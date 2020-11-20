@@ -1,0 +1,117 @@
+body,
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+}
+h2 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: #000;
+}
+h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #000;
+}
+h4 {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #000;
+}
+h5 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+p {
+  margin-bottom: 3rem;
+}
+a {
+  color: #1e8bb3;
+  font-weight: 400;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: #1e8bb3;
+}
+
+/* Section */
+.section {
+  width: 100%;
+  padding: 3rem 0;
+}
+.section-emphasis h4 {
+  font-weight: 400;
+}
+
+.btn-custom {
+  color: #fff;
+  padding: 0.85rem 2em;
+  letter-spacing: 0.1rem;
+  border-radius: 25px;
+  transition: all 0.5s linear;
+  border: 0;
+  margin: 1rem 0;
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom.focus,
+.btn-custom:active,
+.btn-custom.active {
+  color: #fff;
+  background-color: #1e8bb3;
+}
+a:focus,
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: none;
+  outline-offset: none;
+}
+
+/* Header */
+.jumbotron {
+  background: url(../../img/intro-bg.jpg) center center no-repeat;
+  background-size: cover;
+  padding: 16.9rem 0;
+  margin: 0;
+}
+.header .logo {
+  max-width: 80%;
+  margin: 2.5rem 0;
+}
+
+/* Features */
+.icon {
+  font-size: 38px;
+  margin-bottom: 20px;
+  transition: all 0.5s;
+  color: #fff;
+  width: 100px;
+  height: 100px;
+  padding: 30px 0;
+  border-radius: 50%;
+  background: #1e8bb3;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+}
+#features {
+  background-color: #fff;
+}
+
+/* About */
+#about img {
+  width: 100%;
+}
+
+/* Footer */
+#footer {
+  background-color: #000;
+}
+#footer .text {
+  color: #fff;
+}

@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Button, Form, FormGroup, Input } from 'reactstrap';
+import { Button, Form, FormGroup } from 'react-bootstrap';
 import AuthContext from '../../context/auth/authContext';
 import ZenyuLogo from '../../img/zenyu-logo.svg';
 
-import '../Login.css';
+import './Login.css';
 
 
 const Login = props => {

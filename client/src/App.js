@@ -1,16 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css';
-
-import Navbar from './components/NavMenu';
+import Landing from './components/Landing';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import LoginHomepage from './components/LoginHomepage';
-import MainHomepage from './components/MainHomepage';
 import JournalEntry from './components/JournalEntry';
-
 
 import AuthState from './context/auth/authState';
 import setAuthToken from './utils/setAuthToken';
@@ -25,13 +20,11 @@ const App = () => {
         <div className='App'>
           <div className='auth-wrapper'>
             <div className='auth-inner'>
-              <Navbar />
               <Switch>
-                <Route exact path='/' component={MainHomepage} />
+                <Route exact path='/' component={Landing} />
                 <Route path='/login' component={Login} />
                 <Route path='/signup' component={Signup} />
                 <Route path='/homepage' component={LoginHomepage} />
-                {/* <Route path= '/mainhomepage' component={MainHomepage} /> */}
                 <Route path= '/journalentry' component={JournalEntry} />
               </Switch>
             </div>
@@ -41,7 +34,6 @@ const App = () => {
     </AuthState>
   );
 }
-
 
 
 export default App;
