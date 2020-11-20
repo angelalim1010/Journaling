@@ -7,9 +7,9 @@ class Navigation extends Component {
   render() {
     return (
       <div id="landing" className="menu">
-        <Navbar fixed="top" collapseOnSelect expand="lg">
+        <Navbar fixed="top" collapseOnSelect expand="lg" bg="light">
           <Navbar.Brand to='/'>
-            <Nav.Link href="#landing"><img src={Logo} className='logo' alt='logo' /></Nav.Link>
+            <Nav.Link href="#landing">Zenyu</Nav.Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">

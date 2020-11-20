@@ -6,8 +6,8 @@ import './Landing.css'
 class Features extends Component {
   render() {
     return (
-      <div id="features" className="section">
-        <Container>
+      <div id="features">
+        <Container className="section">
           <Row className="justify-content-center">
             <Col className="text-center" md="auto">
               <h3>Features</h3>
