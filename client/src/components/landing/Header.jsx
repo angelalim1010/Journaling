@@ -7,7 +7,6 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <div>
           <Jumbotron fluid>
             <Container className="header">
               <Row className="justify-content-center">
@@ -23,7 +22,6 @@ class Header extends Component {
               </Row>
             </Container>
           </Jumbotron>
-        </div>
       </div>      
     );
   }

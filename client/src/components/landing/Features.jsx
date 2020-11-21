@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FaEdit, FaRegListAlt, FaRegSmile, FaRegImage } from 'react-icons/fa';
-import './Landing.css'
+
 
 class Features extends Component {
   render() {

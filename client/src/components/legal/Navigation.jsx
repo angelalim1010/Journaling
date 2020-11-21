@@ -8,15 +8,14 @@ class Navigation extends Component {
       <div id="landing" className="menu">
         <Navbar fixed="top" collapseOnSelect expand="lg" bg="light">
           <Navbar.Brand>
-            <Nav.Link href='/'>Zenyu</Nav.Link>
+            <Nav.Link href="/">Zenyu</Nav.Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
           </Nav>
           <Nav>
-            <Nav.Link href="#features" className="page-scroll">Features</Nav.Link>
-            <Nav.Link href="#about" className='active'>About</Nav.Link>
+            <Nav.Link href="/" className="page-scroll">Home</Nav.Link>
             <Nav.Link href="/login" className='active'>Log In</Nav.Link>
             <Nav.Link href="/signup" className='active'>Sign Up</Nav.Link>
           </Nav>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Nav } from 'react-bootstrap';
 
-import './Landing.css';
 
 class Footer extends Component {
   render() {
@@ -15,10 +14,16 @@ class Footer extends Component {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link className="text" eventKey="link-1">Contact</Nav.Link>
+                <Nav.Link href="#" className="text" eventKey="contact">Contact</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link className="text" eventKey="link-2">Disclaimer</Nav.Link>
+                <Nav.Link href="terms" className="text" eventKey="tos">Terms of Service</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="disclaimer" className="text" eventKey="disclaimer">Disclaimer</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="privacy" className="text" eventKey="privacy">Privacy Policy</Nav.Link>
               </Nav.Item>
             </Nav>
           </Container>

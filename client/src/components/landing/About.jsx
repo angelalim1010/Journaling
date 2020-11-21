@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import rock from '../../img/rock.jpg';
-import './Landing.css'
-
 
 class About extends Component {
   render() {
