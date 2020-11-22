@@ -5,7 +5,7 @@ import AuthContext from '../../context/auth/authContext';
 import Navigation from '../legal/Navigation';
 import Footer from '../Footer';
 import '../style/style.css';
-import '../style/Signup.css';
+import '../style/Auth.css';
 
 
 const Signup = props => {
@@ -49,8 +49,8 @@ const Signup = props => {
     <div>
       <Navigation />
       <Container className="signup" fluid>
-        <Col className="justify-content-center wrapper">
-          <Col className="text-center" md="6">
+        <Col id="signup" className="wrapper">
+          <Col className="justify-content-center text-center" md="6">
             <h3>heal. thrive. grow.</h3>
             <h5><strong>Create</strong> an account.</h5>
           </Col>
@@ -121,7 +121,6 @@ const Signup = props => {
                 </a>
               </p>
               </Form>
-              
             </Col>
           </Row>
         </Col>
