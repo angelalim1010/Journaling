@@ -19,7 +19,7 @@ class Terms extends Component {
               </Col>
             </Row>
             <Row>
-              <Col className="justify-content tos" xs={12} md={4}>
+              <Col className="justify-content toc" xs={12} md={4}>
                   <h5>Table of Contents</h5>
                   <h6>
                     <ol>
@@ -196,7 +196,7 @@ class Terms extends Component {
             <p></p>
 
             <h5>PRIVACY POLICY</h5>
-            We care about data privacy and security. Please review our Privacy Policy [CLICK HERE]/posted on the Site]. By using the Site, you agree to be bound by 
+            We care about data privacy and security. Please review our Privacy Policy [CLICK HERE]/posted on the Site. By using the Site, you agree to be bound by 
             our Privacy Policy, which is incorporated into these Terms of Service. Please be advised the Site is hosted in the United States. 
             <br/><br/>
             If you access the Site from the European Union, Asia, or any other region of the world with laws or other requirements governing personal data collection, 
@@ -391,7 +391,7 @@ class Terms extends Component {
             hereto to execute these Terms of Service.</p>
 
             <h5>CONTACT US</h5>
-            In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at [email address].
+            In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at {EMAIL}.
             <br/><br/>
               </Col>
             </Row>
@@ -401,5 +401,7 @@ class Terms extends Component {
     )
   }
 }
+
+const EMAIL = 'help@zenyu.com';
 
 export default Terms
