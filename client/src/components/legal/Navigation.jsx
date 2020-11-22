@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
-import Logo from '../../img/zenyu-logo.svg';
+
+import logo from '../../img/zenyu-logo.svg';
 
 
 class Navigation extends Component {
   render() {
     return (
-      <div id="landing" className="menu">
+      <div>
         <Navbar fixed="top" collapseOnSelect expand="lg" bg="light">
           <Navbar.Brand>
-            <Nav.Link href="/"><img src={Logo} alt="logo"/></Nav.Link>
+            <Nav.Link href="/"><img src={logo} alt="logo"/></Nav.Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
