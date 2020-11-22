@@ -6,8 +6,6 @@ import setAuthToken from '../../utils/setAuthToken';
 import {
     SIGNUP_SUCCESS,
     SIGNUP_FAIL,
-    USER_LOADED,
-    AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT,

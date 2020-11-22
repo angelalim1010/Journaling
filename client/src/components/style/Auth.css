@@ -1,0 +1,52 @@
+body {
+  background-color: #eaeff4;
+}
+.wrapper {
+  background: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1140px;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.login {
+  margin-top: -2.5rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(234, 239, 244, 0.95),
+      rgba(234, 239, 244, 0.6)
+    ),
+    url(../../img/zen-garden.jpg);
+  background-position: left bottom;
+  background-size: cover;
+  position: relative;
+}
+#login {
+  padding: 18rem 0;
+}
+.signup {
+  margin-top: -2.15rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(234, 239, 244, 0.75),
+      rgba(32, 32, 32, 0.2)
+    ),
+    url(../../img/journal-op-70.png);
+  background-position: left bottom;
+  background-size: cover;
+  position: relative;
+}
+#signup {
+  padding-top: 15rem;
+}
+.signup p {
+  margin-bottom: 0;
+}

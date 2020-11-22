@@ -1,0 +1,54 @@
+body,
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+}
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+h2 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: #000;
+}
+h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #000;
+}
+h4 {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #000;
+}
+h5 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+h6 {
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+p {
+  margin-bottom: 3rem;
+}
+a {
+  color: #1e8bb3;
+  font-weight: 400;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: #000;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+img {
+  width: 40%;
+}
