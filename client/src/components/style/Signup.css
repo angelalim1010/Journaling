@@ -24,6 +24,7 @@ body {
       rgba(32, 32, 32, 0.2)
     ),
     url(../../img/journal-op-70.png);
+  background-position: left bottom;
   background-size: cover;
   position: relative;
 }
