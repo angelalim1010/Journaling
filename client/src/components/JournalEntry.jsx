@@ -5,7 +5,6 @@ import { createJournal,  createMood  } from "../actions/journalPrompts";
 import {Button, Form} from 'react-bootstrap';
 import {Redirect, withRouter} from 'react-router-dom';
 
-
 import "./JournalEntry.css"
 const moodIds={
     sad: "148f355c-f251-49ec-9f9d-48b8c815bfbd",
@@ -53,9 +52,11 @@ class JournalEntry extends Component{
 
                                     </Form.Control>
 									<div className= "editor">
+										
 								<CKEditor
 									editor={ClassicEditor}
 									data = {this.state.content}
+									
 									onChange={ ( event, editor ) => {
 										const data = editor.getData();
 										this.setState({
@@ -63,7 +64,13 @@ class JournalEntry extends Component{
 										})
 										console.log( { event, editor, data } );
 										console.log(this.state.content)
-										} }
+									} }
+									// config={{
+									// 	ckfinder: {
+									// 	// Upload the images to the server using the CKFinder QuickUpload command.
+									// 	uploadUrl: 'https://example.com/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images&responseType=json'
+									//   }
+									// }}
 									/>
 								</div>
                                 <Button type="submit">Submit Entry</Button>

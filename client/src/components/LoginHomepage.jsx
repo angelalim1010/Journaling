@@ -31,8 +31,7 @@ class LoginHomepage extends Component {
         journal: {},
         mood: {},
         content: "",
-        value: "",
-        username: "Bob"
+        value: ""
     }
     this.onChange = this.onChange.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -206,6 +205,7 @@ displayMood(){
 }
 
   render() {
+      console.log(this.state.date)
     let todayDate = new Date().toDateString();
     console.log(this.state.prompts)
     //console.log(this.state.value)
