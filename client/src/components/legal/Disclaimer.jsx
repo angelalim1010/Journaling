@@ -11,7 +11,7 @@ class Disclaimer extends Component {
     return (
       <div>
         <Navigation />
-          <Container id="disclaimer" className="section" fluid>
+          <Container id="disclaimer" className="section">
             <Row className="justify-content-center">
               <Col className="text-center title" s={6}>
                 <h1>Disclaimer</h1>
@@ -40,7 +40,7 @@ class Disclaimer extends Component {
               </Col>
             </Row>
           </Container>
-        <Footer />
+          <footer className="footer"><Footer /></footer>
       </div>
     )
   }

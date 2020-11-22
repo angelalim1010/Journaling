@@ -44,3 +44,8 @@ a:focus {
   text-decoration: none;
   color: #1e8bb3;
 }
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

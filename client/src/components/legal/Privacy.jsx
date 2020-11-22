@@ -28,7 +28,7 @@ class Privacy extends Component {
                   </Col>
                 </Row>
               </Container>
-            <Footer />
+            <footer className="footer"><Footer /></footer>
           </div>
         )
       }

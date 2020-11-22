@@ -18,7 +18,7 @@ class Landing extends Component {
         <Header />
         <Features />
         <About />
-        <Footer />
+        <footer className="footer"><Footer /></footer>
       </div>
     )
   }
