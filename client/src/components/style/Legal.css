@@ -1,7 +1,11 @@
-.section {
-  width: 100%;
-  padding: 4rem 0;
-}
 .title {
-  padding: 2rem 0;
+  padding: 1rem 0;
+}
+
+.section-text {
+  padding: 0 10rem;
+}
+
+#disclaimer {
+  padding: 6.5rem 0 14.5rem 0;
 }

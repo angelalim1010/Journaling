@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
+import Logo from '../../img/zenyu-logo.svg';
 
 
 class Navigation extends Component {
@@ -8,7 +9,7 @@ class Navigation extends Component {
       <div id="landing" className="menu">
         <Navbar fixed="top" collapseOnSelect expand="lg" bg="light">
           <Navbar.Brand>
-            <Nav.Link href="/">Zenyu</Nav.Link>
+            <Nav.Link href="/"><img src={Logo} alt="logo"/></Nav.Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
