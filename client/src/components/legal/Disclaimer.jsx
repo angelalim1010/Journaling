@@ -11,10 +11,11 @@ class Disclaimer extends Component {
     return (
       <div>
         <Navigation />
-          <Container id="disclaimer" className="section">
+          <Container className="section">
             <Row className="justify-content-center">
               <Col className="text-center title" s={6}>
                 <h1>Disclaimer</h1>
+                <h6><em>Last updated November 21, 2020.</em></h6>
               </Col>
             </Row>
             <Row className="justify-content">
