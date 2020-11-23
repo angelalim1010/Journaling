@@ -15,7 +15,7 @@ const Login = props => {
 
   useEffect(() => {
     if(isAuthenticated) {
-      props.history.push('/homepage');
+      props.history.push('/home');
     }
 
     if(error === 'User already exists') {

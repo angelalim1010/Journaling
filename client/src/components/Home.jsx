@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
-import {Navbar, Card, Button, Modal, Form} from 'react-bootstrap';
-import ZenyuLogo from '../img/zenyu-logo.svg';
-import { getPrompts} from "../actions/promptActions";
-import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood   } from "../actions/journalPrompts";
-import {Link} from 'react-router-dom';
+import { Card, Button, Modal, Form } from 'react-bootstrap';
 
+import Navigation from './home/Navigation';
+import Footer from './Footer';
+
+import { getPrompts } from "../actions/promptActions";
+import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood } from "../actions/journalPrompts";
+import { Link } from 'react-router-dom';
 
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -21,7 +23,7 @@ const moodIds={
     calm: "9c2f2373-9d69-4abd-a5ed-b419695c4376"
 }
 
-class LoginHomepage extends Component {
+class Home extends Component {
   static contextType = AuthContext
   constructor(props) {
     super(props);
@@ -212,25 +214,7 @@ displayMood(){
     if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
         return(
             <div>
-                <Navbar bg="dark" variant="dark" className="underline">
-                    <Navbar.Brand href="/">
-                        <img src={ZenyuLogo} 
-                            width="100" 
-                            height="30" 
-                            // className="d-inline-block align-top" 
-                            alt="Zenyu Logo"
-                            style={{ filter: "brightness(0) invert(1)"}}
-                            >
-                            
-                        </img>
-                    </Navbar.Brand>
-                    <Navbar.Collapse className = "justify-content-end">
-                        {/* <Navbar.Text>
-                            Welcome {this.state.username}
-                        </Navbar.Text> */}
-                        <Button onClick={() => this.handleLogout()}>Logout</Button>
-                    </Navbar.Collapse>
-                </Navbar>
+                <Navigation handleLogout = {this.handleLogout} />
                 <div className = "homepage-layout">
                     <Calendar
                         onChange={this.onChange}
@@ -240,35 +224,16 @@ displayMood(){
                 </div>
             </div>
         )
-
-      }
-          return (
-              <div>
-                  <Navbar bg="dark" variant="dark" className="underline">
-                      <Navbar.Brand href="/">
-                          <img src={ZenyuLogo} 
-                              width="100" 
-                              height="30" 
-                              // className="d-inline-block align-top" 
-                              alt="Zenyu Logo"
-                              style={{ filter: "brightness(0) invert(1)"}}
-                              >
-                              
-                          </img>
-                      </Navbar.Brand>
-                      <Navbar.Collapse className = "justify-content-end">
-                        {/* <Navbar.Text>
-                            Welcome {this.state.username}
-                        </Navbar.Text> */}
-                        <Button onClick={() => this.handleLogout()}>Logout</Button>
-                      </Navbar.Collapse>
-                </Navbar>
-                <div className = "homepage-layout">
-                    <Calendar
-                        onChange={this.onChange}
-                        value={this.state.date}
-                    />
-                    {Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
+    }
+    return (
+        <div>
+            <Navigation handleLogout = {this.handleLogout} />
+            <div className = "homepage-layout">
+                <Calendar
+                    onChange={this.onChange}
+                    value={this.state.date}
+                />
+                { Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
                     <div className = "journal-entry">
                         <div className = "mood-div">
                             <h1>Mood: </h1>
@@ -353,10 +318,10 @@ displayMood(){
                 }
                     
             </div>
-            </div>
-              
-          )      
+        <Footer />
+        </div>  
+    )      
   }
 }
 
-export default LoginHomepage;
+export default Home;

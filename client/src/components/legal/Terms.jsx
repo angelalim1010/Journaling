@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Navigation from './Navigation';
 import Footer from '../Footer';
@@ -7,116 +7,114 @@ import '../style/style.css';
 import '../style/Legal.css';
 
 
-class Terms extends Component {
-  render() {
-    return (
-      <div>
-        <Navigation />
-          <Container className="section">
-            <Row className="justify-content-center title">
-              <Col className="text-center title" s={6}>
-                <h1>Terms of Service</h1>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="justify-content toc" xs={12} md={4}>
-                  <h5>Table of Contents</h5>
-                  <h6>
-                    <ol>
-                      <li>Agreement to Terms</li>
-                      <li>Intellectual Property Rights</li>
-                      <li>User Representations</li>
-                      <li>User Registration</li>
-                      <li>Prohibited Activities</li>
-                      <li>Third-Party Content</li>
-                      <li>Site Management</li>
-                      <li>Privacy Policy</li>
-                      <li>Copyright Infringements</li>
-                      <li>Term and Termination</li>
-                      <li>Modifications and Interruptions</li>
-                      <li>Governing Law</li>
-                      <li>Dispute Resolution</li>
-                      <li>Corrections</li>
-                      <li>Disclaimer</li>
-                      <li>Indemnification</li>
-                      <li>User Data</li>
-                      <li>Electronic Communications</li>
-                      <li>Miscellaneous</li>
-                      <li>Contact Us</li>
-                    </ol>
-                  <h6><em>Last updated November 21, 2020.</em></h6>
-                  </h6>
-
-                  <br/>
-              </Col>
-              <Col className="justify-content" xs={12} md={8}>
-              <h5>AGREEMENT TO TERMS</h5>
-              These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity 
-              (“you”) and Zenyu (“we,” “us” or “our”), concerning your access to and use of the [zenyu.herokuapp.com] website as well as any 
-              other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto 
-              (collectively, the “Site”). 
-              <br/><br/>
-              You agree that by accessing the Site, you have read, understood, and agree to be bound by all of these Terms of Service. If you 
-              do not agree with all of these Terms of Service, then you are expressly prohibited from using the Site and you must discontinue 
-              use immediately.
-              <br/><br/>
-              Supplemental Terms of Service or documents that may be posted on the Site from time to time are hereby expressly incorporated 
-              herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Service 
-              at any time and for any reason. 
-              <br/><br/>
-              We will alert you about any changes by updating the “Last updated” date of these Terms of Service, and you waive any right to 
-              receive specific notice of each such change. 
-              <br/><br/>
-              It is your responsibility to periodically review these Terms of Service to stay informed of updates. You will be subject to, and 
-              will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Service by your continued 
-              use of the Site after the date such revised Terms of Service are posted. 
-              <br/><br/>
-              The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or 
-              country where such distribution or use would be contrary to law or regulation or which would subject us to any registration 
-              requirement within such jurisdiction or country. 
-              <br/><br/>
-              Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely 
-              responsible for compliance with local laws, if and to the extent local laws are applicable. 
-              <br/><br/>
-              These terms of service were created using Termly.
-              <br/><br/>
-              <p>The Site is intended for users who are at least 13 years of age. All users who are minors in the jurisdiction in which they 
-              reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian 
-              to use the Site. If you are a minor, you must have your parent or guardian read and agree to these Terms of Service prior to 
-              you using the Site.</p>
-            
-              <h5>INTELLECTUAL PROPERTY RIGHTS</h5>
-              Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, 
-              website designs, audio, video, text, photographs, and graphics on the Site (collectively, the “Content”) and the trademarks, 
-              service marks, and logos contained therein (the “Marks”) are owned or controlled by us or licensed to us, and are protected by 
-              copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United States, 
-              foreign jurisdictions, and international conventions. 
-              <br/><br/>
-              The Content and the Marks are provided on the Site “AS IS” for your information and personal use only. Except as expressly 
-              provided in these Terms of Service, no part of the Site and no Content or Marks may be copied, reproduced, aggregated, republished, 
-              uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for 
-              any commercial purpose whatsoever, without our express prior written permission.
-              <br/><br/>
-              <p>Provided that you are eligible to use the Site, you are granted a limited license to access and use the Site and to download or 
-              print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. 
-              We reserve all rights not expressly granted to you in and to the Site, the Content and the Marks.</p>
-
-              <h5>USER REPRESENTATIONS</h5>
-              By using the Site, you represent and warrant that:
-              <br/>
+const Terms = () => {
+  return (
+    <div>
+      <Navigation />
+        <Container className="section">
+        <Row className="justify-content-center title">
+          <Col className="text-center title" s={6}>
+            <h1>Terms of Service</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="justify-content toc" xs={12} md={4}>
+            <h5>Table of Contents</h5>
+            <h6>
               <ol>
-                <li>all registration information you submit will be true, accurate, current, and complete;</li>
-                <li>you will maintain the accuracy of such information and promptly update such registration information as necessary;</li>
-                <li>you have the legal capacity and you agree to comply with these Terms of Service; </li>
-                <li>you are not under the age of 13;</li>
-                <li>not a minor in the jurisdiction in which you reside, or if a minor, you have received parental permission to use the Site; </li>
-                <li>you will not access the Site through automated or non-human means, whether through a bot, script, or otherwise; </li>
-                <li>you will not use the Site for any illegal or unauthorized purpose; </li>
-                <li>your use of the Site will not violate any applicable law or regulation.</li>
+                <li>Agreement to Terms</li>
+                <li>Intellectual Property Rights</li>
+                <li>User Representations</li>
+                <li>User Registration</li>
+                <li>Prohibited Activities</li>
+                <li>Third-Party Content</li>
+                <li>Site Management</li>
+                <li>Privacy Policy</li>
+                <li>Copyright Infringements</li>
+                <li>Term and Termination</li>
+                <li>Modifications and Interruptions</li>
+                <li>Governing Law</li>
+                <li>Dispute Resolution</li>
+                <li>Corrections</li>
+                <li>Disclaimer</li>
+                <li>Indemnification</li>
+                <li>User Data</li>
+                <li>Electronic Communications</li>
+                <li>Miscellaneous</li>
+                <li>Contact Us</li>
               </ol>
-              <p>If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate 
-              your account and refuse any and all current or future use of the Site (or any portion thereof).</p>
-            
+              <h6><em>Last updated November 21, 2020.</em></h6>
+            </h6>
+            <br/>
+          </Col>
+          <Col className="justify-content" xs={12} md={8}>
+            <h5>AGREEMENT TO TERMS</h5>
+            These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity 
+            (“you”) and Zenyu (“we,” “us” or “our”), concerning your access to and use of the [zenyu.herokuapp.com] website as well as any 
+            other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto 
+            (collectively, the “Site”). 
+            <br/><br/>
+            You agree that by accessing the Site, you have read, understood, and agree to be bound by all of these Terms of Service. If you 
+            do not agree with all of these Terms of Service, then you are expressly prohibited from using the Site and you must discontinue 
+            use immediately.
+            <br/><br/>
+            Supplemental Terms of Service or documents that may be posted on the Site from time to time are hereby expressly incorporated 
+            herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Service 
+            at any time and for any reason. 
+            <br/><br/>
+            We will alert you about any changes by updating the “Last updated” date of these Terms of Service, and you waive any right to 
+            receive specific notice of each such change. 
+            <br/><br/>
+            It is your responsibility to periodically review these Terms of Service to stay informed of updates. You will be subject to, and 
+            will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Service by your continued 
+            use of the Site after the date such revised Terms of Service are posted. 
+            <br/><br/>
+            The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or 
+            country where such distribution or use would be contrary to law or regulation or which would subject us to any registration 
+            requirement within such jurisdiction or country. 
+            <br/><br/>
+            Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely 
+            responsible for compliance with local laws, if and to the extent local laws are applicable. 
+            <br/><br/>
+            These terms of service were created using Termly.
+            <br/><br/>
+            <p>The Site is intended for users who are at least 13 years of age. All users who are minors in the jurisdiction in which they 
+            reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian 
+            to use the Site. If you are a minor, you must have your parent or guardian read and agree to these Terms of Service prior to 
+            you using the Site.</p>
+        
+            <h5>INTELLECTUAL PROPERTY RIGHTS</h5>
+            Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, 
+            website designs, audio, video, text, photographs, and graphics on the Site (collectively, the “Content”) and the trademarks, 
+            service marks, and logos contained therein (the “Marks”) are owned or controlled by us or licensed to us, and are protected by 
+            copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United States, 
+            foreign jurisdictions, and international conventions. 
+            <br/><br/>
+            The Content and the Marks are provided on the Site “AS IS” for your information and personal use only. Except as expressly 
+            provided in these Terms of Service, no part of the Site and no Content or Marks may be copied, reproduced, aggregated, republished, 
+            uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for 
+            any commercial purpose whatsoever, without our express prior written permission.
+            <br/><br/>
+            <p>Provided that you are eligible to use the Site, you are granted a limited license to access and use the Site and to download or 
+            print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. 
+            We reserve all rights not expressly granted to you in and to the Site, the Content and the Marks.</p>
+
+            <h5>USER REPRESENTATIONS</h5>
+            By using the Site, you represent and warrant that:
+            <br/>
+            <ol>
+            <li>all registration information you submit will be true, accurate, current, and complete;</li>
+            <li>you will maintain the accuracy of such information and promptly update such registration information as necessary;</li>
+            <li>you have the legal capacity and you agree to comply with these Terms of Service; </li>
+            <li>you are not under the age of 13;</li>
+            <li>not a minor in the jurisdiction in which you reside, or if a minor, you have received parental permission to use the Site; </li>
+            <li>you will not access the Site through automated or non-human means, whether through a bot, script, or otherwise; </li>
+            <li>you will not use the Site for any illegal or unauthorized purpose; </li>
+            <li>your use of the Site will not violate any applicable law or regulation.</li>
+            </ol>
+            <p>If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate 
+            your account and refuse any and all current or future use of the Site (or any portion thereof).</p>
+        
             <h5>USER REGISTRATION</h5>
             <p>You may be required to register with the Site. You agree to keep your password confidential and will be responsible for all use of your 
             account and password.</p>
@@ -126,42 +124,41 @@ class Terms extends Component {
             connection with any commercial endeavors except those that are specifically endorsed or approved by us. 
             <br/><br/>
             As a user of the Site, you agree not to:
-            <ol>
-                <li>systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, 
-                    database, or directory without written permission from us.</li>
-                <li>make any unauthorized use of the Site, including collecting names and/or email addresses of users by electronic or other means for 
-                    the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li>
-                <li>circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict 
-                    the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.</li>
-                <li>engage in unauthorized framing of or linking to the Site.</li>
-                <li>trick, defraud, or mislead us, especially in any attempt to learn sensitive account information such as user passwords;</li>
-                <li>make improper use of our support services or submit false reports of abuse or misconduct.</li>
-                <li>engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or 
-                    similar data gathering and extraction tools.</li>
-                <li>interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.</li>
-                <li>attempt to impersonate another user or person.</li>
-                <li>sell or otherwise transfer your profile.</li>
-                <li>use any information obtained from the Site in order to harass, abuse, or harm another person.</li>
-                <li>use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating 
-                    endeavor or commercial enterprise.</li>
-                <li>decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site.</li>
-                <li>attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.</li>
-                <li>harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.</li>
-                <li>delete the copyright or other proprietary rights notice from any Content.</li>
-                <li>copy or adapt the Site’s software, including but not limited to HTML, JavaScript, or other code.</li>
-                <li>upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital 
-                    letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the 
-                    Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.</li>
-                <li>upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or 
-                    transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other 
-                    similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).</li>
-                <li>except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, 
-                    including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching 
-                    any unauthorized script or other software.</li>
-                <li>disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li>
-                <li>use the Site in a manner inconsistent with any applicable laws or regulations.</li>
-            </ol>
-            <p></p>
+            <p><ol>
+              <li>systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, 
+                database, or directory without written permission from us.</li>
+              <li>make any unauthorized use of the Site, including collecting names and/or email addresses of users by electronic or other means for 
+                the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li>
+              <li>circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict 
+                the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.</li>
+              <li>engage in unauthorized framing of or linking to the Site.</li>
+              <li>trick, defraud, or mislead us, especially in any attempt to learn sensitive account information such as user passwords;</li>
+              <li>make improper use of our support services or submit false reports of abuse or misconduct.</li>
+              <li>engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or 
+                similar data gathering and extraction tools.</li>
+              <li>interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.</li>
+              <li>attempt to impersonate another user or person.</li>
+              <li>sell or otherwise transfer your profile.</li>
+              <li>use any information obtained from the Site in order to harass, abuse, or harm another person.</li>
+              <li>use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating 
+                endeavor or commercial enterprise.</li>
+              <li>decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site.</li>
+              <li>attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.</li>
+              <li>harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.</li>
+              <li>delete the copyright or other proprietary rights notice from any Content.</li>
+              <li>copy or adapt the Site’s software, including but not limited to HTML, JavaScript, or other code.</li>
+              <li>upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital 
+                letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the 
+                Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.</li>
+              <li>upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or 
+                transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other 
+                similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).</li>
+              <li>except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, 
+                including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching 
+                any unauthorized script or other software.</li>
+              <li>disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li>
+              <li>use the Site in a manner inconsistent with any applicable laws or regulations.</li>
+            </ol></p>
 
             <h5>THIRD-PARTY CONTENT</h5>
             The Site may contain photographs, text, graphics, pictures, designs, information, applications, and other content belonging to or originating from 
@@ -183,17 +180,16 @@ class Terms extends Component {
 
             <h5>SITE MANAGEMENT</h5>
             We reserve the right, but not the obligation, to: 
-            <ol>
-                <li>monitor the Site for violations of these Terms of Service; </li>
-                <li>take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms of Service, including without limitation, 
-                    reporting such user to law enforcement authorities; </li>
-                <li>in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically 
-                    feasible) any of your Contributions or any portion thereof;</li>
-                <li>in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are 
-                    excessive in size or are in any way burdensome to our systems; </li>
-                <li>otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.</li>
-            </ol>
-            <p></p>
+            <p><ol>
+              <li>monitor the Site for violations of these Terms of Service; </li>
+              <li>take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms of Service, including without limitation, 
+                reporting such user to law enforcement authorities; </li>
+              <li>in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically 
+                feasible) any of your Contributions or any portion thereof;</li>
+              <li>in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are 
+                excessive in size or are in any way burdensome to our systems; </li>
+              <li>otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.</li>
+            </ol></p>
 
             <h5>PRIVACY POLICY</h5>
             We care about data privacy and security. Please review our Privacy Policy [CLICK HERE]/posted on the Site. By using the Site, you agree to be bound by 
@@ -206,7 +202,7 @@ class Terms extends Component {
             <p>Further, we do not knowingly accept, request, or solicit information from children or knowingly market to children. Therefore, in accordance with the U.S. 
             Children’s Online Privacy Protection Act, if we receive actual knowledge that anyone under the age of 13 has provided personal information to us without 
             the requisite and verifiable parental consent, we will delete that information from the Site as quickly as is reasonably practical.</p>
- 
+
             <h5>DIGITAL MILLENNIUM COPYRIGHT ACT NOTICE AND POLICY</h5>
             <strong>Notifications</strong><br/>
             We respect the intellectual property rights of others. If you believe that any material available on or through the Site infringes upon any copyright you own 
@@ -218,33 +214,33 @@ class Terms extends Component {
             <br/><br/>
             All Notifications should meet the requirements of DMCA 17 U.S.C. § 512(c)(3) and include the following information: 
             <ol>
-                <li>A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed; </li>
-                <li>identification of the copyrighted work claimed to have been infringed, or, if multiple copyrighted works on the Site are covered by the 
-                    Notification, a representative list of such works on the Site; </li>
-                <li>identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access 
-                    to which is to be disabled, and information reasonably sufficient to permit us to locate the material; </li>
-                <li>information reasonably sufficient to permit us to contact the complaining party, such as an address, telephone number, and, if available, an email 
-                    address at which the complaining party may be contacted;</li>
-                <li>a statement that the complaining party has a good faith belief that use of the material in the manner complained of is not authorized by the 
-                    copyright owner, its agent, or the law;</li>
-                <li>a statement that the information in the notification is accurate, and under penalty of perjury, that the complaining party is authorized to act 
-                    on behalf of the owner of an exclusive right that is allegedly infringed upon.</li>
+              <li>A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed; </li>
+              <li>identification of the copyrighted work claimed to have been infringed, or, if multiple copyrighted works on the Site are covered by the 
+                Notification, a representative list of such works on the Site; </li>
+              <li>identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access 
+                to which is to be disabled, and information reasonably sufficient to permit us to locate the material; </li>
+              <li>information reasonably sufficient to permit us to contact the complaining party, such as an address, telephone number, and, if available, an email 
+                address at which the complaining party may be contacted;</li>
+              <li>a statement that the complaining party has a good faith belief that use of the material in the manner complained of is not authorized by the 
+                copyright owner, its agent, or the law;</li>
+              <li>a statement that the information in the notification is accurate, and under penalty of perjury, that the complaining party is authorized to act 
+                on behalf of the owner of an exclusive right that is allegedly infringed upon.</li>
             </ol>
-        	<strong>Counter Notification</strong><br/>
+            <strong>Counter Notification</strong><br/>
             If you believe your own copyrighted material has been removed from the Site as a result of a mistake or misidentification, you may submit a written 
             counter notification to [us/our Designated Copyright Agent] using the contact information provided below (a “Counter Notification”). 
             <br/><br/>
             To be an effective Counter Notification under the DMCA, your Counter Notification must include substantially the following: 
             <ol>
-                <li>identification of the material that has been removed or disabled and the location at which the material appeared before it was removed or 
-                    disabled;</li>
-                <li>a statement that you consent to the jurisdiction of the Federal District Court in which your address is located, or if your address is outside 
-                    the United States, for any judicial district in which we are located;</li>
-                <li>a statement that you will accept service of process from the party that filed the Notification or the party's agent;</li>
-                <li>your name, address, and telephone number;</li>
-                <li>a statement under penalty of perjury that you have a good faith belief that the material in question was removed or disabled as a result of a 
-                    mistake or misidentification of the material to be removed or disabled;</li>
-                <li>your physical or electronic signature.</li>
+              <li>identification of the material that has been removed or disabled and the location at which the material appeared before it was removed or 
+                disabled;</li>
+              <li>a statement that you consent to the jurisdiction of the Federal District Court in which your address is located, or if your address is outside 
+                the United States, for any judicial district in which we are located;</li>
+              <li>a statement that you will accept service of process from the party that filed the Notification or the party's agent;</li>
+              <li>your name, address, and telephone number;</li>
+              <li>a statement under penalty of perjury that you have a good faith belief that the material in question was removed or disabled as a result of a 
+                mistake or misidentification of the material to be removed or disabled;</li>
+              <li>your physical or electronic signature.</li>
             </ol>
             If you send us a valid, written Counter Notification meeting the requirements described above, we will restore your removed or disabled material, unless 
             we first receive notice from the party filing the Notification informing us that such party has filed a court action to restrain you from engaging in 
@@ -264,7 +260,7 @@ class Terms extends Component {
             [City, State Zip]
             <br/>
             [email]</p>
-
+            
             <h5>COPYRIGHT INFRINGEMENTS</h5>
             We respect the intellectual property rights of others. If you believe that any material available on or through the Site infringes upon any copyright 
             you own or control, please immediately notify us using the contact information provided below (a “Notification”). A copy of your Notification will be 
@@ -284,7 +280,7 @@ class Terms extends Component {
             <br/><br/>
             <p>In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing 
             civil, criminal, and injunctive redress.</p>
-
+            
             <h5>MODIFICATIONS AND INTERRUPTIONS</h5>
             We reserve the right to change, modify, or remove the contents of the Site at any time or for any reason at our sole discretion without notice. However, we 
             have no obligation to update any information on our Site. We also reserve the right to modify or discontinue all or part of the Site without notice at any time.
@@ -299,7 +295,7 @@ class Terms extends Component {
             <br/><br/>
             <p>Nothing in these Terms of Service will be construed to obligate us to maintain and support the Site or to supply any corrections, updates, or releases in 
             connection therewith.</p>
-
+            
             <h5>GOVERNING LAW</h5>
             <p>These Terms of Service and your use of the Site are governed by and construed in accordance with the laws of the State of New York applicable to 
             agreements made and to be entirely performed within the State of New York, without regard to its conflict of law principles.</p>
@@ -334,7 +330,7 @@ class Terms extends Component {
             <p>The Parties agree that any arbitration shall be limited to the Dispute between the Parties individually. To the full extent permitted by law, (a) no arbitration shall 
             be joined with any other proceeding; (b) there is no right or authority for any Dispute to be arbitrated on a class-action basis or to utilize class action procedures; 
             and (c) there is no right or authority for any Dispute to be brought in a purported representative capacity on behalf of the general public or any other persons.</p>
-
+            
             <h5>CORRECTIONS</h5>
             <p>There may be information on the Site that contains typographical errors, inaccuracies, or omissions that may relate to the Site, including descriptions and 
             various other information. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Site at any time, 
@@ -353,13 +349,13 @@ class Terms extends Component {
             <p>Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, 
             and you agree to cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of any such claim, action, or proceeding which is 
             subject to this indemnification upon becoming aware of it.</p>
- 
+
             <h5>USER DATA</h5>
             We will maintain certain data that you transmit to the Site for the purpose of managing the Site, as well as data relating to your use of the Site. Although we perform regular 
             routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Site. 
             <p>You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such 
             loss or corruption of such data.</p>
- 
+
             <h5>ELECTRONIC COMMUNICATIONS AND SIGNATURES</h5>
             Visiting the Site, sending us emails, and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that 
             all agreements, notices, disclosures, and other communications we provide to you electronically, via email and on the Site, satisfy any legal requirement that such 
@@ -393,13 +389,12 @@ class Terms extends Component {
             <h5>CONTACT US</h5>
             In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at {EMAIL}.
             <br/><br/>
-              </Col>
-            </Row>
-          </Container>
-      <footer className="footer"><Footer /></footer>
-      </div>
-    )
-  }
+          </Col>
+        </Row>
+      </Container>
+    <footer className="footer"><Footer /></footer>
+    </div>
+  )
 }
 
 const EMAIL = 'help@zenyu.com';

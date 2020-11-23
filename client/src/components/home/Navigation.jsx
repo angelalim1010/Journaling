@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar, Button } from 'react-bootstrap';
 
 import logo from '../../img/zenyu-logo.svg';
 
@@ -16,10 +16,9 @@ class Navigation extends Component {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto"></Nav>
           <Nav>
-            <Nav.Link href="#features" className="page-scroll">Features</Nav.Link>
-            <Nav.Link href="#about" className='active'>About</Nav.Link>
-            <Nav.Link href="/login" className='active'>Log In</Nav.Link>
-            <Nav.Link href="/signup" className='active'>Sign Up</Nav.Link>
+            <Nav.Link href="/home" className="page-scroll">Home</Nav.Link>
+            <Nav.Link href="/journal" className='active'>Journal</Nav.Link>
+            <Button onClick={ () => this.props.handleLogout() }> Log Out </Button>
           </Nav>
           </Navbar.Collapse>
         </Navbar>
