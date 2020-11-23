@@ -16,7 +16,6 @@ const Navigation = () => {
           <Nav className="mr-auto">
         </Nav>
         <Nav>
-          <Nav.Link href="/" className="page-scroll">Home</Nav.Link>
           <Nav.Link href="/login" className='active'>Log In</Nav.Link>
           <Nav.Link href="/signup" className='active'>Sign Up</Nav.Link>
         </Nav>
