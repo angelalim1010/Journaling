@@ -26,8 +26,24 @@
       height: auto;
       align-items: center;
       margin: 0px;
+      justify-content: center;
     }
+    .journal-area {
+        flex-direction: column;
+        box-shadow: none;
+        height: auto;
+        align-items: center;
+        margin: 0px;
+        justify-content: center;
+      }
+      .prompt-layout {
+        max-width: 700px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+   }
 }
+
 
 .react-calendar{
     max-height: 350px;
@@ -75,12 +91,6 @@
     justify-content: space-evenly;
 }
 
-@media (max-width: 900px) {
-    .journal-area {
-      flex-direction: column;
-      box-shadow: none;
-      height: auto;
-      align-items: center;
-      margin: 0px;
-    }
-}
+/* @media (max-width: 900px) {
+    
+} */

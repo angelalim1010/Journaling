@@ -34,7 +34,9 @@ class Home extends Component {
         mood: {},
         content: "",
         value: "",
-        username: "Bob"
+        image: {},
+        base64TextString: ""
+
     }
     this.onChange = this.onChange.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -43,6 +45,8 @@ class Home extends Component {
     this.handleSelect = this.handleSelect.bind(this);
     this.refreshPage = this.refreshPage.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+
 
   }
 
@@ -62,6 +66,7 @@ class Home extends Component {
                 mood: res1?.data.slice(-1).pop()?.mood || {mood: {name:"No Mood Selected"}},
                 prompts:res2.data,
                 content: res1?.data.slice(-1).pop()?.journal?.content || "",
+                image: res1?.data.slice(-1).pop()?.image || {}
         })
     })
     console.log("date",this.state.date)
@@ -90,6 +95,27 @@ class Home extends Component {
       getJournal(newDate)
       console.log(newDate)
   }
+  onChangeHandler = e =>{
+    console.log(e.target.files[0])
+    // this.setState({
+    // 	selectedFile: e.target.files[0],
+    // 	loaded: 0
+    // })
+    let file = e.target.files[0]
+    if (file){
+        const reader = new FileReader();
+        reader.onload = this._handleReaderLoaded.bind(this);
+        reader.readAsBinaryString(file)
+    }
+
+}
+_handleReaderLoaded = (readerEvt) =>{
+    let binaryString = readerEvt.target.result
+    this.setState({
+        base64TextString: btoa(binaryString)
+    })
+    console.log("data:image/png;base64,"+this.state.base64TextString)
+}
   componentDidUpdate(prevProps, prevState){
       if (prevState.date !== this.state.date){
         let formattedDate = this.formatDate(this.state.date)
@@ -100,7 +126,9 @@ class Home extends Component {
                   journal: (res1?.data.slice(-1).pop()?.journal || {}),
                   mood: res1?.data.slice(-1).pop()?.mood || {},
                   prompts:res2.data,
-                  content: res1?.data.slice(-1).pop()?.journal.content || ""
+                  content: res1?.data.slice(-1).pop()?.journal.content || "",
+                  image: res1?.data.slice(-1).pop()?.image || {}
+
 
           })
       })
@@ -138,12 +166,15 @@ refreshPage(){
 }
 
 
-deleteEntry = async(journalId, moodId) =>{
+deleteEntry = async(journalId, moodId, imageId) =>{
     deleteMood(moodId);
     deleteJournal(journalId);
+    deleteImage(imageId)
+
     this.setState({
         journal: {},
-        mood: {}
+        mood: {},
+        image:{}
     })
 }
 displayMood(){
@@ -208,8 +239,9 @@ displayMood(){
 }
 
   render() {
+      console.log(this.state.date)
     let todayDate = new Date().toDateString();
-    //console.log(this.state.prompts)
+    console.log(this.state.prompts)
     //console.log(this.state.value)
     if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
         return(
@@ -255,6 +287,15 @@ displayMood(){
                                 <Button type="submit">Update Mood</Button>
                             </Form>}
                         </div>
+                        <div>
+                            <img src={this.state.image.content} alt="journal-iamge"/>
+                            <p>Edit Image</p>
+                            <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
+                                <input type="file" name="image" onChange={this.onChangeHandler}/>
+                                <Button type="submit">Submit New Image</Button>
+                            </Form>
+
+                        </div>
                         <div className = "journal-area">
                             <div>
                                 {/* <img/> */}
@@ -286,8 +327,7 @@ displayMood(){
                                             Close
                                         </Button>
                                         <Button 
-                                            onClick={()=>{this.deleteEntry(this.state.journal.id, this.state.mood.id); this.handleClose();}}>
-    
+                                            onClick={()=>{this.deleteEntry(this.state.journal.id, this.state.mood.id, this.state.image.id); this.handleClose();}}>
                                             Confirm
                                         </Button>
                                     </Modal.Footer>
@@ -305,6 +345,7 @@ displayMood(){
                           <Card.Header>Today's Prompt</Card.Header>
       
                           <Card.Body>
+                              <Card.Title>{prompt.category.name}</Card.Title>
                               <Card.Text>{prompt.content}</Card.Text>
                               <Link to={{pathname: "/journalentry", aboutProps:{prompt: prompt} }}>Select This Prompt</Link>
                           </Card.Body>
