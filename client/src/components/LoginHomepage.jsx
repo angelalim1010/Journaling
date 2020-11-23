@@ -324,7 +324,7 @@ displayMood(){
                             </Form>}
                         </div>
                         <div>
-                            <img src={this.state.image.content} alt="journal-iamge"/>
+                            {/* <img src={this.state.image.content} alt="journal-img"/> */}
                             <p>Edit Image</p>
                             <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
                                 <input type="file" name="image" onChange={this.onChangeHandler}/>
@@ -337,7 +337,7 @@ displayMood(){
                                 {/* <img/> */}
                                 <CKEditor
                                     editor={ClassicEditor}
-                                    data = {this.state.content}
+                                    data = {`<img src=${this.state.image.content} alt="journal-img"/>` + this.state.content}
                                     onChange={ ( event, editor ) => {
                                         const data = editor.getData();
                                         this.setState({
