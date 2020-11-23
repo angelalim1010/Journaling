@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import { createJournal,  createMood  } from "../actions/journalPrompts";
+import { uploadImage  } from "../actions/imageActions";
+
 import {Button, Form} from 'react-bootstrap';
 import {Redirect, withRouter} from 'react-router-dom';
 
@@ -19,9 +21,12 @@ class JournalEntry extends Component{
 			prompt: this.props.location.aboutProps || "",
 			content: "",
 			value: "",
-			redirect: false
+			redirect: false,
+			selectedFile: null,
+			base64TextString: ""
 		}
 		this.handleSelect = this.handleSelect.bind(this);
+		this.onChangeHandler = this.onChangeHandler.bind(this);
 	}
 
 
@@ -30,6 +35,28 @@ class JournalEntry extends Component{
 		this.setState({
 			value: e.target.value
 		})
+	}
+
+	onChangeHandler = e =>{
+		console.log(e.target.files[0])
+		// this.setState({
+		// 	selectedFile: e.target.files[0],
+		// 	loaded: 0
+		// })
+		let file = e.target.files[0]
+		if (file){
+			const reader = new FileReader();
+			reader.onload = this._handleReaderLoaded.bind(this);
+			reader.readAsBinaryString(file)
+		}
+
+	}
+	_handleReaderLoaded = (readerEvt) =>{
+		let binaryString = readerEvt.target.result
+		this.setState({
+			base64TextString: btoa(binaryString)
+		})
+		console.log("data:image/png;base64,"+this.state.base64TextString)
 	}
 	render(){
 		console.log(this.state.value)
@@ -41,7 +68,8 @@ class JournalEntry extends Component{
 			<div className= "JournalEntry">
 				<div>
 				<p>Prompt: {this.state.prompt.prompt.content}</p>
-				<Form onSubmit={(e)=>{e.preventDefault();createMood(this.state.value); createJournal(this.state.content, this.state.prompt.prompt.id); 	this.props.history.push('/homepage')}}>
+				<input type="file" name="image" onChange={this.onChangeHandler}/>
+				<Form onSubmit={(e)=>{e.preventDefault();createMood(this.state.value); createJournal(this.state.content, this.state.prompt.prompt.id); 	uploadImage("data:image/png;base64,"+this.state.base64TextString);this.props.history.push('/homepage')}}>
                                     {/* <Form.Label>Select to change your mood</Form.Label> */}
                                     <Form.Control as="select" defaultValue="" onChange={this.handleSelect}>
                                         <option value="" disabled>Select a Mood</option>

@@ -4,6 +4,7 @@ import {Navbar, Card, Button, Modal, Form} from 'react-bootstrap';
 import ZenyuLogo from '../img/zenyu-logo.svg';
 import { getPrompts} from "../actions/promptActions";
 import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood   } from "../actions/journalPrompts";
+import {updateImage, deleteImage} from '../actions/imageActions';
 import {Link} from 'react-router-dom';
 
 
@@ -31,7 +32,10 @@ class LoginHomepage extends Component {
         journal: {},
         mood: {},
         content: "",
-        value: ""
+        value: "",
+        image: {},
+        base64TextString: ""
+
     }
     this.onChange = this.onChange.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -40,6 +44,8 @@ class LoginHomepage extends Component {
     this.handleSelect = this.handleSelect.bind(this);
     this.refreshPage = this.refreshPage.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+
 
   }
 
@@ -59,6 +65,7 @@ class LoginHomepage extends Component {
                 mood: res1?.data.slice(-1).pop()?.mood || {mood: {name:"No Mood Selected"}},
                 prompts:res2.data,
                 content: res1?.data.slice(-1).pop()?.journal?.content || "",
+                image: res1?.data.slice(-1).pop()?.image || {}
         })
     })
     console.log("date",this.state.date)
@@ -87,6 +94,27 @@ class LoginHomepage extends Component {
       getJournal(newDate)
       console.log(newDate)
   }
+  onChangeHandler = e =>{
+    console.log(e.target.files[0])
+    // this.setState({
+    // 	selectedFile: e.target.files[0],
+    // 	loaded: 0
+    // })
+    let file = e.target.files[0]
+    if (file){
+        const reader = new FileReader();
+        reader.onload = this._handleReaderLoaded.bind(this);
+        reader.readAsBinaryString(file)
+    }
+
+}
+_handleReaderLoaded = (readerEvt) =>{
+    let binaryString = readerEvt.target.result
+    this.setState({
+        base64TextString: btoa(binaryString)
+    })
+    console.log("data:image/png;base64,"+this.state.base64TextString)
+}
   componentDidUpdate(prevProps, prevState){
       if (prevState.date !== this.state.date){
         let formattedDate = this.formatDate(this.state.date)
@@ -97,7 +125,9 @@ class LoginHomepage extends Component {
                   journal: (res1?.data.slice(-1).pop()?.journal || {}),
                   mood: res1?.data.slice(-1).pop()?.mood || {},
                   prompts:res2.data,
-                  content: res1?.data.slice(-1).pop()?.journal.content || ""
+                  content: res1?.data.slice(-1).pop()?.journal.content || "",
+                  image: res1?.data.slice(-1).pop()?.image || {}
+
 
           })
       })
@@ -135,12 +165,15 @@ refreshPage(){
 }
 
 
-deleteEntry = async(journalId, moodId) =>{
+deleteEntry = async(journalId, moodId, imageId) =>{
     deleteMood(moodId);
     deleteJournal(journalId);
+    deleteImage(imageId)
+
     this.setState({
         journal: {},
-        mood: {}
+        mood: {},
+        image:{}
     })
 }
 displayMood(){
@@ -290,6 +323,15 @@ displayMood(){
                                 <Button type="submit">Update Mood</Button>
                             </Form>}
                         </div>
+                        <div>
+                            <img src={this.state.image.content} alt="journal-iamge"/>
+                            <p>Edit Image</p>
+                            <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
+                                <input type="file" name="image" onChange={this.onChangeHandler}/>
+                                <Button type="submit">Submit New Image</Button>
+                            </Form>
+
+                        </div>
                         <div className = "journal-area">
                             <div>
                                 {/* <img/> */}
@@ -321,8 +363,7 @@ displayMood(){
                                             Close
                                         </Button>
                                         <Button 
-                                            onClick={()=>{this.deleteEntry(this.state.journal.id, this.state.mood.id); this.handleClose();}}>
-    
+                                            onClick={()=>{this.deleteEntry(this.state.journal.id, this.state.mood.id, this.state.image.id); this.handleClose();}}>
                                             Confirm
                                         </Button>
                                     </Modal.Footer>
