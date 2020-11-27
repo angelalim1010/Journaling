@@ -241,7 +241,8 @@ displayMood(){
       console.log(this.state.date)
     let todayDate = new Date().toDateString();
     console.log(this.state.prompts)
-    //console.log(this.state.value)
+    let journalData = `<figure class="image"><img src=${this.state.image.content} alt="journal-img"/></figure>` + this.state.content;
+    console.log(journalData.slice(journalData.indexOf('/>')+2));
     if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
         return(
             <div>
@@ -323,29 +324,42 @@ displayMood(){
                                 <Button type="submit">Update Mood</Button>
                             </Form>}
                         </div>
+                        {Object.keys(this.state.image).length === 0 && this.state.image.constructor === Object ?    
+                            <div></div>
+
+                        :
                         <div>
+                            
+
+                            
                             <img src={this.state.image.content} alt="journal-img"/>
                             <p>Edit Image</p>
                             <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
                                 <input type="file" name="image" onChange={this.onChangeHandler}/>
                                 <Button type="submit">Submit New Image</Button>
                             </Form>
-
                         </div>
+                        }
                         <div className = "journal-area">
                             <div>
                                 {/* <img/> */}
                                 <CKEditor
                                     editor={ClassicEditor}
+                                    // data = {`<figure class="image"><img src=${this.state.image.content} alt="journal-img"/></figure>` + this.state.content}
+                                    // data = {journalData}
                                     data = {this.state.content}
                                     onChange={ ( event, editor ) => {
                                         const data = editor.getData();
                                         this.setState({
                                             content: data
-                                        })
+                                            // content: data
+                                        })    
                                         console.log( { event, editor, data } );
-                                        console.log(this.state.content)
-                                    } }
+                                        console.log("content", this.state.content)
+                                    } 
+                                
+                                }
+                                
                                 />
                             </div>
     
