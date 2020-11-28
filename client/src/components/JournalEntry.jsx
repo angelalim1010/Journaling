@@ -54,7 +54,7 @@ class JournalEntry extends Component{
 	_handleReaderLoaded = (readerEvt) =>{
 		let binaryString = readerEvt.target.result
 		this.setState({
-			base64TextString: btoa(binaryString)
+			base64TextString: "data:image/png;base64,"+ btoa(binaryString)
 		})
 		console.log("data:image/png;base64,"+this.state.base64TextString)
 	}
@@ -69,7 +69,7 @@ class JournalEntry extends Component{
 				<div>
 				<p>Prompt: {this.state.prompt.prompt.content}</p>
 				<input type="file" name="image" onChange={this.onChangeHandler}/>
-				<Form onSubmit={(e)=>{e.preventDefault();createMood(this.state.value); createJournal(this.state.content, this.state.prompt.prompt.id); 	uploadImage("data:image/png;base64,"+this.state.base64TextString);this.props.history.push('/homepage')}}>
+				<Form onSubmit={(e)=>{e.preventDefault();createMood(this.state.value); createJournal(this.state.content, this.state.prompt.prompt.id); 	uploadImage(this.state.base64TextString);this.props.history.push('/homepage')}}>
                                     {/* <Form.Label>Select to change your mood</Form.Label> */}
                                     <Form.Control as="select" defaultValue="" onChange={this.handleSelect}>
                                         <option value="" disabled>Select a Mood</option>
@@ -93,12 +93,12 @@ class JournalEntry extends Component{
 										console.log( { event, editor, data } );
 										console.log(this.state.content)
 									} }
-									config={{
-										ckfinder: {
-										// Upload the images to the server using the CKFinder QuickUpload command.
-										uploadUrl: 'https://zenyu-backend.herokuapp.com/api/images/'
-									  }
-									}}
+									// config={{
+									// 	ckfinder: {
+									// 	// Upload the images to the server using the CKFinder QuickUpload command.
+									// 	uploadUrl: 'https://zenyu-backend.herokuapp.com/api/images/'
+									//   }
+									// }}
 									/>
 								</div>
                                 <Button type="submit">Submit Entry</Button>

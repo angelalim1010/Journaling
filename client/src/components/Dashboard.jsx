@@ -245,26 +245,7 @@ displayMood(){
     console.log(journalData.slice(journalData.indexOf('/>')+2));
     if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
         return(
-            <div>
-                <Navbar bg="dark" variant="dark" className="underline">
-                    <Navbar.Brand href="/">
-                        <img src={ZenyuLogo} 
-                            width="100" 
-                            height="30" 
-                            // className="d-inline-block align-top" 
-                            alt="Zenyu Logo"
-                            style={{ filter: "brightness(0) invert(1)"}}
-                            >
-                            
-                        </img>
-                    </Navbar.Brand>
-                    <Navbar.Collapse className = "justify-content-end">
-                        {/* <Navbar.Text>
-                            Welcome {this.state.username}
-                        </Navbar.Text> */}
-                        <Button onClick={() => this.handleLogout()}>Logout</Button>
-                    </Navbar.Collapse>
-                </Navbar>
+            
                 <div className = "homepage-layout">
                     <Calendar
                         onChange={this.onChange}
@@ -272,31 +253,12 @@ displayMood(){
                     />
                     <h1>You can't make a journal entry for this date!</h1>
                 </div>
-            </div>
         )
 
       }
           return (
-              <div>
-                  <Navbar bg="dark" variant="dark" className="underline">
-                      <Navbar.Brand href="/">
-                          <img src={ZenyuLogo} 
-                              width="100" 
-                              height="30" 
-                              // className="d-inline-block align-top" 
-                              alt="Zenyu Logo"
-                              style={{ filter: "brightness(0) invert(1)"}}
-                              >
-                              
-                          </img>
-                      </Navbar.Brand>
-                      <Navbar.Collapse className = "justify-content-end">
-                        {/* <Navbar.Text>
-                            Welcome {this.state.username}
-                        </Navbar.Text> */}
-                        <Button onClick={() => this.handleLogout()}>Logout</Button>
-                      </Navbar.Collapse>
-                </Navbar>
+              
+                  
                 <div className = "homepage-layout">
                     <Calendar
                         onChange={this.onChange}
@@ -324,8 +286,14 @@ displayMood(){
                                 <Button type="submit">Update Mood</Button>
                             </Form>}
                         </div>
-                        {Object.keys(this.state.image).length === 0 && this.state.image.constructor === Object ?    
-                            <div></div>
+                        {this.state.image.content === "" ?    
+                            <div>
+                                <p>Add Image</p>
+                                <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
+                                    <input type="file" name="image" onChange={this.onChangeHandler}/>
+                                    <Button type="submit">Submit New Image</Button>
+                                </Form>
+                            </div>
 
                         :
                         <div>
@@ -408,7 +376,6 @@ displayMood(){
                         
                 }
                     
-            </div>
             </div>
               
           )      
