@@ -12,8 +12,8 @@ class AllPrompts extends Component{
     componentDidMount = async () =>{
         getAllJournals()
         .then(res=>{
-            const data = res.data;
-            this.setState({journals: data})
+            const data = res?.data;
+            this.setState({journals: data || []})
             console.log(res.data)
         })
     }
@@ -36,15 +36,21 @@ class AllPrompts extends Component{
         return(
             <div>
                 <h1>All Prompts Done</h1>
+                {this.state.journals.length !== undefined ?
+
                 <ul>
-                    {this.state.journals.map(journal =>
-                        <li key={journal.journal.prompt.id}>{journal.journal.prompt.content}
-                            <ul>
-                                <li key={journal.journal.id}>Created on: {this.formatDate(journal.journal.createdAt)}</li>
-                            </ul>
-                        </li>
-                        )}
+                {this.state.journals.map(journal =>
+                    <li key={journal.journal.prompt.id}>{journal.journal.prompt.content}
+                        <ul>
+                            <li key={journal.journal.id}>Created on: {this.formatDate(journal.journal.createdAt)}</li>
+                        </ul>
+                    </li>
+                    )}
                 </ul>
+                :
+                <p>You have no Prompts</p>
+                }
+                
             </div>
         )
     }

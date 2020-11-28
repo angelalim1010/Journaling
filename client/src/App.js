@@ -24,7 +24,7 @@ const App = () => {
         <div className='App'>
           <div className='auth-wrapper'>
             <div className='auth-inner'>
-                 {<ZenyuNavbar/>}
+                 <ZenyuNavbar/>
 
               <Switch>
                 <Route exact path='/' component={Landing} />

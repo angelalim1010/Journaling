@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
-import {Card, Button, Modal, Form} from 'react-bootstrap';
+import {Navbar, Card, Button, Modal, Form} from 'react-bootstrap';
+import ZenyuLogo from '../img/zenyu-logo.svg';
 
 import { getPrompts} from "../actions/promptActions";
 import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood   } from "../actions/journalPrompts";
@@ -258,7 +259,6 @@ displayMood(){
       }
           return (
               
-                  
                 <div className = "homepage-layout">
                     <Calendar
                         onChange={this.onChange}
@@ -380,7 +380,6 @@ displayMood(){
                 }
                     
             </div>
-              
           )      
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Navbar, Button} from 'react-bootstrap';
 import ZenyuLogo from '../img/zenyu-logo.svg';
+import {withRouter} from 'react-router-dom';
 import AuthContext from '../context/auth/authContext';
 
 
@@ -15,6 +16,7 @@ class ZenyuNavbar extends Component{
         const { logout } = this.context
         logout();
         this.props.history.push('/')
+        console.log("logging out");
       }
     
 
@@ -43,4 +45,4 @@ class ZenyuNavbar extends Component{
     }
 }
 
-export default ZenyuNavbar;
+export default withRouter(ZenyuNavbar);
