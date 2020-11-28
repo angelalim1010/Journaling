@@ -7,9 +7,10 @@ import Terms from './components/legal/Terms';
 import Privacy from './components/legal/Privacy';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
-import LoginHomepage from './components/LoginHomepage';
+import Dashboard from './components/Dashboard';
 import JournalEntry from './components/JournalEntry';
-
+import ZenyuNavbar from './components/ZenyuNavbar';
+import AllPrompts from './components/AllPrompts';
 import AuthState from './context/auth/authState';
 import setAuthToken from './utils/setAuthToken';
 
@@ -23,6 +24,8 @@ const App = () => {
         <div className='App'>
           <div className='auth-wrapper'>
             <div className='auth-inner'>
+                 <ZenyuNavbar/>
+
               <Switch>
                 <Route exact path='/' component={Landing} />
                 <Route path='/terms' component={Terms} />
@@ -30,8 +33,10 @@ const App = () => {
                 <Route path='/privacy' component={Privacy} />
                 <Route path='/login' component={Login} />
                 <Route path='/signup' component={Signup} />
-                <Route path='/homepage' component={LoginHomepage} />
+                <Route path='/dashboard' component={Dashboard} />
                 <Route path= '/journalentry' component={JournalEntry} />
+                <Route path= '/all' component={AllPrompts} />
+
               </Switch>
             </div>
           </div>

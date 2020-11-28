@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Calendar from 'react-calendar';
 import {Navbar, Card, Button, Modal, Form} from 'react-bootstrap';
 import ZenyuLogo from '../img/zenyu-logo.svg';
+
 import { getPrompts} from "../actions/promptActions";
 import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood   } from "../actions/journalPrompts";
 import {updateImage, deleteImage} from '../actions/imageActions';
@@ -241,29 +242,11 @@ displayMood(){
       console.log(this.state.date)
     let todayDate = new Date().toDateString();
     console.log(this.state.prompts)
-    //console.log(this.state.value)
+    let journalData = `<figure class="image"><img src=${this.state.image.content} alt="journal-img"/></figure>` + this.state.content;
+    console.log(journalData.slice(journalData.indexOf('/>')+2));
     if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
         return(
-            <div>
-                <Navbar bg="dark" variant="dark" className="underline">
-                    <Navbar.Brand href="/">
-                        <img src={ZenyuLogo} 
-                            width="100" 
-                            height="30" 
-                            // className="d-inline-block align-top" 
-                            alt="Zenyu Logo"
-                            style={{ filter: "brightness(0) invert(1)"}}
-                            >
-                            
-                        </img>
-                    </Navbar.Brand>
-                    <Navbar.Collapse className = "justify-content-end">
-                        {/* <Navbar.Text>
-                            Welcome {this.state.username}
-                        </Navbar.Text> */}
-                        <Button onClick={() => this.handleLogout()}>Logout</Button>
-                    </Navbar.Collapse>
-                </Navbar>
+            
                 <div className = "homepage-layout">
                     <Calendar
                         onChange={this.onChange}
@@ -271,31 +254,11 @@ displayMood(){
                     />
                     <h1>You can't make a journal entry for this date!</h1>
                 </div>
-            </div>
         )
 
       }
           return (
-              <div>
-                  <Navbar bg="dark" variant="dark" className="underline">
-                      <Navbar.Brand href="/">
-                          <img src={ZenyuLogo} 
-                              width="100" 
-                              height="30" 
-                              // className="d-inline-block align-top" 
-                              alt="Zenyu Logo"
-                              style={{ filter: "brightness(0) invert(1)"}}
-                              >
-                              
-                          </img>
-                      </Navbar.Brand>
-                      <Navbar.Collapse className = "justify-content-end">
-                        {/* <Navbar.Text>
-                            Welcome {this.state.username}
-                        </Navbar.Text> */}
-                        <Button onClick={() => this.handleLogout()}>Logout</Button>
-                      </Navbar.Collapse>
-                </Navbar>
+              
                 <div className = "homepage-layout">
                     <Calendar
                         onChange={this.onChange}
@@ -303,6 +266,9 @@ displayMood(){
                     />
                     {Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
                     <div className = "journal-entry">
+                        <div>
+                            <p>The prompt you chose was: {this.state.journal.prompt.content}</p>
+                        </div>
                         <div className = "mood-div">
                             <h1>Mood: </h1>
                             <div>
@@ -323,29 +289,48 @@ displayMood(){
                                 <Button type="submit">Update Mood</Button>
                             </Form>}
                         </div>
+                        {this.state.image.content === "" ?    
+                            <div>
+                                <p>Add Image</p>
+                                <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
+                                    <input type="file" name="image" onChange={this.onChangeHandler}/>
+                                    <Button type="submit">Submit New Image</Button>
+                                </Form>
+                            </div>
+
+                        :
                         <div>
-                            <img src={this.state.image.content} alt="journal-iamge"/>
+                            
+
+                            
+                            <img src={this.state.image.content} alt="journal-img"/>
                             <p>Edit Image</p>
                             <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
                                 <input type="file" name="image" onChange={this.onChangeHandler}/>
                                 <Button type="submit">Submit New Image</Button>
                             </Form>
-
                         </div>
+                        }
                         <div className = "journal-area">
                             <div>
                                 {/* <img/> */}
                                 <CKEditor
                                     editor={ClassicEditor}
+                                    // data = {`<figure class="image"><img src=${this.state.image.content} alt="journal-img"/></figure>` + this.state.content}
+                                    // data = {journalData}
                                     data = {this.state.content}
                                     onChange={ ( event, editor ) => {
                                         const data = editor.getData();
                                         this.setState({
                                             content: data
-                                        })
+                                            // content: data
+                                        })    
                                         console.log( { event, editor, data } );
-                                        console.log(this.state.content)
-                                    } }
+                                        console.log("content", this.state.content)
+                                    } 
+                                
+                                }
+                                
                                 />
                             </div>
     
@@ -395,8 +380,6 @@ displayMood(){
                 }
                     
             </div>
-            </div>
-              
           )      
   }
 }
