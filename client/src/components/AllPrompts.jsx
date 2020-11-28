@@ -32,11 +32,11 @@ class AllPrompts extends Component{
       
     }
     render(){
-        console.log(this.state.journals[0])
+        console.log(this.state.journals.length)
         return(
             <div>
                 <h1>All Prompts Done</h1>
-                {this.state.journals.length !== undefined ?
+                {this.state.journals.length !== 0 ?
 
                 <ul>
                 {this.state.journals.map(journal =>
