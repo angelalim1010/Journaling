@@ -9,10 +9,10 @@ import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import Dashboard from './components/Dashboard';
 import JournalEntry from './components/JournalEntry';
-
+import ZenyuNavbar from './components/ZenyuNavbar';
+import AllPrompts from './components/AllPrompts';
 import AuthState from './context/auth/authState';
 import setAuthToken from './utils/setAuthToken';
-import ZenyuNavbar from './components/ZenyuNavbar';
 
 
 const App = () => {
@@ -35,6 +35,8 @@ const App = () => {
                 <Route path='/signup' component={Signup} />
                 <Route path='/dashboard' component={Dashboard} />
                 <Route path= '/journalentry' component={JournalEntry} />
+                <Route path= '/all' component={AllPrompts} />
+
               </Switch>
             </div>
           </div>

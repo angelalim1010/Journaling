@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
-import {Navbar, Card, Button, Modal, Form} from 'react-bootstrap';
-import ZenyuLogo from '../img/zenyu-logo.svg';
+import {Card, Button, Modal, Form} from 'react-bootstrap';
+
 import { getPrompts} from "../actions/promptActions";
 import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood   } from "../actions/journalPrompts";
 import {updateImage, deleteImage} from '../actions/imageActions';
@@ -266,6 +266,9 @@ displayMood(){
                     />
                     {Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
                     <div className = "journal-entry">
+                        <div>
+                            <p>The prompt you chose was: {this.state.journal.prompt.content}</p>
+                        </div>
                         <div className = "mood-div">
                             <h1>Mood: </h1>
                             <div>
