@@ -1,7 +1,18 @@
 import axios from "axios";
 
+export const getAllJournals = async () =>{
+    try{
+        console.log("getting all journals")
+        return await axios.get(`https://zenyu-backend.herokuapp.com/api/users/userjournals`)
+
+    }
+    catch(e){
+        console.log(e.response)
+    }
+}
+
 export const getJournal = async (date)=>{
-    console.log("getting journals")
+    console.log("getting journal")
     try{
         console.log("got journals")
         return await axios.get(`https://zenyu-backend.herokuapp.com/api/users/userjournals?creationDate=${date}`)

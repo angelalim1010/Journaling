@@ -15,7 +15,7 @@ const Signup = props => {
 
   useEffect(() => {
     if(isAuthenticated) {
-      props.history.push('/homepage');
+      props.history.push('/dashboard');
     }
 
     if(error === 'User already exists') {
