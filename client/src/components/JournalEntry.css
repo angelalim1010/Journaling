@@ -4,6 +4,23 @@
 	margin:5em;
 }
 
+.h1{
+	font-size: 60px;
+}
+
+
+.smolje{
+	width:1300px;
+}
+
+
+
+.form-control{
+	width: 1140px;
+	padding-left: 5px;
+	position: 'absolute';
+}
+
 .editor{
 	margin-right: 10em;
 }
@@ -11,3 +28,10 @@
 .ckeditor-editor_editable_inline {
 	min-height: 500px;
 }
+
+.ck-editor__editable {
+    min-height: 450px;
+    min-width: 800px;
+    padding-left: 20px;
+}
+

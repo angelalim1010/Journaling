@@ -66,8 +66,15 @@ class JournalEntry extends Component{
 
 		return(
 			<div className= "JournalEntry">
-				<div>
-				<p>Prompt: {this.state.prompt.prompt.content}</p>
+				<div className= "smolje" >
+				 <div className="container hero" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <div className="row">
+                 <div className="col">
+                 <h1 style= {{fontSize: '50px', fontFamily: " Georgia, serif", textAlign: "center"}}> Journal Entry </h1>
+                 </div>
+                 </div>
+                </div>
+				<p style= {{fontFamily: "Georgia, serif", textAlign: "center"}}>Prompt: {this.state.prompt.prompt.content}</p>
 				<input type="file" name="image" onChange={this.onChangeHandler}/>
 				<Form onSubmit={(e)=>{e.preventDefault();createMood(this.state.value); createJournal(this.state.content, this.state.prompt.prompt.id); 	uploadImage(this.state.base64TextString);this.props.history.push('/homepage')}}>
                                     {/* <Form.Label>Select to change your mood</Form.Label> */}
@@ -104,10 +111,6 @@ class JournalEntry extends Component{
                                 <Button type="submit">Submit Entry</Button>
                     </Form>
 				</div>
-			
-			<div>
-				<h2> Journal Entry</h2>
-			</div>
 			</div>
 		)
 	}
