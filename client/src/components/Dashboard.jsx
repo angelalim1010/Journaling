@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
-import {Navbar, Card, Button, Modal, Form} from 'react-bootstrap';
+import {Navbar, Card, CardDeck, Button, Modal, Form} from 'react-bootstrap';
 import ZenyuLogo from '../img/zenyu-logo.svg';
 
 import { getPrompts} from "../actions/promptActions";
@@ -362,9 +362,9 @@ displayMood(){
                 :
                 <div>
                 
-                  <div className = "prompt-layout">
+                  <CardDeck>
                       {this.state.prompts.map((prompt,index)=>(
-                          <Card style={{width: '18rem', margin: '25px'}} key={index}>
+                          <Card key={index}>
                           <Card.Header>Today's Prompt</Card.Header>
       
                           <Card.Body>
@@ -375,7 +375,7 @@ displayMood(){
                       </Card>
                       ))}
                       
-                  </div>
+                  </CardDeck>
                   
                 </div>
                         
