@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, Fragment } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import AuthContext from '../../context/auth/authContext';
 
@@ -46,66 +46,73 @@ const Signup = props => {
   };
 
   return (
-    <div>
+    <Fragment>
       <Navigation />
       <Container className="signup" fluid>
         <Col id="signup" className="wrapper">
-          <Col className="justify-content-center text-center" md="6">
+          <Col className="text-center" xs={6} md={4}>
             <h3>heal. thrive. grow.</h3>
             <h5><strong>Create</strong> an account.</h5>
-          </Col>
-          <Row className="justify-content-center">
-            <Col className="text-center" xs={6} md={5}>
-              <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group>
-                  <Form.Control
-                    type='text'
-                    name='FirstName'
-                    placeholder='First Name'
-                    value={FirstName}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Form.Row>
+                    <Form.Control
+                      type='text'
+                      name='FirstName'
+                      placeholder='First Name'
+                      value={FirstName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Form.Row>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Control
-                    type='text'
-                    name='LastName'
-                    placeholder='Last Name'
-                    value={LastName}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Form.Row>
+                    <Form.Control
+                      type='text'
+                      name='LastName'
+                      placeholder='Last Name'
+                      value={LastName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Form.Row>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Control
-                    type='email'
-                    name='Email'
-                    placeholder='Email'
-                    value={Email}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Form.Row>
+                    <Form.Control
+                      type='email'
+                      name='Email'
+                      placeholder='Email'
+                      value={Email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Form.Row>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Control
-                    type='password'
-                    name='Password'
-                    placeholder='Password'
-                    value={Password}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Form.Row>
+                    <Form.Control
+                      type='password'
+                      name='Password'
+                      placeholder='Password'
+                      value={Password}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Form.Row>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Control
-                    type='password'
-                    name='ConfirmPassword'
-                    placeholder='Confirm Password'
-                    value={ConfirmPassword}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Form.Row>
+                    <Form.Control
+                      type='password'
+                      name='ConfirmPassword'
+                      placeholder='Confirm Password'
+                      value={ConfirmPassword}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Form.Row>
                 </Form.Group>
                 <Form.Group className="text-center">
                     <Form.Check type='checkbox' label="By checking this box, I indicate that I have read and agree to Zenyu's Terms of Service, Disclaimer, and Privacy Policy" required/>
@@ -120,13 +127,12 @@ const Signup = props => {
                   Login here.
                 </a>
               </p>
-              </Form>
-            </Col>
-          </Row>
+            </Form>
+          </Col>
         </Col>
       </Container>
       <Footer />
-    </div>
+    </Fragment>
   );
 };
 

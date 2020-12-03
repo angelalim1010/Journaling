@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, Fragment } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import AuthContext from '../../context/auth/authContext';
 
@@ -42,18 +42,16 @@ const Login = props => {
 
 
   return (
-    <div>
+    <Fragment>
       <Navigation />
       <Container className="login" fluid>
         <Col id="login" className="wrapper">
-          <Col className="text-center" md="12">
+          <Col className="text-center" xs={4}>
             <h3>heal. thrive. grow</h3>
             <h5><strong>Welcome back.</strong></h5>
-          </Col>
-          <Row className="justify-content-center">
-            <Col className="text-center" xs={12} md={12}>
-              <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group>
+                  <Form.Row>
                     <Form.Control
                       type='email'
                       name='email'
@@ -62,16 +60,19 @@ const Login = props => {
                       onChange={handleChange}
                       required
                     />
+                  </Form.Row>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Control
-                    type='password'
-                    name='password'
-                    placeholder='Password'
-                    value={password}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Form.Row>
+                    <Form.Control
+                      type='password'
+                      name='password'
+                      placeholder='Password'
+                      value={password}
+                      onChange={handleChange}
+                      required
+                    />
+                </Form.Row>
                 </Form.Group>
                 <p></p>
                 <Button className="btn-custom" type="submit">Log In</Button>
@@ -79,12 +80,12 @@ const Login = props => {
                   Don't have an account? <a href='/signup'>Sign Up</a>
                 </p>
               </Form>
-            </Col>
-          </Row>
+
+          </Col>
         </Col>
       </Container>
       <Footer />
-    </div>
+    </Fragment>
   )
 }
 

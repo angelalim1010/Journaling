@@ -17,6 +17,7 @@ import AuthContext from '../context/auth/authContext';
 
 import './LoginHomepage.css';
 import 'react-calendar/dist/Calendar.css';
+import ZenyuNavbar from './ZenyuNavbar';
 
 const moodIds={
     sad: "148f355c-f251-49ec-9f9d-48b8c815bfbd",
@@ -260,8 +261,11 @@ displayMood(){
 
       }
           return (
+            <div>  
+                <ZenyuNavbar />
               
                 <div className = "homepage-layout">
+
                     <Calendar
                         onChange={this.onChange}
                         value={this.state.date}
@@ -382,6 +386,7 @@ displayMood(){
                 }
                     
             </div>
+        </div>
           )      
   }
 }
