@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
-<<<<<<< HEAD:client/src/components/Home.jsx
-import { Card, Button, Modal, Form } from 'react-bootstrap';
-=======
 import {Navbar, Card, Button, Modal, Form} from 'react-bootstrap';
 import ZenyuLogo from '../img/zenyu-logo.svg';
 
 import { getPrompts} from "../actions/promptActions";
-import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood   } from "../actions/journalPrompts";
+import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood } from "../actions/journalPrompts";
 import {updateImage, deleteImage} from '../actions/imageActions';
 import {Link} from 'react-router-dom';
->>>>>>> 06923f11fc533cf4e8e19a15c8fe211b1cb8f1eb:client/src/components/Dashboard.jsx
 
 import Navigation from './home/Navigation';
 import Footer from './Footer';
-
-import { getPrompts } from "../actions/promptActions";
-import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood } from "../actions/journalPrompts";
-import { Link } from 'react-router-dom';
 
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -256,12 +248,7 @@ displayMood(){
     console.log(journalData.slice(journalData.indexOf('/>')+2));
     if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
         return(
-<<<<<<< HEAD:client/src/components/Home.jsx
-            <div>
-                <Navigation handleLogout = {this.handleLogout} />
-=======
             
->>>>>>> 06923f11fc533cf4e8e19a15c8fe211b1cb8f1eb:client/src/components/Dashboard.jsx
                 <div className = "homepage-layout">
                     <Calendar
                         onChange={this.onChange}
@@ -270,18 +257,6 @@ displayMood(){
                     <h1>You can't make a journal entry for this date!</h1>
                 </div>
         )
-<<<<<<< HEAD:client/src/components/Home.jsx
-    }
-    return (
-        <div>
-            <Navigation handleLogout = {this.handleLogout} />
-            <div className = "homepage-layout">
-                <Calendar
-                    onChange={this.onChange}
-                    value={this.state.date}
-                />
-                { Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
-=======
 
       }
           return (
@@ -292,7 +267,6 @@ displayMood(){
                         value={this.state.date}
                     />
                     {Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
->>>>>>> 06923f11fc533cf4e8e19a15c8fe211b1cb8f1eb:client/src/components/Dashboard.jsx
                     <div className = "journal-entry">
                         <div>
                             <p>The prompt you chose was: {this.state.journal.prompt.content}</p>
@@ -408,13 +382,7 @@ displayMood(){
                 }
                     
             </div>
-<<<<<<< HEAD:client/src/components/Home.jsx
-        <Footer />
-        </div>  
-    )      
-=======
           )      
->>>>>>> 06923f11fc533cf4e8e19a15c8fe211b1cb8f1eb:client/src/components/Dashboard.jsx
   }
 }
 

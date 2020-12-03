@@ -7,17 +7,10 @@ import Terms from './components/legal/Terms';
 import Privacy from './components/legal/Privacy';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
-<<<<<<< HEAD
-import Home from './components/Home';
-import JournalEntry from './components/JournalEntry';
-import Journal from './components/home/journal/Journal';
-
-=======
 import Dashboard from './components/Dashboard';
 import JournalEntry from './components/JournalEntry';
 import ZenyuNavbar from './components/ZenyuNavbar';
 import AllPrompts from './components/AllPrompts';
->>>>>>> 06923f11fc533cf4e8e19a15c8fe211b1cb8f1eb
 import AuthState from './context/auth/authState';
 import setAuthToken from './utils/setAuthToken';
 
@@ -40,16 +33,10 @@ const App = () => {
                 <Route path='/privacy' component={Privacy} />
                 <Route path='/login' component={Login} />
                 <Route path='/signup' component={Signup} />
-<<<<<<< HEAD
-                <Route path='/home' component={Home} />
-                <Route path= '/journalentry' component={JournalEntry} />
-                <Route path='/journal' component={Journal} />
-=======
                 <Route path='/dashboard' component={Dashboard} />
                 <Route path= '/journalentry' component={JournalEntry} />
                 <Route path= '/all' component={AllPrompts} />
 
->>>>>>> 06923f11fc533cf4e8e19a15c8fe211b1cb8f1eb
               </Switch>
             </div>
           </div>
