@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Navigation from './Navigation';
 import { Container, Row, Col } from 'react-bootstrap';
 import Footer from '../Footer';
@@ -8,7 +8,7 @@ import '../style/Legal.css';
 
 const Disclaimer = () => {
   return (
-    <div>
+    <Fragment>
       <Navigation />
         <Container className="section">
           <Row className="justify-content-center">
@@ -41,7 +41,7 @@ const Disclaimer = () => {
           </Row>
         </Container>
         <footer className="footer"><Footer /></footer>
-    </div>
+    </Fragment>
   )
 }
 

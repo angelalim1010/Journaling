@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 
 import logo from '../../img/zenyu-logo.svg';
@@ -6,7 +6,7 @@ import logo from '../../img/zenyu-logo.svg';
 
 const Navigation = () => {
   return (
-    <div>
+    <Fragment>
       <Navbar fixed="top" collapseOnSelect expand="lg" bg="light">
         <Navbar.Brand>
           <Nav.Link href="/"><img src={logo} alt="logo"/></Nav.Link>
@@ -21,7 +21,7 @@ const Navigation = () => {
         </Nav>
         </Navbar.Collapse>
       </Navbar>
-    </div>
+    </Fragment>
   );
 }
 

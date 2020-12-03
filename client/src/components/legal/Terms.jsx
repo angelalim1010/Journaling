@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Navigation from './Navigation';
 import Footer from '../Footer';
@@ -9,7 +9,7 @@ import '../style/Legal.css';
 
 const Terms = () => {
   return (
-    <div>
+    <Fragment>
       <Navigation />
         <Container className="section">
         <Row className="justify-content-center title">
@@ -393,7 +393,7 @@ const Terms = () => {
         </Row>
       </Container>
     <footer className="footer"><Footer /></footer>
-    </div>
+    </Fragment>
   )
 }
 
