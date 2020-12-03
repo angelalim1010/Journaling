@@ -115,7 +115,7 @@ const Signup = props => {
                   </Form.Row>
                 </Form.Group>
                 <Form.Group className="text-center">
-                    <Form.Check type='checkbox' label="By checking this box, I indicate that I have read and agree to Zenyu's Terms of Service, Disclaimer, and Privacy Policy" required/>
+                    <Form.Check type='checkbox' label="By checking this box, I agree to the Terms of Service, Disclaimer, and Privacy Policy." required/>
                 </Form.Group>
                   <p>
                     Click here for the <a href="/terms" target="_blank" >Terms of Service</a>, <a href="/disclaimer">Disclaimer</a>, & <a href="/privacy"> Privacy Policy</a>.

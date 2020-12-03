@@ -46,7 +46,7 @@ const Login = props => {
       <Navigation />
       <Container className="login" fluid>
         <Col id="login" className="wrapper">
-          <Col className="text-center" xs={4}>
+          <Col className="text-center" xs={6} md={4}>
             <h3>heal. thrive. grow</h3>
             <h5><strong>Welcome back.</strong></h5>
             <Form onSubmit={handleSubmit}>
