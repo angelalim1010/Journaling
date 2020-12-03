@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Jumbotron, Container, Image, Row, Col, Button } from 'react-bootstrap';
 
 import logo from '../../img/zenyu-logo.svg';
 
 const Header = () => {
   return (
-    <div>
+    <Fragment>
         <Jumbotron fluid>
           <Container className="header">
             <Row className="justify-content-center">
@@ -21,7 +21,7 @@ const Header = () => {
             </Row>
           </Container>
         </Jumbotron>
-    </div>      
+    </Fragment>      
   );
 }
 

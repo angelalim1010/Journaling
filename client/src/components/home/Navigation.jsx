@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Nav, Navbar, Button } from 'react-bootstrap';
 
 import logo from '../../img/zenyu-logo.svg';
@@ -7,7 +7,7 @@ import logo from '../../img/zenyu-logo.svg';
 class Navigation extends Component {
   render() {
     return (
-      <div>
+      <Fragment>
         <Navbar fixed="top" collapseOnSelect expand="lg" bg="light">
           <Navbar.Brand>
             <Nav.Link href="/"><img src={logo} alt="logo"/></Nav.Link>
@@ -22,7 +22,7 @@ class Navigation extends Component {
           </Nav>
           </Navbar.Collapse>
         </Navbar>
-      </div>
+      </Fragment>
     );
   }
 }
