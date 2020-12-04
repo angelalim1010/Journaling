@@ -7,9 +7,9 @@ import Terms from './components/legal/Terms';
 import Privacy from './components/legal/Privacy';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
-import Dashboard from './components/Dashboard';
+import Home from './components/Home';
 import JournalEntry from './components/JournalEntry';
-import AllPrompts from './components/home/journal/AllPrompts';
+import Journal from './components/home/journal/Journal';
 import AuthState from './context/auth/authState';
 import setAuthToken from './utils/setAuthToken';
 
@@ -30,9 +30,9 @@ const App = () => {
                 <Route path='/privacy' component={Privacy} />
                 <Route path='/login' component={Login} />
                 <Route path='/signup' component={Signup} />
-                <Route path='/dashboard' component={Dashboard} />
-                <Route path= '/journalentry' component={JournalEntry} />
-                <Route path= '/all' component={AllPrompts} />
+                <Route path='/home' component={Home} />
+                <Route path='/edit' component={JournalEntry} />
+                <Route path='/journal' component={Journal} />
               </Switch>
             </div>
           </div>

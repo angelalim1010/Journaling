@@ -1,38 +1,65 @@
 import React, { Component, Fragment } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-
-import Navigation from './home/Navigation';
-import Footer from '../../Footer';
+import { Container } from 'react-bootstrap';
+import Navigation from '../Navigation';
+import { getAllJournals} from "../../../actions/journalPrompts";
 
 import '../../style/style.css';
+import '../../style/Journal.css';
 
+class AllPrompts extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            journals: []
+        }
+    }
+    componentDidMount = async () =>{
+        getAllJournals()
+        .then(res=>{
+            const data = res?.data;
+            this.setState({journals: data || []})
+            console.log(res.data)
+        })
+    }
+    formatDate(date) {
+        let d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+    
+        if (month.length < 2) 
+            month = '0' + month;
+        if (day.length < 2) 
+            day = '0' + day;
+    
+        return [year, month, day].join('-');
+      
+    }
+  render(){
+    console.log(this.state.journals.length)
+      return(
+        <Fragment>
+          <Navigation />
+            <Container className="wrapper">
+              <h1>My Journal</h1>
+                {this.state.journals.length !== 0 ?
 
-class Journal extends Component {
-  handleLogout = () => {
-    const { logout } = this.context
-    logout();
-    this.props.history.push('/')
-  }
-
-  render() {
-    return (
-      <Fragment>
-        <Navigation handleLogout={this.handleLogout} />
-        <Container fluid>
-            <Row className="justify-content-center">
-                <Col className="text-center">
-                    <h1>Journal Components</h1>
-                    <h1>Journal Components</h1>
-                    <h1>Journal Components</h1>
-                    <h1>Journal Components</h1>
-                    <h1>Journal Components</h1>
-                </Col>
-            </Row>
-        </Container>
-        <Footer />
-      </Fragment>
-    )
-  }
+                <ul>
+                {this.state.journals.map(journal =>
+                    <li key={journal.journal.prompt.id}>{journal.journal.prompt.content}
+                        <ul>
+                            <li key={journal.journal.id}>Created on: {this.formatDate(journal.journal.createdAt)}</li>
+                        </ul>
+                    </li>
+                    )}
+                </ul>
+                :
+                <p>You have no Prompts</p>
+                }
+            </Container>
+        </Fragment>
+        )
+    }
 }
 
-export default Journal
+export default AllPrompts;

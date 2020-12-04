@@ -25,14 +25,15 @@ class Navigation extends Component{
       <Fragment>
         <Navbar fixed="top" collapseOnSelect expand="lg" bg="light">
           <Navbar.Brand>
-            <Nav.Link href="/"><img src={logo} alt="Zenyu Logo"/></Nav.Link>
+            <Nav.Link href="/home"><img src={logo} alt="Zenyu Logo"/></Nav.Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto"></Nav>
           <Nav>
-            <Nav.Link href="/dashboard" className='active'>Home</Nav.Link>
-            <Nav.Link href="/all" className='active'>Journal</Nav.Link>
+            <Nav.Link href="/home" className='active'>Home</Nav.Link>
+            <Nav.Link href="/journal" className='active'>Journal</Nav.Link>
+            <Nav.Link href="/prompts" className='active'>Library</Nav.Link>
             <Button onClick={() => this.handleLogout()}>Logout</Button>
           </Nav>
           

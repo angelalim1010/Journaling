@@ -1,30 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Calendar from 'react-calendar';
-<<<<<<< HEAD:client/src/components/Home.jsx
-import { Card, Button, Modal, Form } from 'react-bootstrap';
-=======
-import {Navbar, Card, Button, Modal, Form} from 'react-bootstrap';
-import ZenyuLogo from '../img/zenyu-logo.svg';
+import {Container, Row, Col, Card, CardDeck, Button, Modal, Form} from 'react-bootstrap';
 
 import { getPrompts} from "../actions/promptActions";
-import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood   } from "../actions/journalPrompts";
+import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood } from "../actions/journalPrompts";
 import {updateImage, deleteImage} from '../actions/imageActions';
 import {Link} from 'react-router-dom';
->>>>>>> 06923f11fc533cf4e8e19a15c8fe211b1cb8f1eb:client/src/components/Dashboard.jsx
 
-import Navigation from './home/Navigation';
-import Footer from './Footer';
-
-import { getPrompts } from "../actions/promptActions";
-import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood } from "../actions/journalPrompts";
-import { Link } from 'react-router-dom';
 
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import AuthContext from '../context/auth/authContext';
 
-import './LoginHomepage.css';
+import './style/Home.css';
 import 'react-calendar/dist/Calendar.css';
+import Navigation from './home/Navigation';
 
 const moodIds={
     sad: "148f355c-f251-49ec-9f9d-48b8c815bfbd",
@@ -255,44 +245,40 @@ displayMood(){
     let journalData = `<figure class="image"><img src=${this.state.image.content} alt="journal-img"/></figure>` + this.state.content;
     console.log(journalData.slice(journalData.indexOf('/>')+2));
     if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
-        return(
-<<<<<<< HEAD:client/src/components/Home.jsx
-            <div>
-                <Navigation handleLogout = {this.handleLogout} />
-=======
-            
->>>>>>> 06923f11fc533cf4e8e19a15c8fe211b1cb8f1eb:client/src/components/Dashboard.jsx
-                <div className = "homepage-layout">
-                    <Calendar
-                        onChange={this.onChange}
-                        value={this.state.date}
-                    />
-                    <h1>You can't make a journal entry for this date!</h1>
-                </div>
+      return(
+        <Fragment>
+          <Navigation />
+          <Container className="section">
+            <Row className="justify-content-center">
+              <Col className="text-center" s={6}>
+                <h5><strong>You cannot post an entry for this day.</strong></h5>
+                <p>Select today or a day in which you wrote an entry.</p>
+              </Col>
+              
+            </Row>
+            <Row className="justify-content-center">
+            <Calendar
+              onChange={this.onChange}
+              value={this.state.date}
+            />
+            </Row>
+          </Container>
+
+        </Fragment>
         )
-<<<<<<< HEAD:client/src/components/Home.jsx
-    }
-    return (
-        <div>
-            <Navigation handleLogout = {this.handleLogout} />
-            <div className = "homepage-layout">
-                <Calendar
-                    onChange={this.onChange}
-                    value={this.state.date}
-                />
-                { Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
-=======
 
       }
           return (
+            <div>  
+                <Navigation />
               
                 <div className = "homepage-layout">
+
                     <Calendar
                         onChange={this.onChange}
                         value={this.state.date}
                     />
                     {Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
->>>>>>> 06923f11fc533cf4e8e19a15c8fe211b1cb8f1eb:client/src/components/Dashboard.jsx
                     <div className = "journal-entry">
                         <div>
                             <p>The prompt you chose was: {this.state.journal.prompt.content}</p>
@@ -388,9 +374,9 @@ displayMood(){
                 :
                 <div>
                 
-                  <div className = "prompt-layout">
+                  <CardDeck>
                       {this.state.prompts.map((prompt,index)=>(
-                          <Card style={{width: '18rem', margin: '25px'}} key={index}>
+                          <Card key={index}>
                           <Card.Header>Today's Prompt</Card.Header>
       
                           <Card.Body>
@@ -401,20 +387,15 @@ displayMood(){
                       </Card>
                       ))}
                       
-                  </div>
+                  </CardDeck>
                   
                 </div>
                         
                 }
                     
             </div>
-<<<<<<< HEAD:client/src/components/Home.jsx
-        <Footer />
-        </div>  
-    )      
-=======
+        </div>
           )      
->>>>>>> 06923f11fc533cf4e8e19a15c8fe211b1cb8f1eb:client/src/components/Dashboard.jsx
   }
 }
 
