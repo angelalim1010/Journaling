@@ -9,7 +9,7 @@ import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import Dashboard from './components/Dashboard';
 import JournalEntry from './components/JournalEntry';
-import AllPrompts from './components/AllPrompts';
+import AllPrompts from './components/home/journal/AllPrompts';
 import AuthState from './context/auth/authState';
 import setAuthToken from './utils/setAuthToken';
 

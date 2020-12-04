@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
 import {Navbar, Card, CardDeck, Button, Modal, Form} from 'react-bootstrap';
-import ZenyuLogo from '../img/zenyu-logo.svg';
 
 import { getPrompts} from "../actions/promptActions";
 import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood } from "../actions/journalPrompts";
 import {updateImage, deleteImage} from '../actions/imageActions';
 import {Link} from 'react-router-dom';
 
-import Navigation from './home/Navigation';
-import Footer from './Footer';
 
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -17,7 +14,7 @@ import AuthContext from '../context/auth/authContext';
 
 import './LoginHomepage.css';
 import 'react-calendar/dist/Calendar.css';
-import ZenyuNavbar from './ZenyuNavbar';
+import Navigation from './home/Navigation';
 
 const moodIds={
     sad: "148f355c-f251-49ec-9f9d-48b8c815bfbd",
@@ -262,7 +259,7 @@ displayMood(){
       }
           return (
             <div>  
-                <ZenyuNavbar />
+                <Navigation />
               
                 <div className = "homepage-layout">
 

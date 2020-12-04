@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import { getAllJournals} from "../actions/journalPrompts";
+import React, { Component, Fragment } from 'react';
+
+import { getAllJournals} from "../../../actions/journalPrompts";
+import Navigation from '../Navigation';
 
 class AllPrompts extends Component{
     constructor(props){
@@ -31,10 +33,11 @@ class AllPrompts extends Component{
         return [year, month, day].join('-');
       
     }
-    render(){
-        console.log(this.state.journals.length)
-        return(
-            <div>
+  render(){
+    console.log(this.state.journals.length)
+      return(
+        <Fragment>
+                <Navigation />
                 <h1>All Prompts Done</h1>
                 {this.state.journals.length !== 0 ?
 
@@ -51,7 +54,7 @@ class AllPrompts extends Component{
                 <p>You have no Prompts</p>
                 }
                 
-            </div>
+            </Fragment>
         )
     }
 }
