@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { Navbar, Button, Nav } from 'react-bootstrap';
+
 import logo from '../../img/zenyu-logo.svg';
+import '../style/style.css';
+
 import { withRouter } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 
@@ -34,7 +37,7 @@ class Navigation extends Component{
             <Nav.Link href="/home" className='active'>Home</Nav.Link>
             <Nav.Link href="/journal" className='active'>Journal</Nav.Link>
             <Nav.Link href="/prompts" className='active'>Library</Nav.Link>
-            <Button onClick={() => this.handleLogout()}>Logout</Button>
+            <Button className='btn' onClick={() => this.handleLogout()}>Logout</Button>
           </Nav>
           
           </Navbar.Collapse>
