@@ -5,7 +5,7 @@ import {Container, Row, Col, Card, CardDeck, Button, Modal, Form} from 'react-bo
 import { getPrompts} from "../actions/promptActions";
 import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood } from "../actions/journalPrompts";
 import {updateImage, deleteImage} from '../actions/imageActions';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 import CKEditor from '@ckeditor/ckeditor5-react';
@@ -13,6 +13,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import AuthContext from '../context/auth/authContext';
 
 import './style/Home.css';
+import './style/style.css';
 import 'react-calendar/dist/Calendar.css';
 import Navigation from './home/Navigation';
 
@@ -267,18 +268,12 @@ displayMood(){
         </Fragment>
         )
 
-      }
-          return (
-            <div>  
-                <Navigation />
-              
-                <div className = "homepage-layout">
-
-                    <Calendar
-                        onChange={this.onChange}
-                        value={this.state.date}
-                    />
-                    {Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
+    }
+    return (
+      <Fragment>  
+        <Navigation />
+            <div className = "homepage-layout">
+                {Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
                     <div className = "journal-entry">
                         <div>
                             <p>The prompt you chose was: {this.state.journal.prompt.content}</p>
@@ -372,30 +367,45 @@ displayMood(){
                     
                 </div>
                 :
-                <div>
-                
-                  <CardDeck>
+                <Fragment>
+                  <Container className="section">
+                      <Col className="text-center">
+                        <h1>Welcome back, NAME.</h1>
+                        <br/>
+                        <h3>Today is <em>{todayDate}</em>.</h3>
+                        <br/>
+                        <h5>Select a prompt below or click post:</h5>
+                        <br />
+                        <Button className='btn-custom'>
+                          <Link to={{pathname: "/edit", aboutProps:{prompt: prompt} }}>Post</Link>
+                        </Button>
+                        <CardDeck>
                       {this.state.prompts.map((prompt,index)=>(
                           <Card key={index}>
-                          <Card.Header>Today's Prompt</Card.Header>
-      
-                          <Card.Body>
-                              <Card.Title>{prompt.category.name}</Card.Title>
-                              <Card.Text>{prompt.content}</Card.Text>
-                              <Link to={{pathname: "/journalentry", aboutProps:{prompt: prompt} }}>Select This Prompt</Link>
-                          </Card.Body>
-                      </Card>
-                      ))}
-                      
-                  </CardDeck>
-                  
-                </div>
-                        
-                }
-                    
+                            <Card.Header>{prompt.category.name}</Card.Header>
+                              <Card.Body>
+                                <Card.Text>{prompt.content}...</Card.Text>
+                                <Button className='btn-custom'>
+                                  <Link to={{pathname: "/edit", aboutProps:{prompt: prompt} }}>Select</Link>
+                                </Button>
+                            </Card.Body>
+                          </Card>
+                      ))}  
+                    </CardDeck>
+                      </Col>
+                  </Container>
+                </Fragment>
+                }          
             </div>
-        </div>
-          )      
+        <Container className="section">
+          <Calendar
+            onChange={this.onChange}
+            value={this.state.date}
+          />
+        </Container>
+        
+      </Fragment>
+    )      
   }
 }
 
