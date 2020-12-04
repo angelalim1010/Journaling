@@ -385,7 +385,7 @@ displayMood(){
 
                       <CardDeck>
                         {this.state.prompts.map((prompt,index)=>(
-                          <Card key={index}>
+                          <Card key={index} className="prompt">
                             <Card.Header as="h5">{prompt.category.name}</Card.Header>
                               <Card.Body>
                                 <Card.Text>{prompt.content}...</Card.Text>
