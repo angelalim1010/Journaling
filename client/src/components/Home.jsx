@@ -240,11 +240,14 @@ displayMood(){
 }
 
   render() {
-      console.log(this.state.date)
+    let today = new Date();
+
+    console.log(this.state.date)
     let todayDate = new Date().toDateString();
     console.log(this.state.prompts)
     let journalData = `<figure class="image"><img src=${this.state.image.content} alt="journal-img"/></figure>` + this.state.content;
     console.log(journalData.slice(journalData.indexOf('/>')+2));
+    
     if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
       return(
         <Fragment>
@@ -371,9 +374,9 @@ displayMood(){
                   <Container className="section">
                       <Row className="justify-content-center">
                         <Col className="text-center">
-                          <h1>Welcome back, NAME.</h1>
+                          <h1>Welcome back.</h1>
                           <br/>
-                          <h3>Today is <em>{todayDate}</em>.</h3>
+                          <h3>Today is <em>{today.toLocaleDateString('en-us', { weekday: 'long' }) }</em>.</h3>
                           <br/>
                           <h5>Select a prompt below or click post:</h5>
                           <br />

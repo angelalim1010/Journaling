@@ -76,7 +76,7 @@ class JournalEntry extends Component{
                 </div>
 				<p style= {{fontFamily: "Georgia, serif", textAlign: "center"}}>Prompt: {this.state.prompt.prompt.content}</p>
 				<input type="file" name="image" onChange={this.onChangeHandler}/>
-				<Form onSubmit={(e)=>{e.preventDefault();createMood(this.state.value); createJournal(this.state.content, this.state.prompt.prompt.id); 	uploadImage(this.state.base64TextString);this.props.history.push('/homepage')}}>
+				<Form onSubmit={(e)=>{e.preventDefault();createMood(this.state.value); createJournal(this.state.content, this.state.prompt.prompt.id); 	uploadImage(this.state.base64TextString);this.props.history.push('/home')}}>
                                     {/* <Form.Label>Select to change your mood</Form.Label> */}
                                     <Form.Control as="select" defaultValue="" onChange={this.handleSelect}>
                                         <option value="" disabled>Select a Mood</option>
@@ -108,7 +108,7 @@ class JournalEntry extends Component{
 									// }}
 									/>
 								</div>
-                                <Button type="submit">Submit Entry</Button>
+                                <Button type="submit">Submit</Button>
                     </Form>
 				</div>
 			</div>

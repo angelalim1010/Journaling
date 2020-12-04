@@ -17,6 +17,7 @@
 .btn-custom a {
   color: #fff;
   font-weight: 400;
+  letter-spacing: 0.1rem;
 }
 a:hover,
 a:focus {
