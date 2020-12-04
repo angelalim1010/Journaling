@@ -1,21 +1,21 @@
 import React, { Component, Fragment } from 'react';
 import Calendar from 'react-calendar';
-import {Container, Row, Col, Card, CardDeck, Button, Modal, Form} from 'react-bootstrap';
+import { Container, Row, Col, Card, CardDeck, Button, Modal, Form } from 'react-bootstrap';
 
-import { getPrompts} from "../actions/promptActions";
-import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood } from "../actions/journalPrompts";
-import {updateImage, deleteImage} from '../actions/imageActions';
+import { getPrompts} from "../../actions/promptActions";
+import { getJournal, updateJournal, updateMood, deleteJournal, deleteMood } from "../../actions/journalPrompts";
+import {updateImage, deleteImage} from '../../actions/imageActions';
 import { Link } from 'react-router-dom';
-
 
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import AuthContext from '../context/auth/authContext';
+import AuthContext from '../../context/auth/authContext';
 
-import './style/Home.css';
-import './style/style.css';
+import Navigation from './Navigation';
+import '../style/Home.css';
+import '../style/style.css';
 import 'react-calendar/dist/Calendar.css';
-import Navigation from './home/Navigation';
+
 
 const moodIds={
     sad: "148f355c-f251-49ec-9f9d-48b8c815bfbd",

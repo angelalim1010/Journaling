@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import CKEditor from "@ckeditor/ckeditor5-react";
-import { createJournal,  createMood  } from "../actions/journalPrompts";
-import { uploadImage  } from "../actions/imageActions";
+import { createJournal,  createMood  } from "../../../actions/journalPrompts";
+import { uploadImage  } from "../../../actions/imageActions";
 
 import {Button, Form} from 'react-bootstrap';
 import {Redirect, withRouter} from 'react-router-dom';
 
-import "./JournalEntry.css"
+import "../../style/Entry.css"
 const moodIds={
     sad: "148f355c-f251-49ec-9f9d-48b8c815bfbd",
     nervous: "687b7a61-ac4a-4a64-a5b6-a2aed74596e1",
     happy: "879632eb-6b57-49bf-a243-c315bc6db398",
     calm: "9c2f2373-9d69-4abd-a5ed-b419695c4376"
 }
-class JournalEntry extends Component{
+class Entry extends Component{
 	constructor(props){
 		super(props);
 		this.state={
@@ -117,4 +117,4 @@ class JournalEntry extends Component{
 		
 		
 }
-export default JournalEntry 
+export default Entry

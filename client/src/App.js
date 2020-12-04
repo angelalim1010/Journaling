@@ -7,8 +7,8 @@ import Terms from './components/legal/Terms';
 import Privacy from './components/legal/Privacy';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
-import Home from './components/Home';
-import JournalEntry from './components/JournalEntry';
+import Home from './components/home/Home';
+import Entry from './components/home/journal/Entry';
 import Journal from './components/home/journal/Journal';
 import AuthState from './context/auth/authState';
 import setAuthToken from './utils/setAuthToken';
@@ -31,7 +31,7 @@ const App = () => {
                 <Route path='/login' component={Login} />
                 <Route path='/signup' component={Signup} />
                 <Route path='/home' component={Home} />
-                <Route path='/edit' component={JournalEntry} />
+                <Route path='/edit' component={Entry} />
                 <Route path='/journal' component={Journal} />
               </Switch>
             </div>
