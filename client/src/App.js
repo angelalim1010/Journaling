@@ -12,6 +12,7 @@ import Entry from './components/home/journal/Entry';
 import Journal from './components/home/journal/Journal';
 import AuthState from './context/auth/authState';
 import setAuthToken from './utils/setAuthToken';
+import AllPrompts from './components/home/journal/Journal';
 
 
 const App = () => {
@@ -33,6 +34,8 @@ const App = () => {
                 <Route path='/home' component={Home} />
                 <Route path='/edit' component={Entry} />
                 <Route path='/journal' component={Journal} />
+                <Route path='/prompts' component={AllPrompts} />
+
               </Switch>
             </div>
           </div>
