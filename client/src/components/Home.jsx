@@ -369,30 +369,35 @@ displayMood(){
                 :
                 <Fragment>
                   <Container className="section">
-                      <Col className="text-center">
-                        <h1>Welcome back, NAME.</h1>
-                        <br/>
-                        <h3>Today is <em>{todayDate}</em>.</h3>
-                        <br/>
-                        <h5>Select a prompt below or click post:</h5>
-                        <br />
-                        <Button className='btn-custom'>
-                          <Link to={{pathname: "/edit", aboutProps:{prompt: prompt} }}>Post</Link>
-                        </Button>
-                        <CardDeck>
-                      {this.state.prompts.map((prompt,index)=>(
+                      <Row className="justify-content-center">
+                        <Col className="text-center">
+                          <h1>Welcome back, NAME.</h1>
+                          <br/>
+                          <h3>Today is <em>{todayDate}</em>.</h3>
+                          <br/>
+                          <h5>Select a prompt below or click post:</h5>
+                          <br />
+                          <Button className='btn-custom'>
+                            <Link to={{pathname: "/edit", aboutProps:{prompt: prompt} }}>Post</Link>
+                          </Button>
+                        </Col>
+                      </Row>
+
+                      <CardDeck>
+                        {this.state.prompts.map((prompt,index)=>(
                           <Card key={index}>
-                            <Card.Header>{prompt.category.name}</Card.Header>
+                            <Card.Header as="h5">{prompt.category.name}</Card.Header>
                               <Card.Body>
                                 <Card.Text>{prompt.content}...</Card.Text>
-                                <Button className='btn-custom'>
-                                  <Link to={{pathname: "/edit", aboutProps:{prompt: prompt} }}>Select</Link>
-                                </Button>
                             </Card.Body>
+                            <Card.Footer>
+                              <Button className='btn-custom'>
+                                <Link to={{pathname: "/edit", aboutProps:{prompt: prompt} }}>Select</Link>
+                              </Button>
+                            </Card.Footer>
                           </Card>
-                      ))}  
-                    </CardDeck>
-                      </Col>
+                        ))}  
+                      </CardDeck>
                   </Container>
                 </Fragment>
                 }          
