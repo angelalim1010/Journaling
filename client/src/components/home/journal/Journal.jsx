@@ -43,7 +43,7 @@ class AllPrompts extends Component{
             <Container className="wrapper">
               <h1>My Journal</h1>
                 {this.state.journals.length !== 0 ?
-                    <Table>
+                    <Table striped bordered>
                         <thead>
                             <tr>
                                 <th>Date Created</th>
