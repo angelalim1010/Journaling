@@ -245,8 +245,7 @@ displayMood(){
     console.log(this.state.date)
     let todayDate = new Date().toDateString();
     console.log(this.state.prompts)
-    let journalData = `<figure class="image"><img src=${this.state.image.content} alt="journal-img"/></figure>` + this.state.content;
-    console.log(journalData.slice(journalData.indexOf('/>')+2));
+    console.log(this.state.image)
     
     if (Object.keys(this.state.journal).length === 0 && this.state.journal.constructor === Object && todayDate !== this.state.date.toDateString()){
       return(
@@ -301,7 +300,7 @@ displayMood(){
                                 <Button type="submit">Update Mood</Button>
                             </Form>}
                         </div>
-                        {this.state.image.content === "" ?    
+                        {Object.keys(this.state.image).length === 0 && this.state.image.constructor === Object ?    
                             <div>
                                 <p>Add Image</p>
                                 <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>

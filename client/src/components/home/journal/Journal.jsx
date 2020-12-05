@@ -36,7 +36,7 @@ class AllPrompts extends Component{
       
     }
   render(){
-    console.log(this.state.journals.length)
+    // console.log(this.state.journals.length)
       return(
         <Fragment>
           <Navigation />

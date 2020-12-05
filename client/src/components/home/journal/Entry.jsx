@@ -6,6 +6,7 @@ import { uploadImage  } from "../../../actions/imageActions";
 
 import {Button, Form} from 'react-bootstrap';
 import {Redirect, withRouter} from 'react-router-dom';
+import Navigation from '../Navigation';
 
 import "../../style/Entry.css"
 const moodIds={
@@ -65,7 +66,9 @@ class Entry extends Component{
 		console.log(this.state.prompt.prompt.content)
 
 		return(
-			<div className= "JournalEntry">
+			<div>
+				<Navigation />
+				<div className= "JournalEntry">
 				<div className= "smolje" >
 				 <div className="container hero" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 <div className="row">
@@ -112,6 +115,8 @@ class Entry extends Component{
                     </Form>
 				</div>
 			</div>
+			</div>
+			
 		)
 	}
 		
