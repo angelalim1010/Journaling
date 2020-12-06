@@ -47,6 +47,7 @@ class AllPrompts extends Component{
                         <thead>
                             <tr>
                                 <th>Date Created</th>
+                                <th>Category</th>
                                 <th>Prompt</th>
                             </tr>
                         </thead>
@@ -54,6 +55,7 @@ class AllPrompts extends Component{
                         {this.state.journals.map(journal =>
                             <tr>
                                 <td>{this.formatDate(journal.journal.createdAt)}</td>
+                                <td>{journal.journal.prompt.category.name}</td>
                                 <td>{journal.journal.prompt.content}</td>
                             </tr>
                             // <ListGroup.Item key={journal.journal.prompt.id}>{journal.journal.prompt.content}
