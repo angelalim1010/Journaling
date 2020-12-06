@@ -6,6 +6,8 @@ import setAuthToken from '../../utils/setAuthToken';
 import {
     SIGNUP_SUCCESS,
     SIGNUP_FAIL,
+    USER_LOADED,
+    AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT,
@@ -22,6 +24,22 @@ const AuthState = props => {
     };
 
     const [state, dispatch] = useReducer(authReducer, initialState);
+
+    // Load User
+    const loadUser = async () => {
+        setAuthToken(localStorage.token)
+    
+        try {
+            const res = await axios.get('https://zenyu-backend.herokuapp.com/api/userjournals');
+
+            dispatch({
+                type: USER_LOADED,
+                payload: res.data
+            });
+        } catch (err) {
+            dispatch({ type: AUTH_ERROR});
+        }
+    };
 
     // Register User
     const register = async formData => {

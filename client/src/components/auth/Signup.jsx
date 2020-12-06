@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect, Fragment } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import AuthContext from '../../context/auth/authContext';
 
-import Navigation from '../legal/Navigation';
+import Navigation, { NavDefault } from '../Navigation';
 import Footer from '../Footer';
 import '../style/style.css';
 import '../style/Auth.css';
@@ -45,9 +45,20 @@ const Signup = props => {
     });
   };
 
+  const nav = [
+    {
+      link: "/login",
+      label: "Log In"
+    },
+    {
+      link: "/signup",
+      label: "Sign Up"
+    }
+]
+
   return (
     <Fragment>
-      <Navigation />
+      <NavDefault nav={nav} />
       <Container className="signup" fluid>
         <Col id="signup" className="wrapper">
           <Col className="text-center" xs={6} md={4}>

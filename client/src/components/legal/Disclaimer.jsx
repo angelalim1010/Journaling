@@ -1,15 +1,26 @@
-import React, { Fragment } from 'react';
-import Navigation from './Navigation';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import Navigation, { NavDefault } from '../Navigation';
 import Footer from '../Footer';
 
 import '../style/style.css';
 import '../style/Legal.css';
 
+
 const Disclaimer = () => {
+  const nav = [
+    {
+      link: "/login",
+      label: "Log In"
+    },
+    {
+      link: "/signup",
+      label: "Sign Up"
+    }
+]
   return (
-    <Fragment>
-      <Navigation />
+    <>
+      <NavDefault nav={nav} />
         <Container className="section">
           <Row className="justify-content-center">
             <Col className="text-center title" s={6}>
@@ -41,7 +52,7 @@ const Disclaimer = () => {
           </Row>
         </Container>
         <footer className="footer"><Footer /></footer>
-    </Fragment>
+    </>
   )
 }
 

@@ -1,27 +1,43 @@
 import React, { Component } from 'react';
 
-import Navigation from './landing/Navigation.jsx';
-import Header from './landing/Header.jsx';
-import Features from './landing/Features.jsx';
-import About from './landing/About.jsx';
-import Footer from './Footer.jsx';
+import Navigation, { NavDefault } from './Navigation';
+import Header from './landing/Header';
+import Features from './landing/Features';
+import About from './landing/About';
+import Footer from './Footer';
 
 import './style/style.css';
 import './style/Landing.css';
 
 
-class Landing extends Component {
-  render() {
-    return (
-      <div>
-        <Navigation />
-        <Header />
-        <Features />
-        <About />
-        <footer className="footer"><Footer /></footer>
-      </div>
-    )
-  }
+const Landing = () => {
+  const nav = [
+    {
+      link: "#features",
+      label: "Features"
+    },
+    {
+      link: "#about",
+      label: "About"
+    },
+    {
+      link: "/login",
+      label: "Log In"
+    },
+    {
+      link: "/signup",
+      label: "Sign Up"
+    }
+]
+  return (
+    <>
+      <NavDefault nav={nav} />
+      <Header />
+      <Features />
+      <About />
+      <footer className="footer"><Footer /></footer>
+    </>
+  )
 };
 
 export default Landing
