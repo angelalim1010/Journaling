@@ -23,7 +23,7 @@ export const NavDefault = ({nav}) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
           <Nav>
-            {nav.map((item, i) => <NavLink key={i} item={item} /> )}
+            {nav.map(item => <NavLink key={item.id} item={item} /> )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

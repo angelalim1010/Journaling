@@ -47,10 +47,12 @@ const Signup = props => {
 
   const nav = [
     {
+      id: 1,
       link: "/login",
       label: "Log In"
     },
     {
+      id: 2,
       link: "/signup",
       label: "Sign Up"
     }

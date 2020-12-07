@@ -13,18 +13,22 @@ import './style/Landing.css';
 const Landing = () => {
   const nav = [
     {
+      id: 1,
       link: "#features",
       label: "Features"
     },
     {
+      id: 2,
       link: "#about",
       label: "About"
     },
     {
+      id: 3,
       link: "/login",
       label: "Log In"
     },
     {
+      id: 4,
       link: "/signup",
       label: "Sign Up"
     }
