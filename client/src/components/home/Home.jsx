@@ -37,7 +37,6 @@ class Home extends Component {
         value: "",
         image: {},
         base64TextString: ""
-
     }
     this.onChange = this.onChange.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -47,8 +46,6 @@ class Home extends Component {
     this.refreshPage = this.refreshPage.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
-
-
   }
 
   handleLogout = () => {
@@ -96,6 +93,7 @@ class Home extends Component {
       getJournal(newDate)
       console.log(newDate)
   }
+
   onChangeHandler = e =>{
     console.log(e.target.files[0])
     // this.setState({
