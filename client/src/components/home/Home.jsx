@@ -190,7 +190,7 @@ displayMood(){
                     alt = "happy"
                     className = "daily-mood"
                 />
-                <p className = "mood-p-font">Happy</p>
+                <p className = "mood-p-font" style= {{fontSize: '25px', fontFamily: "Georgia, serif", textAlign: "center"}}>Happy</p>
             </div>
         )
     }
@@ -201,7 +201,7 @@ displayMood(){
                     alt = "sad"
                     className = "daily-mood"
                 />
-                <p className = "mood-p-font">Sad</p>
+                <p className = "mood-p-font" style={{fontSize: '25px', fontFamily: "Georgia, serif", textAlign: "center"}}>Sad</p>
 
             </div>
         )
@@ -213,7 +213,7 @@ displayMood(){
                     alt = "nervous"
                     className = "daily-mood"
                 />
-                <p className = "mood-p-font">Nervous</p>
+                <p className = "mood-p-font" style ={{fontSize: '25px', fontFamily: "Georgia, serif", textAlign: "center"}}>Nervous</p>
             </div>
         )
     }
@@ -224,7 +224,7 @@ displayMood(){
                     alt = "calm"
                     className = "daily-mood"
                 />
-                <p className = "mood-p-font">Calm</p>
+                <p className = "mood-p-font" style={{fontSize: '25px', fontFamily: "Georgia, serif", textAlign: "center"}}>Calm</p>
             </div>
         )
     }
@@ -232,7 +232,7 @@ displayMood(){
     else{
         return(
             <div>
-                <h1 className = "no-mood-msg">No Mood Selected</h1>
+                <h1 className = "no-mood-msg" style={{fontSize: '25px', fontFamily: "Georgia, serif", textAlign: "center"}}>No Mood Selected</h1>
             </div>
         )
         
@@ -277,11 +277,11 @@ displayMood(){
             <div className = "homepage-layout">
                 {Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
                     <div className = "journal-entry">
-                        <div>
-                            <p>The prompt you chose was: {this.state.journal.prompt.content}</p>
+                        <div className= "pprompt">
+                            <p style={{fontSize: '20px', fontFamily: "Georgia, serif", textAlign: "center"}}>The prompt you chose was: {this.state.journal.prompt.content}</p>
                         </div>
                         <div className = "mood-div">
-                            <h1>Mood: </h1>
+                            <h1 style= {{fontSize: '40px', fontFamily: " Georgia, serif", textAlign: "center"}}>Mood: </h1>
                             <div>
                                 {/* <h1>{this.state.mood?.mood?.name}</h1> */}
                                 {this.displayMood()}
@@ -297,7 +297,7 @@ displayMood(){
                                         <option value={moodIds.nervous}>Nervous</option>
 
                                     </Form.Control>
-                                <Button type="submit">Update Mood</Button>
+                                <Button type="submit" className= "btn btn-mood">Update Mood</Button>
                             </Form>}
                         </div>
                         {Object.keys(this.state.image).length === 0 && this.state.image.constructor === Object ?    
@@ -315,9 +315,9 @@ displayMood(){
 
                             
                             <img src={this.state.image.content} alt="journal-img"/>
-                            <p>Edit Image</p>
+                           {/* <p>Edit Image</p> */}
                             <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
-                                <input type="file" name="image" onChange={this.onChangeHandler}/>
+                                <input type="file" class="image" onChange={this.onChangeHandler}/>
                                 <Button type="submit">Submit New Image</Button>
                             </Form>
                         </div>
@@ -377,6 +377,12 @@ displayMood(){
                           <br/>
                           <h3>Today is <em>{today.toLocaleDateString('en-us', { weekday: 'long' }) }</em>.</h3>
                           <br/>
+                        <Container className="section">
+                        <Calendar
+                             onChange={this.onChange}
+                            value={this.state.date}
+                         />
+                        </Container>
                           <h5>Select a prompt below or click post:</h5>
                           <br />
                           <Button className='btn-custom'>
@@ -404,12 +410,6 @@ displayMood(){
                 </Fragment>
                 }          
             </div>
-        <Container className="section">
-          <Calendar
-            onChange={this.onChange}
-            value={this.state.date}
-          />
-        </Container>
         
       </Fragment>
     )      

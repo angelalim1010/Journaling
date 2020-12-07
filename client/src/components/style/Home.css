@@ -4,11 +4,54 @@
 }
 .section {
   width: 100%;
-  padding-top: 10rem;
+  padding-top: 5rem;
 }
+
+.pprompt{
+    padding-top: 150px;
+    padding-bottom: 0px;
+    overflow: hidden;
+    height:100%;
+    
+}
+
+
 .prompt {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.react-calendar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.daily-mood{
+    width: 5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.form-control{
+	width: 1140px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn.btn-mood{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.div{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .prompt:hover {
@@ -23,4 +66,10 @@ a:hover,
 a:focus {
   text-decoration: none;
   color: #000;
+}
+
+.journal-area{
+    min-height: 350px;
+    min-width: 50px;
+    padding-left: 10px;
 }
