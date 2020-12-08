@@ -8,12 +8,19 @@
 	font-size: 60px;
 }
 
+.choimage {
+  padding-left: 80px;
+}
 
 .smolje{
 	width:1300px;
 }
 
-
+.btn.btn-subjourn{
+	display:block;
+	margin-left: 80px;
+  	margin-right: auto;
+}
 
 .form-control{
 	width: 1140px;
@@ -22,7 +29,8 @@
 }
 
 .editor{
-	margin-right: 10em;
+	margin-right: 5em;
+	
 }
 
 .ckeditor-editor_editable_inline {
