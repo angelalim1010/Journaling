@@ -300,7 +300,7 @@ displayMood(){
                                 <Button type="submit" className= "btn btn-mood">Update Mood</Button>
                             </Form>}
                         </div>
-                        {Object.keys(this.state.image).length === 0 && this.state.image.constructor === Object ?    
+                        {this.state.image.content === "" ?    
                             <div>
                                 <p>Add Image</p>
                                 <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
