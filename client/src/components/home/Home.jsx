@@ -312,7 +312,7 @@ displayMood(){
                             
 
                             
-                            <img src={this.state.image.content} alt="journal-img" style= {{ paddingLeft: '150px'}}/>
+                            <img src={this.state.image.content} alt="journal-img" style= {{ position:'center'}}/>
                            {/* <p>Edit Image</p> */}
                             <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
                                 <input type="file" className="chimage" onChange={this.onChangeHandler}/>
