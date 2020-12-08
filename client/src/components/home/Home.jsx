@@ -275,6 +275,13 @@ displayMood(){
             <div className = "homepage-layout">
                 {Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
                     <div className = "journal-entry">
+                         <h1 style= {{paddingTop: '80px', fontSize: '60px', fontFamily: " Georgia, serif", textAlign: "center"}}>Your Entry: </h1>
+                        <Container className="section">
+                        <Calendar
+                             onChange={this.onChange}
+                            value={this.state.date}
+                         />
+                        </Container>
                         <div className= "pprompt">
                             <p style={{fontSize: '20px', fontFamily: "Georgia, serif", textAlign: "center"}}>The prompt you chose was: {this.state.journal.prompt.content}</p>
                         </div>
@@ -311,12 +318,13 @@ displayMood(){
                         <div>
                             
 
-                            
-                            <img src={this.state.image.content} alt="journal-img" style= {{ position:'center'}}/>
+                          <div className= "imgch">  
+                            <img src={this.state.image.content} alt="journal-img" className= "chimges"/>
+                         </div>
                            {/* <p>Edit Image</p> */}
                             <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
                                 <input type="file" className="chimage" onChange={this.onChangeHandler}/>
-                                <Button type="submit">Submit New Image</Button>
+                                <Button type="submit" className="btn btn-imga">Submit New Image</Button>
                             </Form>
                         </div>
                         }
