@@ -275,7 +275,7 @@ displayMood(){
             <div className = "homepage-layout">
                 {Object.keys(this.state.journal).length !== 0 && this.state.journal.constructor === Object ?
                     <div className = "journal-entry">
-                         <h1 style= {{paddingTop: '80px', fontSize: '60px', fontFamily: " Georgia, serif", textAlign: "center"}}>Your Entry: </h1>
+                         <h1 style= {{paddingTop: '80px', fontSize: '60px', fontFamily: "Roboto, sans-serif", textAlign: "center"}}>Your Entry: </h1>
                         <Container className="section">
                         <Calendar
                              onChange={this.onChange}
@@ -283,10 +283,10 @@ displayMood(){
                          />
                         </Container>
                         <div className= "pprompt">
-                            <p style={{fontSize: '20px', fontFamily: "Georgia, serif", textAlign: "center"}}>The prompt you chose was: {this.state.journal.prompt.content}</p>
+                            <p style={{fontSize: '20px', fontFamily: "Roboto, sans-serif", textAlign: "center"}}>The prompt you chose was: {this.state.journal.prompt.content}</p>
                         </div>
                         <div className = "mood-div">
-                            <h1 style= {{fontSize: '40px', fontFamily: " Georgia, serif", textAlign: "center"}}>Mood: </h1>
+                            <h1 style= {{fontSize: '40px', fontFamily: "Roboto, sans-serif", textAlign: "center"}}>Mood: </h1>
                             <div>
                                 {/* <h1>{this.state.mood?.mood?.name}</h1> */}
                                 {this.displayMood()}

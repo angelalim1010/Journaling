@@ -19,7 +19,7 @@ class Entry extends Component{
 	constructor(props){
 		super(props);
 		this.state={
-			prompt: this.props.location.aboutProps || "",
+			prompt: this.props.location.aboutProps || {},
 			content: "",
 			value: "",
 			redirect: false,
@@ -103,12 +103,6 @@ class Entry extends Component{
 										console.log( { event, editor, data } );
 										console.log(this.state.content)
 									} }
-									// config={{
-									// 	ckfinder: {
-									// 	// Upload the images to the server using the CKFinder QuickUpload command.
-									// 	uploadUrl: 'https://zenyu-backend.herokuapp.com/api/images/'
-									//   }
-									// }}
 									/>
 								</div>
                                 <Button type="submit" className= "btn btn-subjourn">Submit</Button>
