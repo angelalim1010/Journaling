@@ -36,7 +36,6 @@ class AllPrompts extends Component{
       
     }
   render(){
-    // console.log(this.state.journals.length)
       return(
         <Fragment>
           <Navigation />
@@ -52,7 +51,7 @@ class AllPrompts extends Component{
                             </tr>
                         </thead>
                         <tbody>
-                        {this.state.journals.map(journal =>
+                        {this.state.journals.filter(journalObj => journalObj.journal != null).map(journal =>
                             <tr>
                                 <td>{this.formatDate(journal.journal.createdAt)}</td>
                                 <td>{journal.journal.prompt.category.name}</td>
