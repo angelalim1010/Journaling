@@ -35,7 +35,7 @@ class Navigation extends Component{
             <Nav className="mr-auto"></Nav>
           <Nav>
             <Nav.Link href="/home" className='active'>Home</Nav.Link>
-            <Nav.Link href="/journal" className='active'>Journal</Nav.Link>
+            {/* <Nav.Link href="/journal" className='active'>Journal</Nav.Link> */}
             <Nav.Link href="/prompts" className='active'>Library</Nav.Link>
             <Button className='btn' onClick={() => this.handleLogout()}>Logout</Button>
           </Nav>
