@@ -73,11 +73,11 @@ class Entry extends Component{
 				 <div className="container hero" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 <div className="row">
                  <div className="col">
-                 <h1 style= {{fontSize: '50px', fontFamily: " Georgia, serif", textAlign: "center"}}> Journal Entry </h1>
+                 <h1 style= {{fontSize: '50px', fontFamily: "Roboto, sans-serif", textAlign: "center"}}> Journal Entry </h1>
                  </div>
                  </div>
                 </div>
-				<p style= {{fontFamily: "Georgia, serif", textAlign: "center"}}>Prompt: {this.state.prompt.prompt.content}</p>
+				<p style= {{fontFamily: "Roboto, sans-serif", textAlign: "center"}}>Prompt: {this.state.prompt.prompt.content}</p>
 				<input type="file" className="choimage" onChange={this.onChangeHandler}/>
 				<Form onSubmit={(e)=>{e.preventDefault();createMood(this.state.value); createJournal(this.state.content, this.state.prompt.prompt.id); 	uploadImage(this.state.base64TextString);this.props.history.push('/home')}}>
                                     {/* <Form.Label>Select to change your mood</Form.Label> */}

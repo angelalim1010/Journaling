@@ -12,6 +12,9 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import AuthContext from '../../context/auth/authContext';
 
 import Navigation from './Navigation';
+import happy from '../../moodImages/happy.png';
+import sad from '../../moodImages/sad.png';
+
 import '../style/Home.css';
 import '../style/style.css';
 import 'react-calendar/dist/Calendar.css';
@@ -24,6 +27,12 @@ const moodIds={
     calm: "9c2f2373-9d69-4abd-a5ed-b419695c4376"
 }
 
+const defaultPrompt={
+    id: "496973cd-69cb-4190-8d2f-47e305dd4a63",
+    content: "Free Write",
+    categoryId: "0a92f047-5349-47b6-b9db-5e43d86b8a2c",
+    category: "Free Write"
+}
 class Home extends Component {
   static contextType = AuthContext
   constructor(props) {
@@ -125,7 +134,7 @@ _handleReaderLoaded = (readerEvt) =>{
                   journal: (res1?.data.slice(-1).pop()?.journal || {}),
                   mood: res1?.data.slice(-1).pop()?.mood || {},
                   prompts:res2.data,
-                  content: res1?.data.slice(-1).pop()?.journal.content || "",
+                  content: res1?.data.slice(-1).pop()?.journal?.content || "",
                   image: res1?.data.slice(-1).pop()?.image || {}
 
 
@@ -177,8 +186,8 @@ deleteEntry = async(journalId, moodId, imageId) =>{
     })
 }
 displayMood(){
-    const happy = "https://assets.stickpng.com/images/587389d8f3a71010b5e8ef4b.png"
-    const sad = "https://www.pinclipart.com/picdir/big/85-859532_face-sadness-smiley-computer-icons-clip-art-sad.png"
+    // const happy = "https://assets.stickpng.com/images/587389d8f3a71010b5e8ef4b.png"
+    // const sad = "https://www.pinclipart.com/picdir/big/85-859532_face-sadness-smiley-computer-icons-clip-art-sad.png"
     const nervous = "https://cdn3.iconfinder.com/data/icons/emoticon-back-white/16/emotion_b_w_Worried-512.png"
     const calm = "https://icon-library.com/images/72adc4879e.svg.svg"
     if (this.state.mood.mood.name === "Happy"){
@@ -188,7 +197,7 @@ displayMood(){
                     alt = "happy"
                     className = "daily-mood"
                 />
-                <p className = "mood-p-font" style= {{fontSize: '25px', fontFamily: "Georgia, serif", textAlign: "center"}}>Happy</p>
+                <p className = "mood-p-font" style= {{fontSize: '25px', fontFamily: "Roboto, sans-serif", textAlign: "center"}}>Happy</p>
             </div>
         )
     }
@@ -199,7 +208,7 @@ displayMood(){
                     alt = "sad"
                     className = "daily-mood"
                 />
-                <p className = "mood-p-font" style={{fontSize: '25px', fontFamily: "Georgia, serif", textAlign: "center"}}>Sad</p>
+                <p className = "mood-p-font" style={{fontSize: '25px', fontFamily: "Roboto, sans-serif", textAlign: "center"}}>Sad</p>
 
             </div>
         )
@@ -211,7 +220,7 @@ displayMood(){
                     alt = "nervous"
                     className = "daily-mood"
                 />
-                <p className = "mood-p-font" style ={{fontSize: '25px', fontFamily: "Georgia, serif", textAlign: "center"}}>Nervous</p>
+                <p className = "mood-p-font" style ={{fontSize: '25px', fontFamily: "Roboto, sans-serif", textAlign: "center"}}>Nervous</p>
             </div>
         )
     }
@@ -222,7 +231,7 @@ displayMood(){
                     alt = "calm"
                     className = "daily-mood"
                 />
-                <p className = "mood-p-font" style={{fontSize: '25px', fontFamily: "Georgia, serif", textAlign: "center"}}>Calm</p>
+                <p className = "mood-p-font" style={{fontSize: '25px', fontFamily: "Roboto, sans-serif", textAlign: "center"}}>Calm</p>
             </div>
         )
     }
@@ -230,7 +239,7 @@ displayMood(){
     else{
         return(
             <div>
-                <h1 className = "no-mood-msg" style={{fontSize: '25px', fontFamily: "Georgia, serif", textAlign: "center"}}>No Mood Selected</h1>
+                <h1 className = "no-mood-msg" style={{fontSize: '25px', fontFamily: "Roboto, sans-serif", textAlign: "center"}}>No Mood Selected</h1>
             </div>
         )
         
@@ -305,7 +314,7 @@ displayMood(){
                                 <Button type="submit" className= "btn btn-mood">Update Mood</Button>
                             </Form>}
                         </div>
-                        {this.state.image.content === "" ?    
+                        {this.state.image.content === "" || (Object.keys(this.state.image).length === 0 && this.state.journal.constructor === Object) ?    
                             <div>
                                 <p>Add Image</p>
                                 <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
@@ -392,7 +401,7 @@ displayMood(){
                           <h5>Select a prompt below or click post:</h5>
                           <br />
                           <Button className='btn-custom'>
-                            <Link to={{pathname: "/edit", aboutProps:{prompt: prompt} }}>Post</Link>
+                            <Link to={{pathname: "/edit", aboutProps:{prompt: defaultPrompt} }}>Post</Link>
                           </Button>
                         </Col>
                       </Row>
