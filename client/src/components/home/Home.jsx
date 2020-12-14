@@ -321,7 +321,7 @@ displayMood(){
                             </Form>}
                         </div>
                         {this.state.image.content === "" || (Object.keys(this.state.image).length === 0 && this.state.journal.constructor === Object) ?    
-                            <div>
+                            <div className = "imgsub">
                                 <p>Add Image</p>
                                 <Form onSubmit={(e)=>{e.preventDefault(); updateImage(this.state.image.id, "data:image/png;base64,"+this.state.base64TextString)}}>
                                     <input type="file" name="image" onChange={this.onChangeHandler}/>
