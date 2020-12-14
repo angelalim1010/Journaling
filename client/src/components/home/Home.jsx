@@ -111,10 +111,7 @@ class Home extends Component {
 
   onChangeHandler = e =>{
     console.log(e.target.files[0])
-    // this.setState({
-    // 	selectedFile: e.target.files[0],
-    // 	loaded: 0
-    // })
+   
     let file = e.target.files[0]
     if (file){
         const reader = new FileReader();
@@ -192,8 +189,6 @@ deleteEntry = async(journalId, moodId, imageId) =>{
     })
 }
 displayMood(){
-    // const happy = "https://assets.stickpng.com/images/587389d8f3a71010b5e8ef4b.png"
-    // const sad = "https://www.pinclipart.com/picdir/big/85-859532_face-sadness-smiley-computer-icons-clip-art-sad.png"
     const nervous = "https://cdn3.iconfinder.com/data/icons/emoticon-back-white/16/emotion_b_w_Worried-512.png"
     const calm = "https://icon-library.com/images/72adc4879e.svg.svg"
     if (this.state.mood.mood.name === "Happy"){
@@ -303,7 +298,6 @@ displayMood(){
                         <div className = "mood-div">
                             <h1 style= {{fontSize: '40px', fontFamily: "Roboto, sans-serif", textAlign: "center"}}>Mood: </h1>
                             <div>
-                                {/* <h1>{this.state.mood?.mood?.name}</h1> */}
                                 {this.displayMood()}
                             </div>
                             {this.state.mood.mood.name !== "No Mood Selected" && 
@@ -345,11 +339,9 @@ displayMood(){
                         }
                         <div className = "journal-area">
                             <div>
-                                {/* <img/> */}
                                 <CKEditor
                                     editor={ClassicEditor}
-                                    // data = {`<figure class="image"><img src=${this.state.image.content} alt="journal-img"/></figure>` + this.state.content}
-                                    // data = {journalData}
+                                  
                                     data = {this.state.content}
                                     onChange={ ( event, editor ) => {
                                         const data = editor.getData();

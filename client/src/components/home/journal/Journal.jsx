@@ -65,27 +65,10 @@ class AllPrompts extends Component{
                                 <td>{journal.journal.prompt.category.name}</td>
                                 <td>{journal.journal.prompt.content}</td>
                             </tr>
-                            // <ListGroup.Item key={journal.journal.prompt.id}>{journal.journal.prompt.content}
-                            //     <ListGroup>
-                            //         <ListGroup.Item key={journal.journal.id}>Created on: {this.formatDate(journal.journal.createdAt)}</ListGroup.Item>
-                            //     </ListGroup>
-                            // </ListGroup.Item>
+                          
                         )}
                         </tbody>
                     </Table>
-
-                // <ul>
-                // <ListGroup>
-                //     {this.state.journals.map(journal =>
-                //         <ListGroup.Item key={journal.journal.prompt.id}>{journal.journal.prompt.content}
-                //             <ListGroup>
-                //                 <ListGroup.Item key={journal.journal.id}>Created on: {this.formatDate(journal.journal.createdAt)}</ListGroup.Item>
-                //             </ListGroup>
-                //         </ListGroup.Item>
-                //     )}
-                // </ListGroup>
-                
-                // </ul>
                 :
                 <p>You have no Prompts</p>
                 }
