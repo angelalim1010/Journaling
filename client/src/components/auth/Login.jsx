@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import AuthContext from '../../context/auth/authContext';
+import isAuthenticatedUser from '../../utils/isAuthenticated'
 
 import Navigation, { NavDefault } from '../Navigation';
 import Footer from '../Footer';
@@ -14,7 +15,7 @@ const Login = props => {
   const { login, error, clearErrors, isAuthenticated } = authContext;
 
   useEffect(() => {
-    if(isAuthenticated) {
+    if(isAuthenticated || isAuthenticatedUser()) {
       props.history.push('/home');
     }
 

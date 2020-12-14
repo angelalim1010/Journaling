@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 
-const isAuthenticated = () => {
+const isAuthenticatedUser = () => {
     const token = localStorage.getItem('token');
-    console.log(token)
+    //console.log(token)
     if (token ==  null) {
         return false;
     }
@@ -12,7 +12,8 @@ const isAuthenticated = () => {
         }
         return true;
     });
+    console.log(isLoggedIn)
     return isLoggedIn;
 };
 
-export default isAuthenticated;
+export default isAuthenticatedUser;

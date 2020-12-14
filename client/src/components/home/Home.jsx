@@ -18,6 +18,7 @@ import sad from '../../moodImages/sad.png';
 import '../style/Home.css';
 import '../style/style.css';
 import 'react-calendar/dist/Calendar.css';
+import isAuthenticatedUser from '../../utils/isAuthenticated'
 
 
 const moodIds={
@@ -64,6 +65,11 @@ class Home extends Component {
   }
 
   componentDidMount = async () =>{
+      if  (isAuthenticatedUser() == false){
+        this.props.history.push('/');
+        return;
+
+      }
       let formattedDate = this.formatDate(this.state.date)
       console.log(formattedDate)
     Promise.all([getJournal(formattedDate), getPrompts()])

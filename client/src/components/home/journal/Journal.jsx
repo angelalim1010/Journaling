@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Container, ListGroup, Table } from 'react-bootstrap';
 import Navigation from '../Navigation';
 import { getAllJournals} from "../../../actions/journalPrompts";
+import isAuthenticatedUser from '../../../utils/isAuthenticated'
 
 import '../../style/style.css';
 import '../../style/Journal.css';
@@ -14,12 +15,19 @@ class AllPrompts extends Component{
         }
     }
     componentDidMount = async () =>{
-        getAllJournals()
-        .then(res=>{
-            const data = res?.data;
-            this.setState({journals: data || []})
-            console.log(res.data)
-        })
+        if (!isAuthenticatedUser()){
+            this.props.history.push('/');
+            return;
+        }
+        else{
+            getAllJournals()
+            .then(res=>{
+                const data = res?.data;
+                this.setState({journals: data || []})
+                console.log(res.data)
+            })
+        }
+
     }
     formatDate(date) {
         let d = new Date(date),
