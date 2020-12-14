@@ -1,45 +1,33 @@
 .JournalEntry {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	margin:5em;
+  width: 100%;
+  padding-top: 5rem;
 }
 
-.h1{
-	font-size: 60px;
+.interface {
+  padding-left: 5rem;
 }
 
-.choimage {
-  padding-left: 80px;
+.btn.btn-subjourn {
+  display: block;
+  margin-right: auto;
 }
 
-.smolje{
-	width:1300px;
+.form-control {
+  width: 1140px;
+  padding-left: 5px;
+  position: 'absolute';
 }
 
-.btn.btn-subjourn{
-	display:block;
-	margin-left: 80px;
-  	margin-right: auto;
-}
-
-.form-control{
-	width: 1140px;
-	padding-left: 5px;
-	position: 'absolute';
-}
-
-.editor{
-	margin-right: 5em;
-	
+.editor {
+  margin-right: 5em;
 }
 
 .ckeditor-editor_editable_inline {
-	min-height: 500px;
+  min-height: 350px;
 }
 
 .ck-editor__editable {
-    min-height: 450px;
-    min-width: 800px;
-    padding-left: 20px;
+  min-height: 450px;
+  min-width: 350px;
+  padding-left: 20px;
 }
-
