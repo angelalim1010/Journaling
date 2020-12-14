@@ -355,7 +355,6 @@ displayMood(){
                                         const data = editor.getData();
                                         this.setState({
                                             content: data
-                                            // content: data
                                         })    
                                         console.log( { event, editor, data } );
                                         console.log("content", this.state.content)

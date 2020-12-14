@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import { Container, Row, Col, Button, Form } from 'react-bootstrap'
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import { createJournal,  createMood  } from "../../../actions/journalPrompts";
 import { uploadImage  } from "../../../actions/imageActions";
 
-import {Button, Form} from 'react-bootstrap';
 import {Redirect, withRouter} from 'react-router-dom';
 import Navigation from '../Navigation';
 
 import "../../style/Entry.css"
+import '../../style/style.css';
+
 const moodIds={
     sad: "148f355c-f251-49ec-9f9d-48b8c815bfbd",
     nervous: "687b7a61-ac4a-4a64-a5b6-a2aed74596e1",
@@ -66,51 +68,43 @@ class Entry extends Component{
 		console.log(this.state.prompt.prompt.content)
 
 		return(
-			<div>
-				<Navigation />
-				<div className= "JournalEntry">
-				<div className= "smolje" >
-				 <div className="container hero" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <div className="row">
-                 <div className="col">
-                 <h1 style= {{fontSize: '50px', fontFamily: "Roboto, sans-serif", textAlign: "center"}}> Journal Entry </h1>
-                 </div>
-                 </div>
-                </div>
-				<p style= {{fontFamily: "Roboto, sans-serif", textAlign: "center"}}>Prompt: {this.state.prompt.prompt.content}</p>
-				<input type="file" className="choimage" onChange={this.onChangeHandler}/>
-				<Form onSubmit={(e)=>{e.preventDefault();createMood(this.state.value); createJournal(this.state.content, this.state.prompt.prompt.id); 	uploadImage(this.state.base64TextString);this.props.history.push('/home')}}>
-                                    {/* <Form.Label>Select to change your mood</Form.Label> */}
-                                    <Form.Control as="select" defaultValue="" onChange={this.handleSelect}>
-                                        <option value="" disabled>Select a Mood</option>
-                                        <option value={moodIds.happy}>Happy</option>
-                                        <option value={moodIds.calm}>Calm</option>
-                                        <option value={moodIds.sad}>Sad</option>
-                                        <option value={moodIds.nervous}>Nervous</option>
+		  <div>
+		    <Navigation />
+			<Container className="JournalEntry" fluid>
+			  <Col className="wrapper">
+				  <Col className="text-center" md="auto">
+				  	<h1> Journal Entry </h1>
+					<h5>Prompt: {this.state.prompt.prompt.content}</h5>
+					<input type="file" onChange={this.onChangeHandler}/>
+					<Form onSubmit={(e)=>{e.preventDefault();createMood(this.state.value); createJournal(this.state.content, this.state.prompt.prompt.id); 	uploadImage(this.state.base64TextString);this.props.history.push('/home')}}>
+					  <Form.Row>
+					    <Form.Control as="select" defaultValue="" onChange={this.handleSelect}>
+						  <option value="" disabled>Select a Mood</option>
+						  <option value={moodIds.happy}>Happy</option>
+						  <option value={moodIds.calm}>Calm</option>
+						  <option value={moodIds.sad}>Sad</option>
+						  <option value={moodIds.nervous}>Nervous</option>
+					    </Form.Control>
+					  </Form.Row>
+				      <CKEditor
+					    editor={ClassicEditor}
+					    data = {this.state.content}
 
-                                    </Form.Control>
-								<div className= "editor" style= {{ paddingLeft: '80px', paddingRight:'0px'}}>
-										
-								<CKEditor
-									editor={ClassicEditor}
-									data = {this.state.content}
-									
-									onChange={ ( event, editor ) => {
-										const data = editor.getData();
-										this.setState({
-										content: data
-										})
-										console.log( { event, editor, data } );
-										console.log(this.state.content)
-									} }
-									/>
-								</div>
-                                <Button type="submit" className= "btn btn-subjourn">Submit</Button>
-                    </Form>
-				</div>
-			</div>
-			</div>
-			
+            		    onChange={ ( event, editor ) => {
+					      const data = editor.getData();
+					      this.setState({
+				            content: data
+					      })
+					    console.log( { event, editor, data } );
+					    console.log(this.state.content)
+					    }}
+					  />
+					  <Button type="submit" className= "btn btn-subjourn">Submit</Button>
+				    </Form>
+				  </Col>
+			  </Col>
+			</Container>
+		  </div>
 		)
 	}
 		
